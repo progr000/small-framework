@@ -1,0 +1,6 @@
+POST https://qrbill.hstest-domain.ch/api/generate-invoice
+Content-Type: application/json
+Authorization: Bearer 9a241522df5299facdef7b0182e4b507
+X-Timestamp: 1675866484
+
+{"company_logo_left_url":"https:\/\/www.webland.ch\/assets\/images\/logo.png","company_logo_right_url":"https:\/\/www.webland.ch\/assets\/images\/logo.png","company_logo_left_link":"https:\/\/www.webland.ch","company_logo_right_link":"https:\/\/www.webland.ch","company_name":"Webland AG","company_addr_1":"Emil Frey-Strasse 85","company_addr_2":"4142 M\u00fcnchenstein","company_country":"CH","company_QR_IBAN":"CH33 3100 0068 5471 9100 1","company_QR_ID_NUMBER":"912300","company_phone":"+ 41 (0)840 20 20 20","company_fax":"+ 41 (0)840 20 20 21","company_email":"admin@webland.ch","company_site":"www.webland.ch","company_MwStNr":"CHE-101.532.257 MWST","company_IBAN":"CH3904835068547191001","company_BIC":"CRESCHZZ80AXXX","payer_full_name":"Z\u00fcrcher Andreas","payer_addr_1":"Seefeldstrasse 9a","payer_addr_2":"8630 R\u00fcti ZH","payer_country":"CH","cur_date":"2023-02-08","bill_num":"38","bill_setup_date":"2023-02-08","bill_KontaktID":"WL-0045133","bill_additional_info":"Rechnungsnummer: 38","bill_currency":"CHF","listItems":[{"name":"StarPlus","period":"2023-02-09 - 2024-02-09","jr":"Jr","count":1,"cost":238.8,"tax":7.7}]}

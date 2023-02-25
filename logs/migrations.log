@@ -1,0 +1,178 @@
+2023-02-25, 20:43:38  Execute uninstall all migrations
+2023-02-25, 20:43:38  Uninstalling migration 'm20230214_142027_alter_invoices.php' ........................................................... [OK]
+2023-02-25, 20:43:38  Uninstalling migration 'm20230213_150929_alter_invoices.php' ........................................................... [OK]
+2023-02-25, 20:43:38  Uninstalling migration 'm20230210_141649_alter_invoices.php' ........................................................... [OK]
+2023-02-25, 20:43:38  Uninstalling migration 'm20230209_220000_create_invoice_products.php' .................................................. [OK]
+2023-02-25, 20:43:38  Uninstalling migration 'm20230209_213800_create_invoices.php' .......................................................... [OK]
+2023-02-25, 20:43:38  Uninstalling migration 'm20010101_000000_init_db.php' .................................................................. [OK]
+2023-02-25, 20:43:38  Successfully finished. 6 migration uninstalled
+2023-02-25, 20:43:38  Execute install all migrations
+2023-02-25, 20:43:38  All migrations already up-to-date.
+2023-02-25, 20:43:49  Execute uninstall all migrations
+2023-02-25, 20:43:49  All migrations already uninstalled.
+2023-02-25, 20:43:49  Execute install all migrations
+2023-02-25, 20:43:49  All migrations already up-to-date.
+2023-02-25, 20:43:50  Execute uninstall all migrations
+2023-02-25, 20:43:50  All migrations already uninstalled.
+2023-02-25, 20:43:50  Execute install all migrations
+2023-02-25, 20:43:50  All migrations already up-to-date.
+2023-02-25, 20:43:50  Execute uninstall all migrations
+2023-02-25, 20:43:50  All migrations already uninstalled.
+2023-02-25, 20:43:50  Execute install all migrations
+2023-02-25, 20:43:50  All migrations already up-to-date.
+2023-02-25, 20:54:04  Now another migration process has been started. It is not possible to start a new process until the previous one is finished.
+2023-02-25, 20:54:08  Now another migration process has been started. It is not possible to start a new process until the previous one is finished.
+2023-02-25, 20:55:07  Execute uninstall all migrations
+2023-02-25, 20:55:07  All migrations already uninstalled.
+2023-02-25, 20:55:07  Execute install all migrations
+2023-02-25, 20:55:07  Installing migration 'm20010101_000000_init_db.php' .................................................................... [OK]
+2023-02-25, 20:55:07  Installing migration 'm20230209_213800_create_invoices.php' ............................................................ [OK]
+2023-02-25, 20:55:07  Installing migration 'm20230209_220000_create_invoice_products.php' .................................................... [OK]
+2023-02-25, 20:55:07  Installing migration 'm20230210_141649_alter_invoices.php' ............................................................. [OK]
+2023-02-25, 20:55:07  Installing migration 'm20230213_150929_alter_invoices.php' ............................................................. [OK]
+2023-02-25, 20:55:08  Installing migration 'm20230214_142027_alter_invoices.php' ............................................................. [OK]
+2023-02-25, 20:55:08  Successfully finished. 6 migrations applied.
+2023-02-25, 20:55:09  Execute uninstall all migrations
+2023-02-25, 20:55:10  Uninstalling migration 'm20230214_142027_alter_invoices.php' ........................................................... [OK]
+2023-02-25, 20:55:10  Uninstalling migration 'm20230213_150929_alter_invoices.php' ........................................................... [OK]
+2023-02-25, 20:55:10  Uninstalling migration 'm20230210_141649_alter_invoices.php' ........................................................... [OK]
+2023-02-25, 20:55:10  Uninstalling migration 'm20230209_220000_create_invoice_products.php' .................................................. [OK]
+2023-02-25, 20:55:10  Uninstalling migration 'm20230209_213800_create_invoices.php' .......................................................... [OK]
+2023-02-25, 20:55:10  Uninstalling migration 'm20010101_000000_init_db.php' .................................................................. [OK]
+2023-02-25, 20:55:10  Successfully finished. 6 migration uninstalled
+2023-02-25, 20:55:10  Execute install all migrations
+2023-02-25, 20:55:10  Installing migration 'm20010101_000000_init_db.php' .................................................................... [OK]
+2023-02-25, 20:55:10  Installing migration 'm20230209_213800_create_invoices.php' ............................................................ [OK]
+2023-02-25, 20:55:10  Installing migration 'm20230209_220000_create_invoice_products.php' .................................................... [OK]
+2023-02-25, 20:55:10  Installing migration 'm20230210_141649_alter_invoices.php' ............................................................. [OK]
+2023-02-25, 20:55:10  Installing migration 'm20230213_150929_alter_invoices.php' ............................................................. [OK]
+2023-02-25, 20:55:10  Installing migration 'm20230214_142027_alter_invoices.php' ............................................................. [OK]
+2023-02-25, 20:55:10  Successfully finished. 6 migrations applied.
+2023-02-25, 20:55:11  Execute uninstall all migrations
+2023-02-25, 20:55:12  Uninstalling migration 'm20230214_142027_alter_invoices.php' ........................................................... [OK]
+2023-02-25, 20:55:12  Uninstalling migration 'm20230213_150929_alter_invoices.php' ........................................................... [OK]
+2023-02-25, 20:55:12  Uninstalling migration 'm20230210_141649_alter_invoices.php' ........................................................... [OK]
+2023-02-25, 20:55:12  Uninstalling migration 'm20230209_220000_create_invoice_products.php' .................................................. [OK]
+2023-02-25, 20:55:12  Uninstalling migration 'm20230209_213800_create_invoices.php' .......................................................... [OK]
+2023-02-25, 20:55:12  Uninstalling migration 'm20010101_000000_init_db.php' .................................................................. [OK]
+2023-02-25, 20:55:12  Successfully finished. 6 migration uninstalled
+2023-02-25, 20:55:12  Execute install all migrations
+2023-02-25, 20:55:12  Installing migration 'm20010101_000000_init_db.php' .................................................................... [OK]
+2023-02-25, 20:55:12  Installing migration 'm20230209_213800_create_invoices.php' ............................................................ [OK]
+2023-02-25, 20:55:12  Installing migration 'm20230209_220000_create_invoice_products.php' .................................................... [OK]
+2023-02-25, 20:55:12  Installing migration 'm20230210_141649_alter_invoices.php' ............................................................. [OK]
+2023-02-25, 20:55:12  Installing migration 'm20230213_150929_alter_invoices.php' ............................................................. [OK]
+2023-02-25, 20:55:13  Installing migration 'm20230214_142027_alter_invoices.php' ............................................................. [OK]
+2023-02-25, 20:55:13  Successfully finished. 6 migrations applied.
+2023-02-25, 20:55:14  Execute uninstall all migrations
+2023-02-25, 20:55:14  Uninstalling migration 'm20230214_142027_alter_invoices.php' ........................................................... [OK]
+2023-02-25, 20:55:14  Uninstalling migration 'm20230213_150929_alter_invoices.php' ........................................................... [OK]
+2023-02-25, 20:55:14  Uninstalling migration 'm20230210_141649_alter_invoices.php' ........................................................... [OK]
+2023-02-25, 20:55:14  Uninstalling migration 'm20230209_220000_create_invoice_products.php' .................................................. [OK]
+2023-02-25, 20:55:14  Uninstalling migration 'm20230209_213800_create_invoices.php' .......................................................... [OK]
+2023-02-25, 20:55:14  Uninstalling migration 'm20010101_000000_init_db.php' .................................................................. [OK]
+2023-02-25, 20:55:14  Successfully finished. 6 migration uninstalled
+2023-02-25, 20:55:14  Execute install all migrations
+2023-02-25, 20:55:14  Installing migration 'm20010101_000000_init_db.php' .................................................................... [OK]
+2023-02-25, 20:55:15  Installing migration 'm20230209_213800_create_invoices.php' ............................................................ [OK]
+2023-02-25, 20:55:15  Installing migration 'm20230209_220000_create_invoice_products.php' .................................................... [OK]
+2023-02-25, 20:55:15  Installing migration 'm20230210_141649_alter_invoices.php' ............................................................. [OK]
+2023-02-25, 20:55:15  Installing migration 'm20230213_150929_alter_invoices.php' ............................................................. [OK]
+2023-02-25, 20:55:15  Installing migration 'm20230214_142027_alter_invoices.php' ............................................................. [OK]
+2023-02-25, 20:55:15  Successfully finished. 6 migrations applied.
+2023-02-25, 20:56:48  Execute uninstall all migrations
+2023-02-25, 20:56:48  Uninstalling migration 'm20230214_142027_alter_invoices.php' ........................................................... [OK]
+2023-02-25, 20:56:48  Uninstalling migration 'm20230213_150929_alter_invoices.php' ........................................................... [OK]
+2023-02-25, 20:56:48  Uninstalling migration 'm20230210_141649_alter_invoices.php' ........................................................... [OK]
+2023-02-25, 20:56:48  Uninstalling migration 'm20230209_220000_create_invoice_products.php' .................................................. [OK]
+2023-02-25, 20:56:48  Uninstalling migration 'm20230209_213800_create_invoices.php' .......................................................... [OK]
+2023-02-25, 20:56:48  Uninstalling migration 'm20010101_000000_init_db.php' .................................................................. [OK]
+2023-02-25, 20:56:48  Successfully finished. 6 migration uninstalled
+2023-02-25, 20:56:48  Execute install all migrations
+2023-02-25, 20:56:49  Installing migration 'm20010101_000000_init_db.php' .................................................................... [OK]
+2023-02-25, 20:56:49  Installing migration 'm20230209_213800_create_invoices.php' ............................................................ [OK]
+2023-02-25, 20:56:49  Installing migration 'm20230209_220000_create_invoice_products.php' .................................................... [OK]
+2023-02-25, 20:56:49  Installing migration 'm20230210_141649_alter_invoices.php' ............................................................. [OK]
+2023-02-25, 20:56:49  Installing migration 'm20230213_150929_alter_invoices.php' ............................................................. [OK]
+2023-02-25, 20:56:49  Installing migration 'm20230214_142027_alter_invoices.php' ............................................................. [OK]
+2023-02-25, 20:56:49  Successfully finished. 6 migrations applied.
+2023-02-25, 20:57:56  Execute uninstall all migrations
+2023-02-25, 20:57:56  Uninstalling migration 'm20230214_142027_alter_invoices.php' ........................................................... [OK]
+2023-02-25, 20:57:56  Uninstalling migration 'm20230213_150929_alter_invoices.php' ........................................................... [OK]
+2023-02-25, 20:57:56  Uninstalling migration 'm20230210_141649_alter_invoices.php' ........................................................... [OK]
+2023-02-25, 20:57:56  Uninstalling migration 'm20230209_220000_create_invoice_products.php' .................................................. [OK]
+2023-02-25, 20:57:56  Uninstalling migration 'm20230209_213800_create_invoices.php' .......................................................... [OK]
+2023-02-25, 20:57:56  Uninstalling migration 'm20010101_000000_init_db.php' .................................................................. [OK]
+2023-02-25, 20:57:56  Successfully finished. 6 migration uninstalled
+2023-02-25, 20:57:56  Execute install all migrations
+2023-02-25, 20:57:56  Installing migration 'm20010101_000000_init_db.php' .................................................................... [OK]
+2023-02-25, 20:57:56  Installing migration 'm20230209_213800_create_invoices.php' ............................................................ [OK]
+2023-02-25, 20:57:56  Installing migration 'm20230209_220000_create_invoice_products.php' .................................................... [OK]
+2023-02-25, 20:57:56  Installing migration 'm20230210_141649_alter_invoices.php' ............................................................. [OK]
+2023-02-25, 20:57:56  Installing migration 'm20230213_150929_alter_invoices.php' ............................................................. [OK]
+2023-02-25, 20:57:56  Installing migration 'm20230214_142027_alter_invoices.php' ............................................................. [OK]
+2023-02-25, 20:57:56  Successfully finished. 6 migrations applied.
+2023-02-25, 20:58:00  Execute uninstall all migrations
+2023-02-25, 20:58:01  Uninstalling migration 'm20230214_142027_alter_invoices.php' ........................................................... [OK]
+2023-02-25, 20:58:01  Uninstalling migration 'm20230213_150929_alter_invoices.php' ........................................................... [OK]
+2023-02-25, 20:58:01  Uninstalling migration 'm20230210_141649_alter_invoices.php' ........................................................... [OK]
+2023-02-25, 20:58:01  Uninstalling migration 'm20230209_220000_create_invoice_products.php' .................................................. [OK]
+2023-02-25, 20:58:01  Uninstalling migration 'm20230209_213800_create_invoices.php' .......................................................... [OK]
+2023-02-25, 20:58:01  Uninstalling migration 'm20010101_000000_init_db.php' .................................................................. [OK]
+2023-02-25, 20:58:01  Successfully finished. 6 migration uninstalled
+2023-02-25, 20:58:01  Execute install all migrations
+2023-02-25, 20:58:01  Installing migration 'm20010101_000000_init_db.php' .................................................................... [OK]
+2023-02-25, 20:58:01  Installing migration 'm20230209_213800_create_invoices.php' ............................................................ [OK]
+2023-02-25, 20:58:01  Installing migration 'm20230209_220000_create_invoice_products.php' .................................................... [OK]
+2023-02-25, 20:58:01  Installing migration 'm20230210_141649_alter_invoices.php' ............................................................. [OK]
+2023-02-25, 20:58:02  Installing migration 'm20230213_150929_alter_invoices.php' ............................................................. [OK]
+2023-02-25, 20:58:02  Installing migration 'm20230214_142027_alter_invoices.php' ............................................................. [OK]
+2023-02-25, 20:58:02  Successfully finished. 6 migrations applied.
+2023-02-25, 20:58:10  Execute uninstall all migrations
+2023-02-25, 20:58:11  Uninstalling migration 'm20230214_142027_alter_invoices.php' ........................................................... [OK]
+2023-02-25, 20:58:11  Uninstalling migration 'm20230213_150929_alter_invoices.php' ........................................................... [OK]
+2023-02-25, 20:58:11  Uninstalling migration 'm20230210_141649_alter_invoices.php' ........................................................... [OK]
+2023-02-25, 20:58:11  Uninstalling migration 'm20230209_220000_create_invoice_products.php' .................................................. [OK]
+2023-02-25, 20:58:11  Uninstalling migration 'm20230209_213800_create_invoices.php' .......................................................... [OK]
+2023-02-25, 20:58:11  Uninstalling migration 'm20010101_000000_init_db.php' .................................................................. [OK]
+2023-02-25, 20:58:11  Successfully finished. 6 migration uninstalled
+2023-02-25, 20:58:11  Execute install all migrations
+2023-02-25, 20:58:11  Installing migration 'm20010101_000000_init_db.php' .................................................................... [OK]
+2023-02-25, 20:58:11  Installing migration 'm20230209_213800_create_invoices.php' ............................................................ [OK]
+2023-02-25, 20:58:11  Installing migration 'm20230209_220000_create_invoice_products.php' .................................................... [OK]
+2023-02-25, 20:58:11  Installing migration 'm20230210_141649_alter_invoices.php' ............................................................. [OK]
+2023-02-25, 20:58:11  Installing migration 'm20230213_150929_alter_invoices.php' ............................................................. [OK]
+2023-02-25, 20:58:11  Installing migration 'm20230214_142027_alter_invoices.php' ............................................................. [OK]
+2023-02-25, 20:58:11  Successfully finished. 6 migrations applied.
+2023-02-25, 21:25:43  Execute uninstall all migrations
+2023-02-25, 21:25:43  Uninstalling migration 'm20230214_142027_alter_invoices.php' ........................................................... [OK]
+2023-02-25, 21:25:44  Uninstalling migration 'm20230213_150929_alter_invoices.php' ........................................................... [OK]
+2023-02-25, 21:25:44  Uninstalling migration 'm20230210_141649_alter_invoices.php' ........................................................... [OK]
+2023-02-25, 21:25:44  Uninstalling migration 'm20230209_220000_create_invoice_products.php' .................................................. [OK]
+2023-02-25, 21:25:44  Uninstalling migration 'm20230209_213800_create_invoices.php' .......................................................... [OK]
+2023-02-25, 21:25:44  Uninstalling migration 'm20010101_000000_init_db.php' .................................................................. [OK]
+2023-02-25, 21:25:44  Successfully finished. 6 migration uninstalled
+2023-02-25, 21:25:44  Execute install all migrations
+2023-02-25, 21:25:44  Installing migration 'm20010101_000000_init_db.php' .................................................................... [OK]
+2023-02-25, 21:25:44  Installing migration 'm20230209_213800_create_invoices.php' ............................................................ [OK]
+2023-02-25, 21:25:44  Installing migration 'm20230209_220000_create_invoice_products.php' .................................................... [OK]
+2023-02-25, 21:25:44  Installing migration 'm20230210_141649_alter_invoices.php' ............................................................. [OK]
+2023-02-25, 21:25:44  Installing migration 'm20230213_150929_alter_invoices.php' ............................................................. [OK]
+2023-02-25, 21:25:44  Installing migration 'm20230214_142027_alter_invoices.php' ............................................................. [OK]
+2023-02-25, 21:25:44  Successfully finished. 6 migrations applied.
+2023-02-25, 21:25:44  Execute uninstall all migrations
+2023-02-25, 21:25:45  Uninstalling migration 'm20230214_142027_alter_invoices.php' ........................................................... [OK]
+2023-02-25, 21:25:45  Uninstalling migration 'm20230213_150929_alter_invoices.php' ........................................................... [OK]
+2023-02-25, 21:25:45  Uninstalling migration 'm20230210_141649_alter_invoices.php' ........................................................... [OK]
+2023-02-25, 21:25:45  Uninstalling migration 'm20230209_220000_create_invoice_products.php' .................................................. [OK]
+2023-02-25, 21:25:45  Uninstalling migration 'm20230209_213800_create_invoices.php' .......................................................... [OK]
+2023-02-25, 21:25:45  Uninstalling migration 'm20010101_000000_init_db.php' .................................................................. [OK]
+2023-02-25, 21:25:45  Successfully finished. 6 migration uninstalled
+2023-02-25, 21:25:45  Execute install all migrations
+2023-02-25, 21:25:45  Installing migration 'm20010101_000000_init_db.php' .................................................................... [OK]
+2023-02-25, 21:25:45  Installing migration 'm20230209_213800_create_invoices.php' ............................................................ [OK]
+2023-02-25, 21:25:45  Installing migration 'm20230209_220000_create_invoice_products.php' .................................................... [OK]
+2023-02-25, 21:25:45  Installing migration 'm20230210_141649_alter_invoices.php' ............................................................. [OK]
+2023-02-25, 21:25:45  Installing migration 'm20230213_150929_alter_invoices.php' ............................................................. [OK]
+2023-02-25, 21:25:45  Installing migration 'm20230214_142027_alter_invoices.php' ............................................................. [OK]
+2023-02-25, 21:25:45  Successfully finished. 6 migrations applied.

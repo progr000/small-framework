@@ -1,0 +1,56 @@
+### view list
+GET https://orderdesk.hstest-domain.ch/admin/webland/www/rest
+Authorization: Basic Administrator 5522-tool
+
+### view item
+GET https://orderdesk.hstest-domain.ch/admin/webland/www/rest/22
+Authorization: Basic Administrator 5522-tool
+
+### show edit item
+GET https://orderdesk.hstest-domain.ch/admin/webland/www/rest/22/edit
+Authorization: Basic Administrator 5522-tool
+
+### update item
+PUT https://orderdesk.hstest-domain.ch/admin/webland/www/rest/22
+Authorization: Basic Administrator 5522-tool
+Content-Type: application/x-www-form-urlencoded
+
+id=999&value=content
+
+
+
+
+
+
+###
+GET https://orderdesk.hstest-domain.ch/admin/webland/www/hello
+Authorization: Basic Administrator 5522-tool
+
+
+### view list
+PUT https://orderdesk.hstest-domain.ch/admin/webland/www/
+Authorization: Basic Administrator 5522-tool
+Content-Type: application/x-www-form-urlencoded
+#Content-Type: application/json
+
+id=999&value=content
+
+###
+#{
+#  "key1": "val1",
+#  "key2": "val2",
+#  "key3": "val3"
+#}
+
+###
+POST https://orderdesk.hstest-domain.ch/api/rest
+Content-Type: application/json
+Authorization: Bearer 9a241522df5299facdef7b0182e4b507
+X-Timestamp: 1675866484
+
+###
+GET https://orderdesk.hstest-domain.ch/api/rest
+Content-Type: application/json
+Authorization: Bearer b2bfce1aaa2ac2de10aa1e7f5f1efd53
+X-Timestamp: 1675866484
+

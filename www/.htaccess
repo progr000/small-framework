@@ -1,0 +1,8 @@
+Options +SymLinksIfOwnerMatch
+
+RewriteEngine On
+#RewriteBase /webland_www/
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+#RewriteRule ^(.*)$ ./index.php?route=$1 [QSA,L]
+RewriteRule ^(.*)$ ./index.php [QSA,L]
