@@ -1,0 +1,74 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "bf9859dc6c04eb5ca0e188cfbbedac11",
+    "packages": [
+        {
+            "name": "maksym/small-framework-core-lib",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/progr000/small-framework-core-lib.git",
+                "reference": "1e76dc962659df1a184d2a643671456f9aec15cf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/progr000/small-framework-core-lib/zipball/1e76dc962659df1a184d2a643671456f9aec15cf",
+                "reference": "1e76dc962659df1a184d2a643671456f9aec15cf",
+                "shasum": ""
+            },
+            "require": {
+                "ext-fileinfo": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "ext-pdo": "*",
+                "php": ">=5.6.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Core\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maksym Haivoronskyi",
+                    "email": "maksym.haivoronskyi@gmail.com"
+                }
+            ],
+            "description": "Package framework core lib",
+            "keywords": [
+                "framework"
+            ],
+            "support": {
+                "issues": "https://github.com/progr000/small-framework-core-lib/issues",
+                "source": "https://github.com/progr000/small-framework-core-lib/tree/master"
+            },
+            "time": "2023-02-26T01:30:07+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "maksym/small-framework-core-lib": 20
+    },
+    "prefer-stable": true,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=5.6.0",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "ext-fileinfo": "*"
+    },
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
+}
