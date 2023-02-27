@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bf9859dc6c04eb5ca0e188cfbbedac11",
+    "content-hash": "dc6f29234a9e1a26f37284fa63ae744d",
     "packages": [
         {
             "name": "maksym/small-framework-core-lib",
@@ -12,18 +12,20 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/progr000/small-framework-core-lib.git",
-                "reference": "1e76dc962659df1a184d2a643671456f9aec15cf"
+                "reference": "72a16f36b5854ac8809281cd5dc48af706eff460"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/progr000/small-framework-core-lib/zipball/1e76dc962659df1a184d2a643671456f9aec15cf",
-                "reference": "1e76dc962659df1a184d2a643671456f9aec15cf",
+                "url": "https://api.github.com/repos/progr000/small-framework-core-lib/zipball/72a16f36b5854ac8809281cd5dc48af706eff460",
+                "reference": "72a16f36b5854ac8809281cd5dc48af706eff460",
                 "shasum": ""
             },
             "require": {
                 "ext-fileinfo": "*",
+                "ext-iconv": "*",
                 "ext-json": "*",
                 "ext-mbstring": "*",
+                "ext-openssl": "*",
                 "ext-pdo": "*",
                 "php": ">=5.6.0"
             },
@@ -52,7 +54,7 @@
                 "issues": "https://github.com/progr000/small-framework-core-lib/issues",
                 "source": "https://github.com/progr000/small-framework-core-lib/tree/master"
             },
-            "time": "2023-02-26T01:30:07+00:00"
+            "time": "2023-02-27T15:13:36+00:00"
         }
     ],
     "packages-dev": [],
@@ -65,6 +67,7 @@
     "prefer-lowest": false,
     "platform": {
         "php": ">=5.6.0",
+        "ext-pdo": "*",
         "ext-json": "*",
         "ext-mbstring": "*",
         "ext-fileinfo": "*"
