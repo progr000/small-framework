@@ -3,7 +3,7 @@
 namespace Controllers;
 
 
-use vendor\Core\App;
+use Core\App;
 
 class Controller
 {
@@ -17,7 +17,7 @@ class Controller
     /**
      * @param string $url
      * @param int $status
-     * @return \vendor\Core\ResponseDriver
+     * @return \Core\ResponseDriver
      */
     protected function redirect($url, $status = 302)
     {

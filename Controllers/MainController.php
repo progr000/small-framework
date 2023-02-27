@@ -89,7 +89,7 @@ class MainController extends Controller
      */
     public function invoiceApiUsage(RequestDriver $r)
     {
-        $url = $r->protocol() . '://' . 'orderdesk.hstest-domain.ch' //$r->host()
+        $url = $r->protocol() . '://' . $r->host()
             . '/api/invoices' .
             str_replace('/invoice-api-usage', '' , $r->route());
         //dump($url);

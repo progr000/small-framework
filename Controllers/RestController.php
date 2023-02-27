@@ -2,8 +2,8 @@
 
 namespace Controllers;
 
-use vendor\Core\App;
-use vendor\Core\Interfaces\RestInterface;
+use Core\App;
+use Core\Interfaces\RestInterface;
 
 /**
  * RestController example
@@ -15,8 +15,7 @@ class RestController extends Controller implements RestInterface
      */
     public function index()
     {
-        var_dump(1111);exit;
-        //dd('rest/index', App::$request);
+        dd('rest/index', App::$request);
     }
 
     /**

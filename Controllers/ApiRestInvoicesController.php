@@ -2,11 +2,11 @@
 
 namespace Controllers;
 
-use vendor\Core\App;
-use vendor\Core\Exceptions\ConfigException;
-use vendor\Core\Exceptions\NotImplementedException;
-use vendor\Core\Interfaces\RestInterface;
-use vendor\Core\LogDriver;
+use Core\App;
+use Core\Exceptions\ConfigException;
+use Core\Exceptions\NotImplementedException;
+use Core\Interfaces\RestInterface;
+use Core\LogDriver;
 use Models\Invoice;
 use Models\InvoiceProduct;
 use Workers\MultiInvoiceWorker;
