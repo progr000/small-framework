@@ -1,6 +1,6 @@
 <?php
 /** Enter-point for http-app running */
-/** just test for master */
+/** just test for master 2 */
 try {
     /** connect autoload */
     require_once(__DIR__ . '/../vendor/autoload.php');
