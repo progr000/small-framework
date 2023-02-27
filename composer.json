@@ -8,24 +8,27 @@
             "email": "maksym.haivoronskyi@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "require": {
-        "php": ">=5.6.0",
-        "ext-json": "*",
-        "ext-mbstring": "*",
-        "ext-fileinfo": "*",
-        "maksym/small-framework-core-lib": "dev-master"
-    },
     "autoload": {
         "psr-4": {
+            "Classes\\": "Classes/",
             "Console\\": "Console/",
             "Controllers\\": "Controllers/",
             "Db\\": "Db/",
             "Middleware\\": "Middleware/",
             "Models\\": "Models/",
             "Requests\\": "Requests/",
+            "Services\\": "Services",
             "Workers\\": "Workers/"
         }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=5.6.0",
+        "ext-pdo": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "ext-fileinfo": "*",
+        "maksym/small-framework-core-lib": "dev-master"
     }
 }

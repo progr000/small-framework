@@ -44,7 +44,7 @@ class MultiInvoiceWorker
         $executeMsg = LogDriver::executingMessage("Try to obtain product-tax via database ({{mwst}})", 2);
         $date = new DateTime($invoice_date);
         $repl['timestamp_start'] = $date->getTimestamp();
-        $query = "SELECT mwst FROM {{mwst}} WHERE start_datum<=:timestamp_start ORDER BY start_datum DESC LIMIT 1";
+        $query = "SELECT mwst FROM {{mwst}} WHERE start_datum <= :timestamp_start ORDER BY start_datum DESC LIMIT 1";
         $res = App::$db->getOne($query, $repl);
         if (isset($res['mwst'])) {
             $product_tax = doubleval($res['mwst']);
@@ -400,10 +400,16 @@ class MultiInvoiceWorker
         }
 
         /* try to send email throw MailDriver */
+        if (function_exists('html2text')) {
+            $tpl['text'] = html2text($tpl['html']);
+        } else {
+            $tpl['text'] = strip_tags($tpl['html']);
+        }
         $mailer = SendmailDriver::init()
             ->setFrom($tpl['from_email'], (isset($tpl['from_name']) ? $tpl['from_name'] : $tpl['from_email']))
             ->setTo($data[0]['email'], "{$data[0]['first_name']} {$data[0]['second_name']}")
-            ->setBody($tpl['html'], $data[0])
+            ->setBodyHtml($tpl['html'], $data[0])
+            ->setBodyText($tpl['text'], $data[0])
             ->addAttachment("Invoice-for-{$data[0]['first_name']}-{$data[0]['second_name']}.pdf", $pdf, 'application/pdf');
         $res = $mailer->send();
         if ($res === false) {
