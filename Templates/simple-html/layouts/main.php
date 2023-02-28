@@ -1,7 +1,8 @@
 <?php
+/** @var Core\ViewDriver $view */
 /** @var string $content */
-
-//$menu = Core\ViewDriver::renderPart('layouts/menu', $vars);
+/** @var array $vars */
+//$menu = $view->renderView('layouts/menu', $vars);
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -68,7 +69,7 @@
         <td class="sidebar" style="width: 300px;">
             <div class="sidebarHeader">Menu</div>
 
-            <?= Core\ViewDriver::renderPart('layouts/menu', $vars); ?>
+            <?= $view->renderView('layouts/menu', $vars); ?>
 
         </td>
     </tr>

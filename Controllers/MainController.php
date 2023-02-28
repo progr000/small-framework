@@ -4,7 +4,6 @@ namespace Controllers;
 
 use Core\App;
 use Core\Exceptions\ConfigException;
-use Core\Exceptions\HttpNotFoundException;
 use Core\RequestDriver;
 use Core\ViewDriver as View;
 use Core\WgetDriver;
@@ -15,21 +14,16 @@ class MainController extends Controller
 {
     /**
      * @return string
-     * @throws \Core\Exceptions\ConfigException
-     * @throws \Core\Exceptions\HttpNotFoundException
      */
     public function index()
     {
-        //return ViewDriver::render('main/index', [], 'empty');
-        return View::render('main/index');
+        return $this->render('main/index');
     }
 
     /**
      * @param IndexRequest $r
      * @param mixed $p1
      * @return string|\Core\ResponseDriver
-     * @throws \Core\Exceptions\ConfigException
-     * @throws \Core\Exceptions\HttpNotFoundException
      */
     public function someExamples(IndexRequest $r, $p1 = null)
     {
@@ -60,7 +54,7 @@ class MainController extends Controller
             dump($r, $p1, $_GET);
             dump($r->validated());
             dump($r->getErrors());
-            return View::render('main/some-examples');
+            return $this->render('main/some-examples');
 
         }
     }
@@ -71,28 +65,25 @@ class MainController extends Controller
      * or add your own RequestClass as on method index
      * @param string $name
      * @return string
-     * @throws \Core\Exceptions\ConfigException
-     * @throws \Core\Exceptions\HttpNotFoundException
      */
     public function hello(RequestDriver $r, $name = "")
     {
         dump($r);
         if (!trim($name)) $name = 'Stranger';
-        return View::render('main/hello', ['name' => $name]);
+        return $this->render('main/hello', ['name' => $name]);
     }
 
     /**
      * @param RequestDriver $r
      * @return string
      * @throws ConfigException
-     * @throws HttpNotFoundException
      */
     public function invoiceApiUsage(RequestDriver $r)
     {
         $url = $r->protocol() . '://' . $r->host()
             . '/api/invoices' .
             str_replace('/invoice-api-usage', '' , $r->route());
-        //dump($url);
+
         $timestamp = time();
         $method = 'GET';
         $token = md5($method . $timestamp . App::$config->get('api.api-storage-access-token'));
@@ -101,9 +92,8 @@ class MainController extends Controller
             ->asJson()
             ->setBearerAutorisation($token, ["X-Timestamp: {$timestamp}"])
             ->get($url);
-        //dd($resp);
-        return View::render('main/invoice-api-usage', [
-            //'request' => $resp,
+
+        return $this->render('main/invoice-api-usage', [
             'response' => $response,
         ]);
     }
