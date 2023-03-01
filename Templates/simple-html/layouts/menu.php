@@ -17,6 +17,7 @@ $menu1 = [
     'phpinfo()' => "/info",
     'phpinfo(), example route' => "/info2/any1/any2?any3=any4&any5=...",
     'echo, example route' => "/echo/any1/any2?any3=any4&any5=...",
+    'web-console' => "/web-console/web-console-runner.php",
 ];
 
 $menu2 = [

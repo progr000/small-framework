@@ -22,6 +22,8 @@ try {
             $argv[] = $tmp[1];
         }
 
+        $argv[1] = basename($argv[1]);
+
         if (file_exists($TASK_DIR . "/{$argv[1]}.php")) {
 
             $route = 'Console\\' . $argv[1];

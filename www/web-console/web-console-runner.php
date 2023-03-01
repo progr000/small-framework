@@ -23,8 +23,14 @@ try {
             $_GET[$tmp[1]] = null;
         }
 
+        $_GET['task'] = basename($_GET['task']);
+
         if (file_exists($TASK_DIR . "/{$_GET['task']}.php")) {
 
+            /* Show back-link */
+            LogDriver::warning("<a href=\"#\" onclick=\"history.back()\">[warn]&lt;&lt;&lt;[BACK][/warn]</a>\n", 0);
+
+            /* prepare route and params */
             $route = 'Console\\' . $_GET['task'];
             unset($_GET['task']);
             $arguments = [];
@@ -59,7 +65,9 @@ try {
 
         foreach ($tasks as $task) {
             if (strrpos($task,'.php') !== false) {
-                $Usage->messageAppend("\t[success]" . str_replace('.php', '', $task) . "[/success]\n");
+                $task = str_replace('.php', '', $task);
+                $link = '<a href="' . $_SERVER['PHP_SELF'] . '?task=' . $task . '">[success]' . $task . '[/success]</a>';
+                $Usage->messageAppend("\t" . $link . "\n");
             }
         }
         $Usage->setType("info")->show(false, false);

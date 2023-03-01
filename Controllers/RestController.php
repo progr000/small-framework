@@ -3,12 +3,13 @@
 namespace Controllers;
 
 use Core\App;
+use Core\ControllerDriver;
 use Core\Interfaces\RestInterface;
 
 /**
  * RestController example
  */
-class RestController extends Controller implements RestInterface
+class RestController extends ControllerDriver implements RestInterface
 {
     /**
      *

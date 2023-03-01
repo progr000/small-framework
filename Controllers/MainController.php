@@ -3,6 +3,7 @@
 namespace Controllers;
 
 use Core\App;
+use Core\ControllerDriver;
 use Core\Exceptions\ConfigException;
 use Core\RequestDriver;
 use Core\ViewDriver as View;
@@ -10,7 +11,7 @@ use Core\WgetDriver;
 use Requests\IndexRequest;
 
 
-class MainController extends Controller
+class MainController extends ControllerDriver
 {
     /**
      * @return string

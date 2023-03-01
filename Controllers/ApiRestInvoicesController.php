@@ -3,6 +3,7 @@
 namespace Controllers;
 
 use Core\App;
+use Core\ControllerDriver;
 use Core\Exceptions\ConfigException;
 use Core\Exceptions\NotImplementedException;
 use Core\Interfaces\RestInterface;
@@ -14,7 +15,7 @@ use Workers\MultiInvoiceWorker;
 /**
  * RestController example
  */
-class ApiRestInvoicesController extends Controller implements RestInterface
+class ApiRestInvoicesController extends ControllerDriver implements RestInterface
 {
     /**
      * Get all invoices (list)
