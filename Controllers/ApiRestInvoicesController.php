@@ -70,12 +70,19 @@ class ApiRestInvoicesController extends ControllerDriver implements RestInterfac
         try {
 
             LogDriver::setVerboseLevel(-100);
+            $invoice = MultiInvoiceWorker::getPdfInvoice($data);
+            if (!$invoice) {
+                return [
+                    'status' => false,
+                    'errors' => "Wrong format for invoice received from invoice server.",
+                ];
+            }
             App::$response->asFile(
                 "Invoice-for-{$data[0]['first_name']}-{$data[0]['second_name']}.pdf",
                 true,
                 "application/pdf"
             );
-            return MultiInvoiceWorker::getPdfInvoice($data);
+            return $invoice;
 
         } catch (ConfigException $e) {
             return [

@@ -6,14 +6,14 @@ X-Timestamp: 1675866484
 
 
 ### Receive all data for invoice_id = {IntID}:
-GET https://orderdesk.hstest-domain.ch/api/invoices/14
+GET https://orderdesk.hstest-domain.ch/api/invoices/2
 Content-Type: application/json
 Authorization: Bearer b2bfce1aaa2ac2de10aa1e7f5f1efd53
 X-Timestamp: 1675866484
 
 
 ### Receive PDF-file for invoice_id = {IntID}:
-GET https://orderdesk.hstest-domain.ch/api/invoices/14/pdf
+GET https://orderdesk.hstest-domain.ch/api/invoices/2/pdf
 Content-Type: application/json
 Authorization: Bearer b2bfce1aaa2ac2de10aa1e7f5f1efd53
 X-Timestamp: 1675866484
