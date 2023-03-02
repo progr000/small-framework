@@ -78,7 +78,7 @@ class ApiRestInvoicesController extends ControllerDriver implements RestInterfac
                 ];
             }
             App::$response->asFile(
-                "Invoice-for-{$data[0]['first_name']}-{$data[0]['second_name']}.pdf",
+                "Invoice-for-{$data[0]['client_first_name']}-{$data[0]['client_second_name']}.pdf",
                 true,
                 "application/pdf"
             );

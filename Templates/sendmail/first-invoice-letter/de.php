@@ -6,7 +6,7 @@ return [
     'cc' => "",
     'bcc' => "",
     'reply_to' => "",
-    'subject' => "",
+    'subject' => "[company_name] - [SWITCH_RECHNUNGSSTATUS_BEZEICHNUNG]: Erneuerung [SWITCH_ABO_BETREFF]",
 
     /**/
     'html' => '
@@ -16,7 +16,7 @@ return [
 		<tr>
 			<td style="padding-bottom: 13px; page-break-inside: avoid;">
 			<div style="text-align: left;">
-			<h1 class="title" style="font-weight: bold; font-size: 16.0pt; text-transform: uppercase; letter-spacing: 1.5pt; margin-bottom: 15px; font-family: Calibri,sans-serif;">Hoststar</h1>
+			<h1 class="title" style="font-weight: bold; font-size: 16.0pt; text-transform: uppercase; letter-spacing: 1.5pt; margin-bottom: 15px; font-family: Calibri,sans-serif;">[company_name]</h1>
 
 			<table class="grayline" style="text-align: right; width: 100%!important; width: 100%; border: solid #d9d9d9 1.0pt; border-collapse: collapse; border-top: none; border-bottom: none;">
 				<tbody>
@@ -39,7 +39,7 @@ return [
 
 						<p class="running_text" style="font-family: Calibri,sans-serif; letter-spacing: .3pt; font-size: 10.0pt; color: #595959;">Freundliche Gr&uuml;sse</p>
 
-						<p class="running_text" style="font-family: Calibri,sans-serif; letter-spacing: .3pt; font-size: 10.0pt; color: #595959;">Ihr Hoststar-Team</p>
+						<p class="running_text" style="font-family: Calibri,sans-serif; letter-spacing: .3pt; font-size: 10.0pt; color: #595959;">Ihr [company_name]-Team</p>
 						</td>
 					</tr>
 				</tbody>
@@ -180,7 +180,7 @@ return [
 								<tr>
 									<td class="light_gray" style="background-color: #f2f2f2; height: 12.5pt; width: 49%; padding-right: 5.4pt; padding-left: 5.4pt; border-bottom: 2px solid white;"><span class="graycell_text" style="font-family: Calibri,sans-serif; letter-spacing: .3pt; font-size: 10.0pt; color: black;">Einzahlung f&uuml;r</span></td>
 									<td class="light_gray" style="border-bottom: 2px solid white;"></td>
-									<td class="light_gray" style="background-color: #f2f2f2; height: 12.5pt; width: 49%; padding-right: 5.4pt; padding-left: 5.4pt; border-bottom: 2px solid white;"><span class="graycell_text" style="font-family: Calibri,sans-serif; letter-spacing: .3pt; font-size: 10.0pt; color: black;">Multimedia Networks AG - Hoststar</span></td>
+									<td class="light_gray" style="background-color: #f2f2f2; height: 12.5pt; width: 49%; padding-right: 5.4pt; padding-left: 5.4pt; border-bottom: 2px solid white;"><span class="graycell_text" style="font-family: Calibri,sans-serif; letter-spacing: .3pt; font-size: 10.0pt; color: black;">[company_name]</span></td>
 								</tr>
 								<tr>
 									<td class="light_gray" style="border-bottom: 2px solid white"></td>

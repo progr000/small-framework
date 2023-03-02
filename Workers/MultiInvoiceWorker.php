@@ -227,9 +227,9 @@ class MultiInvoiceWorker
         /* insert record about invoice and client data */
         $insert_invoice = "
         INSERT INTO {{invoices}} 
-            (invoice_unique_hash, invoice_amount, invoice_date, invoice_payed, invoice_lang, id_kunde, company_name, first_name, second_name, email, phone, postcode, country, city, street) 
+            (invoice_unique_hash, invoice_amount, invoice_date, invoice_payed, invoice_lang, id_kunde, client_company_name, client_first_name, client_second_name, client_email, client_phone, client_postcode, client_country, client_city, client_street) 
         VALUES 
-            (:invoice_unique_hash, :invoice_amount, :invoice_date, 0, :invoice_lang, :id_kunde, :company_name, :first_name, :second_name, :email, :phone, :postcode, :country, :city, :street);
+            (:invoice_unique_hash, :invoice_amount, :invoice_date, 0, :invoice_lang, :id_kunde, :client_company_name, :client_first_name, :client_second_name, :client_email, :client_phone, :client_postcode, :client_country, :client_city, :client_street);
         ";
 
         /* insert records about products for this invoice */
@@ -369,7 +369,7 @@ class MultiInvoiceWorker
     public static function sendInvoice(array $data)
     {
         /* in debug mode we do not send email to real client */
-        $debug_email_warn_message = "Real client email is [success]{$data[0]['email']}[/success], but in debug mode it is replaced by debug-variant";
+        $debug_email_warn_message = "Real client email is [success]{$data[0]['client_email']}[/success], but in debug mode it is replaced by debug-variant";
         if (IS_DEBUG) {
             $data[0]['email'] = App::$config->get('debug.sendmail_debug_email_instead_clients');
         }
@@ -407,10 +407,13 @@ class MultiInvoiceWorker
         }
         $mailer = SendmailDriver::init()
             ->setFrom($tpl['from_email'], (isset($tpl['from_name']) ? $tpl['from_name'] : $tpl['from_email']))
-            ->setTo($data[0]['email'], "{$data[0]['first_name']} {$data[0]['second_name']}")
-            ->setBodyHtml($tpl['html'], $data[0])
-            ->setBodyText($tpl['text'], $data[0])
-            ->addAttachment("Invoice-for-{$data[0]['first_name']}-{$data[0]['second_name']}.pdf", $pdf, 'application/pdf');
+            ->setTo($data[0]['client_email'], "{$data[0]['client_first_name']} {$data[0]['client_second_name']}")
+            ->setSubject($tpl['subject'])
+            ->setBodyHtml($tpl['html'])
+            ->setBodyText($tpl['text'])
+            ->setReplaceData($data[0])
+            ->setReplaceData(App::$config->get('company_data'))
+            ->addAttachment("Invoice-for-{$data[0]['client_first_name']}-{$data[0]['client_second_name']}.pdf", $pdf, 'application/pdf');
         $res = $mailer->send();
         if ($res === false) {
             $executeMsgInvoice->showError();
@@ -479,12 +482,12 @@ class MultiInvoiceWorker
         /* request array for form json-request */
         $request_data = [
             /* client data */
-            'payer_full_name' => !empty(trim($data[0]['company_name']))
-                ? trim($data[0]['company_name'])
-                : "{$data[0]['second_name']} {$data[0]['first_name']}",
-            'payer_addr_1' => $data[0]['street'],
-            'payer_addr_2' => "{$data[0]['postcode']} {$data[0]['city']}",
-            'payer_country' => $data[0]['country'] ? $data[0]['country'] : 'CH',
+            'payer_full_name' => !empty(trim($data[0]['client_company_name']))
+                ? trim($data[0]['client_company_name'])
+                : "{$data[0]['client_second_name']} {$data[0]['client_first_name']}",
+            'payer_addr_1' => $data[0]['client_street'],
+            'payer_addr_2' => "{$data[0]['client_postcode']} {$data[0]['client_city']}",
+            'payer_country' => $data[0]['client_country'] ? $data[0]['client_country'] : 'CH',
 
             /* common bill data */
             'cur_date' => $data[0]['invoice_date'], // "3. März 2021",

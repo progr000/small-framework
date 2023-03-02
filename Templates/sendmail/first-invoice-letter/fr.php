@@ -6,7 +6,7 @@ return [
     'cc' => "",
     'bcc' => "",
     'reply_to' => "",
-    'subject' => "",
+    'subject' => "[company_name] - Renouvellement [SWITCH_ABO_BETREFF]",
 
     /**/
     'html' => '
@@ -16,7 +16,7 @@ return [
 		<tr>
 			<td style="padding-bottom: 13px; page-break-inside: avoid;">
 			<div style="text-align: left;">
-			<h1 class="title" style="font-weight: bold; font-size: 16.0pt; text-transform: uppercase; letter-spacing: 1.5pt; margin-bottom: 15px; font-family: Calibri,sans-serif;">Hoststar</h1>
+			<h1 class="title" style="font-weight: bold; font-size: 16.0pt; text-transform: uppercase; letter-spacing: 1.5pt; margin-bottom: 15px; font-family: Calibri,sans-serif;">[company_name]</h1>
 
 			<table class="grayline" style="text-align: right; width: 100%!important; width: 100%; border: solid #d9d9d9 1.0pt; border-collapse: collapse; border-top: none; border-bottom: none;">
 				<tbody>
@@ -39,7 +39,7 @@ return [
 
 						<p class="running_text" style="font-family: Calibri,sans-serif; letter-spacing: .3pt; font-size: 10.0pt; color: #595959;">Meilleures salutations,</p>
 
-						<p class="running_text" style="font-family: Calibri,sans-serif; letter-spacing: .3pt; font-size: 10.0pt; color: #595959;">L&#39;&eacute;quipe Hoststar</p>
+						<p class="running_text" style="font-family: Calibri,sans-serif; letter-spacing: .3pt; font-size: 10.0pt; color: #595959;">L&#39;&eacute;quipe [company_name]</p>
 						</td>
 					</tr>
 				</tbody>
@@ -180,7 +180,7 @@ return [
 								<tr>
 									<td class="light_gray" style="background-color: #f2f2f2; height: 12.5pt; width: 49%; padding-right: 5.4pt; padding-left: 5.4pt; border-bottom: 2px solid white;"><span class="graycell_text" style="font-family: Calibri,sans-serif; letter-spacing: .3pt; font-size: 10.0pt; color: black;">Paiement pour</span></td>
 									<td class="light_gray" style="border-bottom: 2px solid white;"></td>
-									<td class="light_gray" style="background-color: #f2f2f2; height: 12.5pt; width: 49%; padding-right: 5.4pt; padding-left: 5.4pt; border-bottom: 2px solid white;"><span class="graycell_text" style="font-family: Calibri,sans-serif; letter-spacing: .3pt; font-size: 10.0pt; color: black;">Multimedia Networks AG - Hoststar</span></td>
+									<td class="light_gray" style="background-color: #f2f2f2; height: 12.5pt; width: 49%; padding-right: 5.4pt; padding-left: 5.4pt; border-bottom: 2px solid white;"><span class="graycell_text" style="font-family: Calibri,sans-serif; letter-spacing: .3pt; font-size: 10.0pt; color: black;">[company_name]</span></td>
 								</tr>
 								<tr>
 									<td class="light_gray" style="border-bottom: 2px solid white"></td>
@@ -247,7 +247,7 @@ return [
 				<tbody>
 					<tr>
 						<td class="borderbox" style="padding: 22.7pt; border-collapse: separate;">
-						<p class="running_text" style="font-family: Calibri,sans-serif; letter-spacing: .3pt; font-size: 10.0pt; color: #595959;">[SWITCH_RECHNUNGSSTATUS_INFO][SWITCH_ABO_LOESCHINSTRUKTIONEN]Si vous souhaitez que nous vous transmettions dor&eacute;navant les informations concernant le renouvellement de votre contrat &agrave; une autre adresse e-mail, veuillez actualiser vos donn&eacute;es personnelles dans la section My Hoststar: <a href="https://my.hoststar.ch">https://my.hoststar.ch</a>.</p>
+						<p class="running_text" style="font-family: Calibri,sans-serif; letter-spacing: .3pt; font-size: 10.0pt; color: #595959;">[SWITCH_RECHNUNGSSTATUS_INFO][SWITCH_ABO_LOESCHINSTRUKTIONEN]Si vous souhaitez que nous vous transmettions dor&eacute;navant les informations concernant le renouvellement de votre contrat &agrave; une autre adresse e-mail, veuillez actualiser vos donn&eacute;es personnelles dans la section [company_name]: <a href="https://my.hoststar.ch">https://my.hoststar.ch</a>.</p>
 						</td>
 					</tr>
 				</tbody>
