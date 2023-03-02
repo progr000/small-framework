@@ -3,51 +3,27 @@
 /** @var string $content */
 /** @var array $vars */
 //$menu = $view->renderView('layouts/menu', $vars);
+
+$vars['css-stack'][] = "/css/main.css";
+$vars['js-stack'][] = "/js/jquery-3.6.3.min.js";
 ?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>Simple html example<?= isset($vars['title']) ? " - {$vars['title']}" : "" ?></title>
-    <style>
-        .layout {
-            width: 100%;
-            max-width: 1024px;
-            margin: auto;
-            background-color: white;
-            border-collapse: collapse;
-        }
 
-        .layout tr td {
-            padding: 20px;
-            vertical-align: top;
-            border: solid 1px gray;
-        }
+    <?php
+    foreach ($vars['css-stack'] as $style) {
+        $filemtime = file_exists(__WWW_DIR__ . $style)
+            ? filemtime(__WWW_DIR__ . $style)
+            : time();
+        ?>
+        <link rel="stylesheet" href="<?= $style ?><?= IS_DEBUG ? '?v=' . $filemtime : '' ?>">
+        <?php
+    }
+    ?>
 
-        .header {
-            font-size: 30px;
-        }
-
-        .footer {
-            text-align: center;
-        }
-
-        .sidebarHeader {
-            font-size: 20px;
-        }
-
-        .sidebar ul {
-            padding-left: 20px;
-        }
-
-        a, a:visited {
-            color: darkgreen;
-        }
-        a.selected {
-            font-weight: bold;
-            color: #0c1721;
-        }
-    </style>
 </head>
 <body>
 
@@ -89,8 +65,17 @@
     }
     ?>
 </table>
-<script>
 
-</script>
+<?php
+foreach ($vars['js-stack'] as $script) {
+    $filemtime = file_exists(__WWW_DIR__ . $script)
+        ? filemtime(__WWW_DIR__ . $script)
+        : time();
+    ?>
+    <script src="<?= $script ?><?= IS_DEBUG ? '?v=' . $filemtime : '' ?>"></script>
+    <?php
+}
+?>
+
 </body>
 </html>

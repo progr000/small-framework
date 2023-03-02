@@ -1,0 +1,53 @@
+.layout {
+    width: 100%;
+    max-width: 1024px;
+    margin: auto;
+    background-color: white;
+    border-collapse: collapse;
+}
+
+.layout tr td {
+    padding: 20px;
+    vertical-align: top;
+    border: solid 1px gray;
+}
+
+.header {
+    font-size: 30px;
+}
+
+.footer {
+    text-align: center;
+}
+
+.sidebarHeader {
+    font-size: 20px;
+}
+
+.sidebar ul {
+    padding-left: 20px;
+}
+
+a, a:visited {
+    color: darkgreen;
+}
+
+a.selected {
+    font-weight: bold;
+    color: #0c1721;
+}
+
+.ul-level-up {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: none;
+}
+.ul-level-up.unfolded {
+    display: block;
+}
+.li-level-up {
+    cursor: pointer;
+    color: #1f2226;
+    text-decoration: underline;
+}
+/*.li-up-level { margin-top: 10px; margin-bottom: 10px; }*/

@@ -1,7 +1,12 @@
 <?php
 /** Enter-point for http-app running */
-/** just test for master 2 */
+
+/** base www dir */
+const __WWW_DIR__ = __DIR__;
+
+/** begin */
 try {
+
     /** connect autoload */
     require_once(__DIR__ . '/../vendor/autoload.php');
 
