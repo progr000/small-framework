@@ -10,15 +10,15 @@ return [
     'routes' => require_once('routes.php'),
 
     /* database params */
-    'db' => [
-        'dsn' => "",
-        'user' => "",
-        'password' => "",
-        'table_prefix' => "tbl_",
-    ],
+//    'db' => [
+//        'dsn' => "",
+//        'user' => "",
+//        'password' => "",
+//        'table_prefix' => "tbl_",
+//    ],
 
     /* templates for ViewDriver */
-    'templatePath' => __DIR__ . '/../Templates/simple-html',
+    'template-path' => __DIR__ . '/../Templates/simple-html',
 
     /* log params */
     'logs' => require_once('logs.php'),

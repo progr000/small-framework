@@ -3,7 +3,9 @@ return [
 
     /* hello everyone */
     '/hello(?:/?|/(.*))' => [Controllers\MainController::class, 'hello', /*'post'*/],
-    '/some-examples(?:(?:/)(.*))?' => [Controllers\MainController::class, 'someExamples', /*'post'*/],
+    '/some-examples(?:(?:/)(.*))?' => [Controllers\MainController::class, 'someExamples', /*'post'*/ 'middleware' => [
+        //Middleware\TrustProxies::class,
+    ]],
 
     /* debug */
     '/info(/.*)?' => [

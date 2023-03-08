@@ -6,7 +6,6 @@ use Core\App;
 use Core\ControllerDriver;
 use Core\Exceptions\ConfigException;
 use Core\RequestDriver;
-use Core\ViewDriver as View;
 use Core\WgetDriver;
 use Requests\IndexRequest;
 
@@ -28,6 +27,8 @@ class MainController extends ControllerDriver
      */
     public function someExamples(IndexRequest $r, $p1 = null)
     {
+        //dd($r, $_SERVER);
+        //dd($r instanceof RequestDriver);
         //dd(get_class($r));
         if ($r->validated()['test_string1'] === 'as_response') {
 
