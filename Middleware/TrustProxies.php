@@ -17,7 +17,7 @@ class TrustProxies
      */
     public function handle(RequestDriver $request)
     {
-        if ($request->header('X-Forwarded-Prefix', 'no-header') === App::$config->get('X-Forwarded-Prefix', 'no-config')) {
+        if ($request->header('X-Forwarded-Prefix', 'no-header') === App::$config->get('Trusted-Proxies-X-Forwarded-Prefix', 'no-config')) {
             $request->setTrustProxies([$request->ip()]);
         }
     }

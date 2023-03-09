@@ -7,6 +7,7 @@
 
 namespace Workers;
 
+use Core\Exceptions\ConfigException;
 use DateInterval;
 use DateTime;
 use Exception;
@@ -71,7 +72,7 @@ class MultiInvoiceWorker
      * Fill invoice tables, should be used every day by cron
      * @param string|null $for_the_date date in format yyyy-mm-dd if null current date will be used
      * @return array|false
-     * @throws \Core\Exceptions\ConfigException
+     * @throws ConfigException
      * @throws \Core\Exceptions\DbException
      * @throws Exception
      */
@@ -129,6 +130,9 @@ class MultiInvoiceWorker
 
         /* if debug mode, limit select to {debug.limit_fill_db_query} records */
         if (IS_DEBUG) {
+            if (!App::$config->get('debug.limit_fill_db_query')) {
+                throw new ConfigException('Config param debug.limit_fill_db_query is required in DEBUG_MODE');
+            }
             $query .= " LIMIT " . App::$config->get('debug.limit_fill_db_query');
         }
 
@@ -304,7 +308,6 @@ class MultiInvoiceWorker
 
     /**
      * @return array|false
-     * @throws \Core\Exceptions\ConfigException
      */
     public function sendFirstMailForInvoices()
     {
@@ -364,13 +367,16 @@ class MultiInvoiceWorker
     /**
      * @param array $data
      * @return bool|null
-     * @throws \Core\Exceptions\ConfigException
+     * @throws ConfigException
      */
     public static function sendInvoice(array $data)
     {
         /* in debug mode we do not send email to real client */
         $debug_email_warn_message = "Real client email is [success]{$data[0]['client_email']}[/success], but in debug mode it is replaced by debug-variant";
         if (IS_DEBUG) {
+            if (!App::$config->get('debug.sendmail_debug_email_instead_clients')) {
+                throw new ConfigException('Config param debug.sendmail_debug_email_instead_clients is required in DEBUG_MODE');
+            }
             $data[0]['email'] = App::$config->get('debug.sendmail_debug_email_instead_clients');
         }
         $executeMsgInvoice = LogDriver::executingMessage("Sending message for invoice_id=[warn]{$data[0]['invoice_id']}[/warn] to client-email=[warn]{$data[0]['email']}[/warn]", 2);
@@ -383,6 +389,9 @@ class MultiInvoiceWorker
         }
 
         /* get mail-template for client depend on his language settings */
+        if (!App::$config->get('sendmail_templates_dir.first_letter')) {
+            throw new ConfigException('Config param sendmail_templates_dir.first_letter is required');
+        }
         $tpl_file = App::$config->get('sendmail_templates_dir.first_letter') . "/" . $data[0]['invoice_lang'] . ".php";
         if (!file_exists($tpl_file)) {
             $tpl_file = App::$config->get('sendmail_templates_dir.first_letter') . "/en.php";
@@ -405,6 +414,9 @@ class MultiInvoiceWorker
         } else {
             $tpl['text'] = strip_tags($tpl['html']);
         }
+        if (!App::$config->get('company_data')) {
+            throw new ConfigException('Config param company_data is required');
+        }
         $mailer = SendmailDriver::init()
             ->setFrom($tpl['from_email'], (isset($tpl['from_name']) ? $tpl['from_name'] : $tpl['from_email']))
             ->setTo($data[0]['client_email'], "{$data[0]['client_first_name']} {$data[0]['client_second_name']}")
@@ -412,7 +424,7 @@ class MultiInvoiceWorker
             ->setBodyHtml($tpl['html'])
             ->setBodyText($tpl['text'])
             ->setReplaceData($data[0])
-            ->setReplaceData(App::$config->get('company_data'))
+            ->setReplaceData(App::$config->get('company_data', []))
             ->addAttachment("Invoice-for-{$data[0]['client_first_name']}-{$data[0]['client_second_name']}.pdf", $pdf, 'application/pdf');
         $res = $mailer->send();
         if ($res === false) {
@@ -459,10 +471,13 @@ class MultiInvoiceWorker
     /**
      * @param string $HttpMethod
      * @return array
-     * @throws \Core\Exceptions\ConfigException
+     * @throws ConfigException
      */
     private static function generateBearer($HttpMethod = 'POST')
     {
+        if (!App::$config->get('bearer_secret_key')) {
+            throw new ConfigException('Config param bearer_secret_key is required');
+        }
         $timestamp = time();
         return [
             'hash' => md5(mb_strtoupper($HttpMethod) . $timestamp . App::$config->get('bearer_secret_key')),
@@ -473,7 +488,7 @@ class MultiInvoiceWorker
     /**
      * @param array $data
      * @return false|string
-     * @throws \Core\Exceptions\ConfigException
+     * @throws ConfigException
      */
     public static function getPdfInvoice(array $data)
     {
@@ -518,10 +533,16 @@ class MultiInvoiceWorker
         }
 
         /* company data */
-        $request_data = array_merge(App::$config->get('company_data'), $request_data);
+        if (!App::$config->get('company_data')) {
+            throw new ConfigException('Config param company_data is required');
+        }
+        $request_data = array_merge(App::$config->get('company_data', []), $request_data);
         //dd(json_encode($request_data));
 
         /* request pdf from another server */
+        if (!App::$config->get('url_pdf_receive')) {
+            throw new ConfigException('Config param url_pdf_receive is required');
+        }
         $Bearer = self::generateBearer();
         $response = WgetDriver::init()
             ->setBearerAutorisation($Bearer['hash'], $Bearer['additional_header'])

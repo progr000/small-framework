@@ -28,7 +28,7 @@ class MultiInvoice extends ConsoleDriver
     {
         ignore_user_abort(true);
         LogDriver::setVerboseLevel($this->verbose_level);
-        $this->invoice = new multiInvoiceWorker();
+        $this->invoice = new MultiInvoiceWorker();
         return true;
     }
 
@@ -37,18 +37,17 @@ class MultiInvoice extends ConsoleDriver
      * before someMethod will be run by starter.
      * @param array $actions
      * @return bool
-     * @throws \Exception
      */
     public function validate(array $actions)
     {
         //dump($this->for_the_date);
-        LogDriver::setLog(App::$config->get('logs')['multiInvoiceWorker.validate.log']);
+        LogDriver::setLog(App::$config->get('logs->multiInvoiceWorker.validate.log'));
 
         if (IS_DEBUG) {
             LogDriver::error("\tWARNING: Debug mode is enabled now", 0);
             LogDriver::error("\tIn this mode next limitation:", 0);
-            LogDriver::error("\tTotal select records with products: {" . App::$config->get('debug.limit_fill_db_query') . "}", 0);
-            LogDriver::error("\tSending email to debug-address: {" . App::$config->get('debug.sendmail_debug_email_instead_clients') . "}", 0);
+            LogDriver::error("\tTotal select records with products: {" . App::$config->get('debug.limit_fill_db_query', 50) . "}", 0);
+            LogDriver::error("\tSending email to debug-address: {" . App::$config->get('debug.sendmail_debug_email_instead_clients', 'undefined@undefined.undefined') . "}", 0);
             LogDriver::error("\n\n", 0);
         }
 
@@ -64,11 +63,12 @@ class MultiInvoice extends ConsoleDriver
     /**
      * Filling tables by invoices
      * @return void
-     * @throws \Exception
+     * @throws \Core\Exceptions\ConfigException
+     * @throws \Core\Exceptions\DbException
      */
     protected function fillDb()
     {
-        LogDriver::setLog(App::$config->get('logs')['multiInvoiceWorker.fillInvoiceTable.log']);
+        LogDriver::setLog(App::$config->get('logs->multiInvoiceWorker.fillInvoiceTable.log'));
         $this->invoice->fillInvoiceTable($this->for_the_date);
     }
 
@@ -79,7 +79,7 @@ class MultiInvoice extends ConsoleDriver
      */
     protected function sendFirstTimeInvoices()
     {
-        LogDriver::setLog(App::$config->get('logs')['multiInvoiceWorker.sendFirstMailForInvoices.log']);
+        LogDriver::setLog(App::$config->get('logs->multiInvoiceWorker.sendFirstMailForInvoices.log'));
         $this->invoice->sendFirstMailForInvoices();
     }
 

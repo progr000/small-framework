@@ -4,7 +4,6 @@ namespace Controllers;
 
 use Core\App;
 use Core\ControllerDriver;
-use Core\Exceptions\ConfigException;
 use Core\RequestDriver;
 use Core\WgetDriver;
 use Requests\IndexRequest;
@@ -78,7 +77,6 @@ class MainController extends ControllerDriver
     /**
      * @param RequestDriver $r
      * @return string
-     * @throws ConfigException
      */
     public function invoiceApiUsage(RequestDriver $r)
     {
@@ -88,7 +86,7 @@ class MainController extends ControllerDriver
 
         $timestamp = time();
         $method = 'GET';
-        $token = md5($method . $timestamp . App::$config->get('api.api-storage-access-token'));
+        $token = md5($method . $timestamp . App::$config->get('api.api-storage-access-token', uniqid('api.api-storage-access-token')));
         $token = htmlentities(strip_tags($r->all('bearer', $token)));
         $response = WgetDriver::init()
             ->asJson()
