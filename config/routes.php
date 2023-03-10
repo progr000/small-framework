@@ -7,6 +7,14 @@ return [
         //Middleware\TrustProxies::class,
     ]],
 
+    '/time' => function () {
+        $cur = date('Y-m-d H:i:s', time());
+        date_default_timezone_set("America/Detroit");
+        $time_in_Detroit = date('Y-m-d H:i:s', time());
+        $utc_time = gmdate("Y-m-d  H:i:s");
+        dd($cur, $time_in_Detroit, $utc_time, strtotime($cur), strtotime($time_in_Detroit), strtotime($utc_time));
+    },
+
     /* debug */
     '/info(/.*)?' => [
         function(...$params) {
