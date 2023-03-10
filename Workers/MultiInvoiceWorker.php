@@ -478,10 +478,9 @@ class MultiInvoiceWorker
         if (!App::$config->get('bearer_secret_key')) {
             throw new ConfigException('Config param bearer_secret_key is required');
         }
-        $timestamp = time();
         $utc_timestamp = strtotime(gmdate("Y-m-d  H:i:s"));
         return [
-            'hash' => md5(mb_strtoupper($HttpMethod) . $timestamp . App::$config->get('bearer_secret_key')),
+            'hash' => md5(mb_strtoupper($HttpMethod) . $utc_timestamp . App::$config->get('bearer_secret_key')),
             'additional_header' => ['X-UTC-Timestamp: ' . $utc_timestamp],
         ];
     }

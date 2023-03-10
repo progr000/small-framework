@@ -31,10 +31,10 @@ class allowOnlyWithBearerAuth
         /* check that $x_utc_timestamp is not in the future or in the past +-30sek */
         $current_utc_timestamp = strtotime(gmdate("Y-m-d  H:i:s"));
         if (intval($x_utc_timestamp) > intval($current_utc_timestamp)+30) {
-            throw new HttpForbiddenException('Forbidden (Bearer-Authorization failed, your X-UTC-Timestamp in the future)', 403);
+            throw new HttpForbiddenException('Forbidden (Bearer-Authorization failed, your X-UTC-Timestamp is to far in the future)', 403);
         }
         if (intval($x_utc_timestamp) < intval($current_utc_timestamp)-30) {
-            throw new HttpForbiddenException('Forbidden (Bearer-Authorization failed, your X-UTC-Timestamp in the past)', 403);
+            throw new HttpForbiddenException('Forbidden (Bearer-Authorization failed, your X-UTC-Timestamp is to far in the past)', 403);
         }
 
         /* check that the token-hash from incoming header is equal the hash that we generate from our api.api-storage-access-token by determined rule */

@@ -84,13 +84,13 @@ class MainController extends ControllerDriver
             . '/api/invoices' .
             str_replace('/invoice-api-usage', '' , $r->route());
 
-        $timestamp = time();
+        $utc_timestamp = strtotime(gmdate("Y-m-d  H:i:s"));
         $method = 'GET';
-        $token = md5($method . $timestamp . App::$config->get('api.api-storage-access-token', uniqid('api.api-storage-access-token')));
+        $token = md5($method . $utc_timestamp . App::$config->get('api.api-storage-access-token', uniqid('api.api-storage-access-token')));
         $token = htmlentities(strip_tags($r->all('bearer', $token)));
         $response = WgetDriver::init()
             ->asJson()
-            ->setBearerAutorisation($token, ["X-Timestamp: {$timestamp}"])
+            ->setBearerAutorisation($token, ["X-UTC-Timestamp: {$utc_timestamp}"])
             ->get($url);
 
         return $this->render('main/invoice-api-usage', [
