@@ -8,7 +8,7 @@ return [
 
     /* routes */
     'routes' => require_once('routes.php'),
-    /* middleware were applied to each (any) request */
+    /* middleware which were applied to each (any) request */
     'global-middleware' => [
         Middleware\TrustProxies::class,
     ],
