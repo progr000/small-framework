@@ -84,7 +84,7 @@ class MainController extends ControllerDriver
             . '/api/invoices' .
             str_replace('/invoice-api-usage', '' , $r->route());
 
-        $utc_timestamp = strtotime(gmdate("Y-m-d  H:i:s"));
+        $utc_timestamp = time();
         $method = 'GET';
         $token = md5($method . $utc_timestamp . App::$config->get('api.api-storage-access-token', uniqid('api.api-storage-access-token')));
         $token = htmlentities(strip_tags($r->all('bearer', $token)));
