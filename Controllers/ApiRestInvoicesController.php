@@ -5,6 +5,7 @@ namespace Controllers;
 use Core\App;
 use Core\ControllerDriver;
 use Core\Exceptions\ConfigException;
+use Core\Exceptions\DbException;
 use Core\Exceptions\NotImplementedException;
 use Core\Interfaces\RestInterface;
 use Core\LogDriver;
@@ -19,6 +20,7 @@ class ApiRestInvoicesController extends ControllerDriver implements RestInterfac
 {
     /**
      * Get all invoices (list)
+     * @throws DbException
      */
     public function index()
     {
@@ -28,6 +30,7 @@ class ApiRestInvoicesController extends ControllerDriver implements RestInterfac
     /**
      * Get invoice data with $id
      * @param int $id
+     * @throws DbException
      */
     public function view($id)
     {
@@ -44,7 +47,8 @@ class ApiRestInvoicesController extends ControllerDriver implements RestInterfac
     /**
      * Get PDF for invoice $id
      * @param $id
-     * @return array|false|string
+     * @return array|string
+     * @throws DbException
      */
     public function pdf($id)
     {

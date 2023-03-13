@@ -3,7 +3,10 @@ namespace Console;
 
 use Core\App;
 use Core\ConsoleDriver;
+use Core\Exceptions\ConfigException;
+use Core\Exceptions\DbException;
 use Core\LogDriver;
+use Exception;
 use Workers\MultiInvoiceWorker;
 
 
@@ -22,7 +25,7 @@ class MultiInvoice extends ConsoleDriver
     protected $for_the_date;
 
     /**
-     * @return bool|void
+     * @return bool
      */
     public function init()
     {
@@ -37,6 +40,7 @@ class MultiInvoice extends ConsoleDriver
      * before someMethod will be run by starter.
      * @param array $actions
      * @return bool
+     * @throws DbException
      */
     public function validate(array $actions)
     {
@@ -63,8 +67,8 @@ class MultiInvoice extends ConsoleDriver
     /**
      * Filling tables by invoices
      * @return void
-     * @throws \Core\Exceptions\ConfigException
-     * @throws \Core\Exceptions\DbException
+     * @throws ConfigException
+     * @throws DbException
      */
     protected function fillDb()
     {
@@ -75,7 +79,7 @@ class MultiInvoice extends ConsoleDriver
     /**
      * Send first letter with invoice
      * @return void
-     * @throws \Exception
+     * @throws Exception
      */
     protected function sendFirstTimeInvoices()
     {

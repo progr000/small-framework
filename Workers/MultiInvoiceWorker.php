@@ -8,6 +8,7 @@
 namespace Workers;
 
 use Core\Exceptions\ConfigException;
+use Core\Exceptions\DbException;
 use DateInterval;
 use DateTime;
 use Exception;
@@ -38,6 +39,7 @@ class MultiInvoiceWorker
     /**
      * @param $invoice_date
      * @return float
+     * @throws DbException
      * @throws Exception
      */
     public static function getActualTaxForDate($invoice_date)
@@ -61,6 +63,7 @@ class MultiInvoiceWorker
 
     /**
      * @return bool
+     * @throws DbException
      */
     public function checkTablesInstalled()
     {
@@ -73,7 +76,7 @@ class MultiInvoiceWorker
      * @param string|null $for_the_date date in format yyyy-mm-dd if null current date will be used
      * @return array|false
      * @throws ConfigException
-     * @throws \Core\Exceptions\DbException
+     * @throws DbException
      * @throws Exception
      */
     public function fillInvoiceTable($for_the_date = null)
@@ -107,7 +110,7 @@ class MultiInvoiceWorker
             } catch (Exception $e) {
                 LogDriver::error("Unfortunately date that you give doesn't look like a date.", 1);
                 LogDriver::error("Process terminated.", 1);
-                throw new Exception('');
+                throw new Exception('', 400);
             }
         }
         LogDriver::info("All invoices for the date [warn]{$for_the_date}[/warn] will be processed.", 1);
@@ -122,7 +125,7 @@ class MultiInvoiceWorker
         if (!$query) {
             $executeMsg->showError();
             LogDriver::error("Process terminated.", 1);
-            throw new Exception('');
+            throw new Exception('', 400);
         } else {
             $executeMsg->showSuccess();
             $query = trim($query);
@@ -131,7 +134,7 @@ class MultiInvoiceWorker
         /* if debug mode, limit select to {debug.limit_fill_db_query} records */
         if (IS_DEBUG) {
             if (!App::$config->get('debug.limit_fill_db_query')) {
-                throw new ConfigException('Config param debug.limit_fill_db_query is required in DEBUG_MODE');
+                throw new ConfigException('Config param debug.limit_fill_db_query is required in DEBUG_MODE', 400);
             }
             $query .= " LIMIT " . App::$config->get('debug.limit_fill_db_query');
         }
@@ -194,7 +197,7 @@ class MultiInvoiceWorker
      * Write invoice data into DB
      * @param array $products
      * @return bool|null
-     * @throws \Core\Exceptions\DbException
+     * @throws DbException
      */
     private static function createInvoice(array $products)
     {
@@ -308,6 +311,8 @@ class MultiInvoiceWorker
 
     /**
      * @return array|false
+     * @throws DbException
+     * @throws ConfigException
      */
     public function sendFirstMailForInvoices()
     {
@@ -368,6 +373,7 @@ class MultiInvoiceWorker
      * @param array $data
      * @return bool|null
      * @throws ConfigException
+     * @throws DbException
      */
     public static function sendInvoice(array $data)
     {
@@ -375,7 +381,7 @@ class MultiInvoiceWorker
         $debug_email_warn_message = "Real client email is [success]{$data[0]['client_email']}[/success], but in debug mode it is replaced by debug-variant";
         if (IS_DEBUG) {
             if (!App::$config->get('debug.sendmail_debug_email_instead_clients')) {
-                throw new ConfigException('Config param debug.sendmail_debug_email_instead_clients is required in DEBUG_MODE');
+                throw new ConfigException('Config param debug.sendmail_debug_email_instead_clients is required in DEBUG_MODE', 400);
             }
             $data[0]['email'] = App::$config->get('debug.sendmail_debug_email_instead_clients');
         }
@@ -390,7 +396,7 @@ class MultiInvoiceWorker
 
         /* get mail-template for client depend on his language settings */
         if (!App::$config->get('sendmail_templates_dir.first_letter')) {
-            throw new ConfigException('Config param sendmail_templates_dir.first_letter is required');
+            throw new ConfigException('Config param sendmail_templates_dir.first_letter is required', 400);
         }
         $tpl_file = App::$config->get('sendmail_templates_dir.first_letter') . "/" . $data[0]['invoice_lang'] . ".php";
         if (!file_exists($tpl_file)) {
@@ -415,7 +421,7 @@ class MultiInvoiceWorker
             $tpl['text'] = strip_tags($tpl['html']);
         }
         if (!App::$config->get('company_data')) {
-            throw new ConfigException('Config param company_data is required');
+            throw new ConfigException('Config param company_data is required', 400);
         }
         $mailer = SendmailDriver::init()
             ->setFrom($tpl['from_email'], (isset($tpl['from_name']) ? $tpl['from_name'] : $tpl['from_email']))
@@ -476,7 +482,7 @@ class MultiInvoiceWorker
     private static function generateBearer($HttpMethod = 'POST')
     {
         if (!App::$config->get('bearer_secret_key')) {
-            throw new ConfigException('Config param bearer_secret_key is required');
+            throw new ConfigException('Config param bearer_secret_key is required', 400);
         }
         $utc_timestamp = time();
         return [
@@ -534,14 +540,14 @@ class MultiInvoiceWorker
 
         /* company data */
         if (!App::$config->get('company_data')) {
-            throw new ConfigException('Config param company_data is required');
+            throw new ConfigException('Config param company_data is required', 400);
         }
         $request_data = array_merge(App::$config->get('company_data', []), $request_data);
         //dd(json_encode($request_data));
 
         /* request pdf from another server */
         if (!App::$config->get('url_pdf_receive')) {
-            throw new ConfigException('Config param url_pdf_receive is required');
+            throw new ConfigException('Config param url_pdf_receive is required', 400);
         }
         $Bearer = self::generateBearer();
         $response = WgetDriver::init()

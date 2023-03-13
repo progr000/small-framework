@@ -3,12 +3,14 @@
 namespace Db\migrations;
 
 use Core\App;
+use Core\Exceptions\DbException;
 
 
 class m20230210_141649_alter_invoices
 {
     /**
-     * @return false|\PDOStatement
+     * @return bool
+     * @throws DbException
      */
     public function up()
     {
@@ -23,7 +25,8 @@ class m20230210_141649_alter_invoices
     }
 
     /**
-     * @return false|\PDOStatement
+     * @return bool
+     * @throws DbException
      */
     public function down()
     {

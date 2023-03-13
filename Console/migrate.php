@@ -3,8 +3,10 @@ namespace Console;
 
 use Core\App;
 use Core\ConsoleDriver;
+use Core\Exceptions\DbException;
 use Core\LogDriver;
 use Core\MigrationDriver;
+use Exception;
 
 
 class migrate extends ConsoleDriver
@@ -28,7 +30,7 @@ class migrate extends ConsoleDriver
 
     /**
      * @return true
-     * @throws \Exception
+     * @throws Exception
      */
     public function init()
     {
@@ -44,7 +46,6 @@ class migrate extends ConsoleDriver
      * before someMethod will be run by starter.
      * @param array $actions
      * @return bool
-     * @throws \Exception
      */
     public function validate(array $actions)
     {
@@ -67,6 +68,7 @@ class migrate extends ConsoleDriver
 
     /**
      * @return void
+     * @throws DbException
      */
     protected function up()
     {
@@ -75,6 +77,7 @@ class migrate extends ConsoleDriver
 
     /**
      * @return void
+     * @throws DbException
      */
     protected function down()
     {
@@ -91,6 +94,7 @@ class migrate extends ConsoleDriver
 
     /**
      * @return void
+     * @throws DbException
      */
     protected function refresh()
     {
@@ -99,6 +103,7 @@ class migrate extends ConsoleDriver
 
     /**
      * @return void
+     * @throws DbException
      */
     protected function reset()
     {

@@ -3,12 +3,15 @@
 namespace Db\migrations;
 
 use Core\App;
+use Core\Exceptions\DbException;
 use Core\MigrationDriver;
+use PDOStatement;
 
 class m20010101_000000_init_db
 {
     /**
-     * @return false|\PDOStatement
+     * @return false|PDOStatement
+     * @throws DbException
      */
     public function up()
     {
@@ -23,7 +26,8 @@ class m20010101_000000_init_db
     }
 
     /**
-     * @return false|\PDOStatement
+     * @return false|PDOStatement
+     * @throws DbException
      */
     public function down()
     {

@@ -3,9 +3,15 @@
 namespace Db\migrations;
 
 use Core\App;
+use Core\Exceptions\DbException;
+use PDOStatement;
 
 class m20230209_213800_create_invoices
 {
+    /**
+     * @return false|PDOStatement
+     * @throws DbException
+     */
     public function up()
     {
         return App::$db->exec("
@@ -51,6 +57,10 @@ class m20230209_213800_create_invoices
         ");
     }
 
+    /**
+     * @return false|PDOStatement
+     * @throws DbException
+     */
     public function down()
     {
         return App::$db->exec("

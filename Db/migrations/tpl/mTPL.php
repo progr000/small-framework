@@ -3,12 +3,15 @@
 namespace Db\migrations;
 
 use Core\App;
+use Core\Exceptions\DbException;
+use PDOStatement;
 
 
 class __NEW_CLASS_NAME__
 {
     /**
-     * @return false|\PDOStatement
+     * @return false|PDOStatement
+     * @throws DbException
      */
     public function up()
     {
@@ -16,7 +19,8 @@ class __NEW_CLASS_NAME__
     }
 
     /**
-     * @return false|\PDOStatement
+     * @return false|PDOStatement
+     * @throws DbException
      */
     public function down()
     {

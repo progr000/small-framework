@@ -1,6 +1,7 @@
 <?php
 /* debug mode */
 const IS_DEBUG = true;
+const IS_UNDER_MAINTENANCE = true;
 
 return [
     /* wget params */
@@ -10,6 +11,7 @@ return [
     'routes' => require_once('routes.php'),
     /* middleware which were applied to each (any) request */
     'global-middleware' => [
+        Middleware\Maintenance::class,
         Middleware\TrustProxies::class,
     ],
 

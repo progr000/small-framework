@@ -5,6 +5,7 @@ namespace Controllers;
 use Core\App;
 use Core\ControllerDriver;
 use Core\RequestDriver;
+use Core\ResponseDriver;
 use Core\WgetDriver;
 use Requests\IndexRequest;
 
@@ -16,13 +17,15 @@ class MainController extends ControllerDriver
      */
     public function index()
     {
+        dump(App::$db->exec("SELECT 1"));
+        dump(App::$db->getErrors());
         return $this->render('main/index');
     }
 
     /**
      * @param IndexRequest $r
      * @param mixed $p1
-     * @return string|\Core\ResponseDriver
+     * @return string|ResponseDriver
      */
     public function someExamples(IndexRequest $r, $p1 = null)
     {
