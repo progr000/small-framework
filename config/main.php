@@ -2,7 +2,12 @@
 /* debug mode */
 const IS_DEBUG = true;
 const IS_UNDER_MAINTENANCE = true;
+const MAINTENANCE_ACCESS_IPS = [
+    '127.0.0.1',
+    '172.22.0.1',
+];
 
+/* config data */
 return [
     /* wget params */
     'IGNORE_SSL_ERRORS' => true, // if you planed sent request to the servers with wrong certificate need set to true
@@ -11,8 +16,8 @@ return [
     'routes' => require_once('routes.php'),
     /* middleware which were applied to each (any) request */
     'global-middleware' => [
-        Middleware\Maintenance::class,
         Middleware\TrustProxies::class,
+        Middleware\Maintenance::class,
     ],
 
     /* database params */

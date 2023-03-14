@@ -18,8 +18,11 @@ class Maintenance
      */
     public function handle(RequestDriver $request)
     {
-        if (IS_UNDER_MAINTENANCE) {
-            throw new MaintenanceException('Site is under maintenance now, please try late', 503);
+        if (defined('IS_UNDER_MAINTENANCE') && IS_UNDER_MAINTENANCE) {
+            $ip = $request->ip();
+            if (defined('MAINTENANCE_ACCESS_IPS') && !in_array($ip, MAINTENANCE_ACCESS_IPS)) {
+                throw new MaintenanceException('Site is under maintenance now, please try late', 503);
+            }
         }
     }
 }
