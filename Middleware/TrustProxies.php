@@ -28,7 +28,7 @@ class TrustProxies
         }
         */
 
-        if ($request->header('X-Forwarded-Prefix', 'no-header') === App::$config->get('Trusted-Proxies-X-Forwarded-Prefix', 'no-config')) {
+        if ($request->header('X-Forwarded-Hash', 'no-header') === App::$config->get('Trusted-Proxies-X-Forwarded-Hash', 'no-config')) {
             $request->setTrustProxies([$request->ip()]);
         }
     }

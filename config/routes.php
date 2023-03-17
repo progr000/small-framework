@@ -10,7 +10,7 @@ return [
     /* debug */
     '/info(/.*)?' => [
         function(...$params) {
-            dump($params, $_GET);
+            dump($params, $_GET, \Core\App::$request->ip());
             phpinfo();
         },
         'middleware' => [
