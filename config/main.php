@@ -1,7 +1,7 @@
 <?php
 /* debug mode */
 const IS_DEBUG = true;
-const IS_UNDER_MAINTENANCE = true;
+const IS_UNDER_MAINTENANCE = false;
 const MAINTENANCE_ACCESS_IPS = [
     '127.0.0.1',
     '172.22.0.1',
@@ -22,13 +22,8 @@ return [
         Middleware\Maintenance::class,
     ],
 
-    /* database params */
-//    'db' => [
-//        'dsn' => "",
-//        'user' => "",
-//        'password' => "",
-//        'table_prefix' => "tbl_",
-//    ],
+    /* database params (should return array of config for available databases) */
+    'databases' => require_once('databases.php'),
 
     /* templates for ViewDriver */
     'template-path' => __DIR__ . '/../Templates/simple-html',

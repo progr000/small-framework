@@ -4,9 +4,12 @@ namespace Controllers;
 
 use Core\App;
 use Core\ControllerDriver;
+use Core\DbDriver;
+use Core\Exceptions\DbException;
 use Core\RequestDriver;
 use Core\ResponseDriver;
 use Core\WgetDriver;
+use Models\Invoice;
 use Requests\IndexRequest;
 
 
@@ -14,11 +17,20 @@ class MainController extends ControllerDriver
 {
     /**
      * @return string
+     * @throws DbException
      */
     public function index()
     {
-        dump(App::$db->exec("SELECT 1"));
+        $res = Invoice::findAll();
+        dump($res);
+
+        $db2 = DbDriver::getInstance('db-second');
+        dump($db2->exec("SELECT * FROM database_migrations")->fetchAll());
+        dump(App::$DbInstances['db-second']->exec("select 3")->fetchAll());
+
+        dump(App::$db->exec("SELECT * FROM tbl_anrede")->fetchAll());
         dump(App::$db->getErrors());
+
         return $this->render('main/index');
     }
 
