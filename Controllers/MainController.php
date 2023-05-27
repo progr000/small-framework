@@ -9,6 +9,7 @@ use Core\Exceptions\DbException;
 use Core\RequestDriver;
 use Core\ResponseDriver;
 use Core\WgetDriver;
+use Models\Angebot;
 use Models\Invoice;
 use Requests\IndexRequest;
 
@@ -21,12 +22,19 @@ class MainController extends ControllerDriver
      */
     public function index()
     {
+        //dd(Angebot::findOne(['an_preis' => "2.9"]));
+        //dd(Angebot::find(['an_abr' => "p"], 10, ['an_preis' => "DESC", 'an_id' => "asc"], 165));
+        //dd(Angebot::findAll());
+        $a = Angebot::findOne(['an_id' => 7]);
+        $a->an_preis = "2.9";
+        dd($a->save(), App::$DbInstances['weblandAdmin']->getErrors());
+
         $res = Invoice::findAll();
         dump($res);
 
-        $db2 = DbDriver::getInstance('db-second');
+        $db2 = DbDriver::getInstance('mysql-for-developing');
         dump($db2->exec("SELECT * FROM database_migrations")->fetchAll());
-        dump(App::$DbInstances['db-second']->exec("select 3")->fetchAll());
+        dump(App::$DbInstances['mysql-for-developing']->exec("select 3")->fetchAll());
 
         dump(App::$db->exec("SELECT * FROM tbl_anrede")->fetchAll());
         dump(App::$db->getErrors());

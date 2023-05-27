@@ -18,13 +18,31 @@ return [
         'user' => "root",
         'password' => "jgf@Y%jH!dR86vmu",
         'table_prefix' => "tbl_",
+        'charset' => 'utf8',
     ],
 
-    /* config params for database connection named as db-second, you can create anothe new connections instead bellow */
-    'db-second' => [
+    /* config params for database connection named as mysql-for-developing, you can create another new connections instead bellow */
+    'mysql-for-developing' => [
         'dsn' => "mysql:host=mysql-for-developing;dbname=test;port=3306",
         'user' => "root",
         'password' => "mauFJcuf5dhRMQrjj",
         'table_prefix' => "tbl_",
+        'charset' => 'utf8',
+    ],
+
+    'weblandAdmin' => [
+        'dsn' => "sqlsrv:Server=176.9.103.55,1433;Database=WLAdmin",
+        'user' => "SA",
+        'password' => "jgf@Y%jH!dR86vmu",
+        'table_prefix' => "",
+        'charset' => 'utf8',
+    ],
+
+    'postgres-for-developing' => [
+        'dsn' => "pgsql:host=postgres-for-developing;dbname=test;port=5432",
+        'user' => "postgres",
+        'password' => "secret",
+        'table_prefix' => "",
+        'charset' => 'utf8',
     ],
 ];
