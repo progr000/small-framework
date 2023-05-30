@@ -22,9 +22,16 @@ class MainController extends ControllerDriver
      */
     public function index()
     {
+        //dd(22222);
         //dd(Angebot::findOne(['an_preis' => "2.9"]));
         //dd(Angebot::find(['an_abr' => "p"], 10, ['an_preis' => "DESC", 'an_id' => "asc"], 165));
         //dd(Angebot::findAll());
+
+        //dd(Angebot::execRawSql("INSERT INTO offenwv (ku_suchen, ku_id) VALUES ('test', 0)"));
+        //dd(Angebot::execRawSql("UPDATE Angebot SET an_preis = 2.7 WHERE an_id=7"));
+        //dd(Angebot::execRawSql("SELECT TOP 3 * FROM Angebot WHERE an_preis = 2.9"));
+        dd(Angebot::find()->where(['an_preis' => 2.9])->limit(5)->orderBy(['an_id' => 'DESC'])->get());
+
         $a = Angebot::findOne(['an_id' => 7]);
         $a->an_preis = "2.9";
         dd($a->save(), App::$DbInstances['weblandAdmin']->getErrors());
