@@ -11,6 +11,7 @@ use Core\ResponseDriver;
 use Core\WgetDriver;
 use Models\Angebot;
 use Models\Invoice;
+use Models\Test;
 use Requests\IndexRequest;
 
 
@@ -31,20 +32,25 @@ class MainController extends ControllerDriver
         //dd(Angebot::execRawSql("UPDATE Angebot SET an_preis = 2.7 WHERE an_id=7"));
         //dd(Angebot::execRawSql("SELECT TOP 3 * FROM Angebot WHERE an_preis = 2.9"));
         //dd(App::$db->table('countries')->limit(10)->get());
+        //dd(Angebot::find()->delete([a]));
+        //dd(Test::find()->limit(2)->orderBy(['id'])->delete());
         dd(
             Angebot::find()
-                ->select(['t1.an_id', 'an_bez', '"t1"."an_preis"'])
+                ->select(['test' => "1 test", 't1.an_id', 'an_bez', '"t1"."an_preis"', '`t1`.`an_preis`'])
                 //->where("(c=3) OR ((a=1) AND (b=2))")
-                //->where(['an_preis' => 2.9, 'ad' => 11])
+                ->where(['an_preis' => 2.9, 'an_id' => 555555])
                 ->alias("t1")
                 ->innerJoin('AngebotProDomainname as t2', 't1.an_id = t2.apd_an_id')
-                ->where(['t1.an_id' => 7])
+                //->orWhere(['t1.an_id' => 7])
+                //->orWhere(['t1.an_id' => 8])
                 //->where('test2 = 1')
                 //->orWhere(['f1' => 1, 'f2' => 2])
                 //->orWhere(['f3' => 3])
                 ->limit(5)
                 ->orderBy(['t1.an_id' => 'DESC', '"t1"."an_code"' => 'DESC', 'an_rabatt'])
+                //->delete()
                 ->get()
+                //->prepareRawSql()
         );
 
         $a = Angebot::findOne(['an_id' => 7]);
