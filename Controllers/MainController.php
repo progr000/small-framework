@@ -30,7 +30,22 @@ class MainController extends ControllerDriver
         //dd(Angebot::execRawSql("INSERT INTO offenwv (ku_suchen, ku_id) VALUES ('test', 0)"));
         //dd(Angebot::execRawSql("UPDATE Angebot SET an_preis = 2.7 WHERE an_id=7"));
         //dd(Angebot::execRawSql("SELECT TOP 3 * FROM Angebot WHERE an_preis = 2.9"));
-        dd(Angebot::find()->where(['an_preis' => 2.9])->limit(5)->orderBy(['an_id' => 'DESC'])->get());
+        //dd(App::$db->table('countries')->limit(10)->get());
+        dd(
+            Angebot::find()
+                ->select(['t1.an_id', 'an_bez', '"t1"."an_preis"'])
+                //->where("(c=3) OR ((a=1) AND (b=2))")
+                //->where(['an_preis' => 2.9, 'ad' => 11])
+                ->alias("t1")
+                ->innerJoin('AngebotProDomainname as t2', 't1.an_id = t2.apd_an_id')
+                ->where(['t1.an_id' => 7])
+                //->where('test2 = 1')
+                //->orWhere(['f1' => 1, 'f2' => 2])
+                //->orWhere(['f3' => 3])
+                ->limit(5)
+                ->orderBy(['t1.an_id' => 'DESC', '"t1"."an_code"' => 'DESC', 'an_rabatt'])
+                ->get()
+        );
 
         $a = Angebot::findOne(['an_id' => 7]);
         $a->an_preis = "2.9";
