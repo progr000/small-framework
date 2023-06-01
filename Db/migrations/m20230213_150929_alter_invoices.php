@@ -2,20 +2,28 @@
 
 namespace Db\migrations;
 
-use Core\App;
 use Core\Exceptions\DbException;
+use Db\migrations\tpl\mMain;
 use PDOStatement;
 
-
-class m20230213_150929_alter_invoices
+class m20230213_150929_alter_invoices extends mMain
 {
+    /**
+     * You can put in this var string with name
+     * of db-connection from config/databases.php
+     * to create/modify/delete table from different database
+     * instead default (when this var not set)
+     * @var string
+     */
+    protected static $connection_name;
+
     /**
      * @return false|PDOStatement
      * @throws DbException
      */
     public function up()
     {
-        return App::$db->exec("
+        return $this->db->exec("
             ALTER TABLE {{invoices}} 
                 ADD COLUMN mailer_last_full_answer tinytext DEFAULT NULL AFTER invoice_reserved3,
                 ADD COLUMN mailer_last_queue_id varchar(25) DEFAULT NULL AFTER mailer_last_full_answer,
@@ -31,7 +39,7 @@ class m20230213_150929_alter_invoices
      */
     public function down()
     {
-        return App::$db->exec("
+        return $this->db->exec("
             ALTER TABLE {{invoices}} 
                 DROP INDEX mailer_last_status_idx,
                 DROP INDEX mailer_last_queue_id_idx,

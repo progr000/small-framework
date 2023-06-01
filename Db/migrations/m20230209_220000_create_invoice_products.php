@@ -2,19 +2,28 @@
 
 namespace Db\migrations;
 
-use Core\App;
 use Core\Exceptions\DbException;
+use Db\migrations\tpl\mMain;
 use PDOStatement;
 
-class m20230209_220000_create_invoice_products
+class m20230209_220000_create_invoice_products extends mMain
 {
+    /**
+     * You can put in this var string with name
+     * of db-connection from config/databases.php
+     * to create/modify/delete table from different database
+     * instead default (when this var not set)
+     * @var string
+     */
+    protected static $connection_name;
+
     /**
      * @return false|PDOStatement
      * @throws DbException
      */
     public function up()
     {
-        return App::$db->exec("
+        return $this->db->exec("
             CREATE TABLE IF NOT EXISTS {{invoice_products}}
             (
                 `internal_id`       int                     NOT NULL AUTO_INCREMENT COMMENT 'internal id for table for convenient manipulation with the record',
@@ -49,7 +58,7 @@ class m20230209_220000_create_invoice_products
      */
     public function down()
     {
-        return App::$db->exec("
+        return $this->db->exec("
             DROP TABLE IF EXISTS {{invoice_products}};
         ");
     }

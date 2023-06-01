@@ -3,11 +3,10 @@
 namespace Db\migrations;
 
 use Core\Exceptions\DbException;
-use Core\MigrationDriver;
 use Db\migrations\tpl\mMain;
 use PDOStatement;
 
-class m20010101_000000_init_db extends mMain
+class m20230601_171309_tests extends mMain
 {
     /**
      * You can put in this var string with name
@@ -16,7 +15,7 @@ class m20010101_000000_init_db extends mMain
      * instead default (when this var not set)
      * @var string
      */
-    protected static $connection_name;
+    protected static $connection_name = 'mysql-for-developing';
 
     /**
      * @return false|PDOStatement
@@ -25,10 +24,14 @@ class m20010101_000000_init_db extends mMain
     public function up()
     {
         return $this->db->exec("
-            CREATE TABLE IF NOT EXISTS `" . MigrationDriver::TABLE_LIST_MIGRATIONS . "`
+            CREATE TABLE IF NOT EXISTS {{tests}}
             (
-                `" . MigrationDriver::COLUMN_NAME . "` varchar(255) NOT NULL COMMENT 'migration name',
-                UNIQUE KEY (`" . MigrationDriver::COLUMN_NAME . "`)
+                `id`              int                     NOT NULL AUTO_INCREMENT COMMENT 'internal record id',
+                `amount`          DECIMAL(10, 2) UNSIGNED NOT NULL DEFAULT '0.00' COMMENT 'amount',
+                `email`           varchar(35)                      DEFAULT NULL COMMENT 'just email',
+                `name`            varchar(35)             NOT NULL COMMENT 'just name',
+                PRIMARY KEY (`id`),
+                KEY `email_idx` (`email`)
             ) ENGINE = InnoDB
               COLLATE = 'utf8_general_ci';        
         ");
@@ -40,6 +43,8 @@ class m20010101_000000_init_db extends mMain
      */
     public function down()
     {
-        return $this->db->exec("DROP TABLE IF EXISTS `" . MigrationDriver::TABLE_LIST_MIGRATIONS . "`;");
+        return $this->db->exec("
+            DROP TABLE IF EXISTS {{tests}};
+        ");
     }
 }

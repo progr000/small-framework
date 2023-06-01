@@ -33,24 +33,53 @@ class MainController extends ControllerDriver
         //dd(Angebot::execRawSql("SELECT TOP 3 * FROM Angebot WHERE an_preis = 2.9"));
         //dd(App::$db->table('countries')->limit(10)->get());
         //dd(Angebot::find()->delete([a]));
-        //dd(Test::find()->limit(2)->orderBy(['id'])->delete());
+//        $t = Test::findById(7);
+//        $t->id = 8;
+//        $t->name = 5555;
+//        dump($t);
+//        dd($t->save(), App::$DbInstances['mysql-for-developing']->getErrors());
+//        dd(Test::table()->insert([
+//            'name' => null,
+//        ]));
+        dd(Test::table()->insert([
+//            [
+//                8,
+//                null,
+//            ],
+            [
+                'id' => 9,
+                'name' => null,
+            ],
+            [
+                //'id' => 10,
+                'name' => 'name9',
+            ]
+        ]), App::$DbInstances['mysql-for-developing']->getErrors());
+        dd(
+            Test::find()
+                ->limit(2)
+                ->offset(2)
+                ->orderBy(['id'])
+                //->get(true)
+                ->delete([], [], true)
+        );
         dd(
             Angebot::find()
-                ->select(['test' => "1 test", 't1.an_id', 'an_bez', '"t1"."an_preis"', '`t1`.`an_preis`'])
-                //->where("(c=3) OR ((a=1) AND (b=2))")
-                ->where(['an_preis' => 2.9, 'an_id' => 555555])
                 ->alias("t1")
+                ->select(['test' => "1 test", 't1.an_id', 'an_bez', '"t1"."an_preis"', '`t1`.`an_preis`'])
                 ->innerJoin('AngebotProDomainname as t2', 't1.an_id = t2.apd_an_id')
-                //->orWhere(['t1.an_id' => 7])
-                //->orWhere(['t1.an_id' => 8])
-                //->where('test2 = 1')
-                //->orWhere(['f1' => 1, 'f2' => 2])
-                //->orWhere(['f3' => 3])
+                ->where("(c=3) OR ((a=1) AND (b=2))")
+                ->where(['an_preis' => 2.9, 'an_id' => 555555])
+                ->orWhere(['t1.an_id' => 7])
+                ->orWhere(['t1.an_id' => 8])
+                ->where('test2 = 1')
+                ->orWhere(['f1' => 1, 'f2' => 2])
+                ->orWhere(['f3' => 3])
+                //->orderBy(['t1.an_id' => 'DESC', '"t1"."an_code"' => 'DESC', 'an_rabatt'])
                 ->limit(5)
-                ->orderBy(['t1.an_id' => 'DESC', '"t1"."an_code"' => 'DESC', 'an_rabatt'])
-                //->delete()
-                ->get()
-                //->prepareRawSql()
+                ->offset(5)
+                //->delete([], [], true)
+                ->get(true)
         );
 
         $a = Angebot::findOne(['an_id' => 7]);

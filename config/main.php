@@ -9,6 +9,14 @@ const MAINTENANCE_ACCESS_IPS = [
     '172.26.0.1',
 ];
 
+//register_shutdown_function( "fatal_handler" );
+//function fatal_handler() {
+//    $error = error_get_last();
+//    if($error !== NULL) {
+//        dd("{$error["message"]}\n{$error["type"]}\n{$error["file"]}\n{$error["line"]}");
+//    }
+//}
+
 /* config data */
 return [
     /* wget params */
