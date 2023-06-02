@@ -25,7 +25,7 @@ class m20010101_000000_init_db extends mMain
     public function up()
     {
         return $this->db->exec("
-            CREATE TABLE IF NOT EXISTS `" . MigrationDriver::TABLE_LIST_MIGRATIONS . "`
+            CREATE TABLE IF NOT EXISTS {{" . MigrationDriver::TABLE_LIST_MIGRATIONS . "}}
             (
                 `" . MigrationDriver::COLUMN_NAME . "` varchar(255) NOT NULL COMMENT 'migration name',
                 UNIQUE KEY (`" . MigrationDriver::COLUMN_NAME . "`)
@@ -40,6 +40,6 @@ class m20010101_000000_init_db extends mMain
      */
     public function down()
     {
-        return $this->db->exec("DROP TABLE IF EXISTS `" . MigrationDriver::TABLE_LIST_MIGRATIONS . "`;");
+        return $this->db->exec("DROP TABLE IF EXISTS {{" . MigrationDriver::TABLE_LIST_MIGRATIONS . "}};");
     }
 }
