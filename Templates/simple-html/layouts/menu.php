@@ -1,5 +1,5 @@
 <?php
-$vars['js-stack'][] = "/js/menu.js";
+$vars['js-stack'][] = "/simple-html/js/menu.js";
 
 $controller = Core\App::$route->getController();
 $action = Core\App::$route->getAction();

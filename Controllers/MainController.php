@@ -23,6 +23,8 @@ class MainController extends ControllerDriver
      */
     public function index()
     {
+        return $this->render('main/index');
+
         //dd(22222);
         //dd(Angebot::findOne(['an_preis' => "2.9"]));
         //dd(Angebot::find(['an_abr' => "p"], 10, ['an_preis' => "DESC", 'an_id' => "asc"], 165));

@@ -4,8 +4,20 @@
 /** @var array $vars */
 //$menu = $view->renderView('layouts/menu', $vars);
 
-$vars['css-stack'][] = "/css/main.css";
-$vars['js-stack'][] = "/js/jquery-3.6.3.min.js";
+if (!isset($vars['js-stack']) || !is_array($vars['js-stack'])) {
+    $vars['js-stack'] = [];
+}
+if (!isset($vars['css-stack']) || !is_array($vars['css-stack'])) {
+    $vars['css-stack'] = [];
+}
+$vars['js-stack'] = array_merge([
+    "/simple-html/js/jquery-3.6.3.min.js",
+], $vars['js-stack']);
+$vars['css-stack'] = array_merge([
+    "/simple-html/css/main.css",
+], $vars['css-stack']);
+
+
 ?>
 <!DOCTYPE html>
 <html lang="ru">
