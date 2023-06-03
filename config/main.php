@@ -1,24 +1,26 @@
 <?php
 /* debug mode */
 const IS_DEBUG = true;
-const IS_UNDER_MAINTENANCE = false;
-const MAINTENANCE_ACCESS_IPS = [
-    '127.0.0.1',
-    '172.22.0.1',
-    '172.18.0.1',
-    '172.26.0.1',
-];
 
-//register_shutdown_function( "fatal_handler" );
-//function fatal_handler() {
-//    $error = error_get_last();
-//    if($error !== NULL) {
-//        dd("{$error["message"]}\n{$error["type"]}\n{$error["file"]}\n{$error["line"]}");
-//    }
-//}
+/* you can put or move some params into local conf 'main-local.php' and they will be override current params above */
+if (file_exists(__DIR__ . "/main-local.php")) {
+    $local_conf = require_once(__DIR__ . "/main-local.php");
+} else {
+    $local_conf = [];
+}
 
 /* config data */
-return [
+return array_merge([
+
+    /* maintenance options */
+    'IS_UNDER_MAINTENANCE' => false,
+    'MAINTENANCE_ACCESS_IPS' => [
+        '127.0.0.1',
+        '172.22.0.1',
+        '172.18.0.1',
+        '172.26.0.1',
+    ],
+
     /* wget params */
     'IGNORE_SSL_ERRORS' => true, // if you planed sent request to the servers with wrong certificate need set to true
 
@@ -41,4 +43,5 @@ return [
 
     /* BearerAuth secret-key */
     'api.api-storage-access-token' => "",
-];
+
+], $local_conf);

@@ -2,6 +2,7 @@
 
 namespace Middleware;
 
+use Core\App;
 use Core\Exceptions\MaintenanceException;
 use Core\RequestDriver;
 
@@ -18,9 +19,9 @@ class Maintenance
      */
     public function handle(RequestDriver $request)
     {
-        if (defined('IS_UNDER_MAINTENANCE') && IS_UNDER_MAINTENANCE) {
+        if (App::$config->get('IS_UNDER_MAINTENANCE', false)) {
             $ip = $request->ip();
-            if (defined('MAINTENANCE_ACCESS_IPS') && !in_array($ip, MAINTENANCE_ACCESS_IPS)) {
+            if (!in_array($ip, App::$config->get('MAINTENANCE_ACCESS_IPS', []))) {
                 throw new MaintenanceException('Site is under maintenance now, please try late', 503);
             }
         }
