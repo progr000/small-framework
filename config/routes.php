@@ -26,11 +26,12 @@ return [
         //'method' => 'post',
         //'middleware' => Middleware\allowOnlyInDebug::class,
     ],
-    '/echo(/.*)?' => function(...$params) {
-        if (IS_DEBUG) {
+    '/echo(/.*)?' => [
+        function(...$params) {
             dump(file_get_contents('php://input'), $params, $_GET, $_POST);
-        }
-    },
+        },
+        'middleware' => Middleware\allowOnlyInDebug::class,
+    ],
 
     /*
      * rest-controller-example
