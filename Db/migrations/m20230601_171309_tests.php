@@ -31,7 +31,7 @@ class m20230601_171309_tests extends mMain
                 `email`           varchar(35)                      DEFAULT NULL COMMENT 'just email',
                 `name`            varchar(35)             NOT NULL COMMENT 'just name',
                 PRIMARY KEY (`id`),
-                KEY `email_idx` (`email`)
+                UNIQUE KEY `email_idx` (`email`)
             ) ENGINE = InnoDB
               COLLATE = 'utf8_general_ci';        
         ");

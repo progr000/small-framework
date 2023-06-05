@@ -38,11 +38,19 @@ return [
         'charset' => 'utf8',
     ],
 
+    'mssql-for-developing' => [
+        'dsn' => "sqlsrv:Server=mssql-for-developing,1433;Database=test",
+        'user' => "SA",
+        'password' => "Secret1234",
+        'table_prefix' => "tbl_",
+        'charset' => 'utf8',
+    ],
+
     'postgres-for-developing' => [
         'dsn' => "pgsql:host=postgres-for-developing;dbname=test;port=5432",
         'user' => "postgres",
         'password' => "secret",
-        'table_prefix' => "",
+        'table_prefix' => "tbl_",
         'charset' => 'utf8',
     ],
 ];

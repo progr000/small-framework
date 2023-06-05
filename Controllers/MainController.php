@@ -11,6 +11,8 @@ use Core\ResponseDriver;
 use Core\WgetDriver;
 use Models\Angebot;
 use Models\Invoice;
+use Models\mssql\TestForMssql;
+use Models\pgsql\TestForPg;
 use Models\Test;
 use Requests\IndexRequest;
 
@@ -23,7 +25,6 @@ class MainController extends ControllerDriver
      */
     public function index()
     {
-        return $this->render('main/index');
 
         //dd(22222);
         //dd(Angebot::findOne(['an_preis' => "2.9"]));
@@ -43,18 +44,48 @@ class MainController extends ControllerDriver
 //        dd(Test::table()->insert([
 //            'name' => null,
 //        ]));
+        dd(
+            TestForMssql::upsert([
+                'id' => 7,
+                'amount' => '7.77',
+                'name' => '777',
+                'email' => '777@gmail.com'
+            ], ['id']),
+            TestForMssql::getErrors()
+        );
+        dd(
+            TestForPg::upsert([
+                'id' => 7,
+                'amount' => 7.77,
+                'name' => '77777',
+                'email' => '777@gmail.com'
+            ], ['id']),
+            TestForPg::getErrors()
+        );
+//        dd(
+//            Test::upsert([
+//                'id' => 6,
+//                'amount' => 6.66,
+//                'name' => '666',
+//                'email' => '666@gmail.com'
+//            ], ['id']),
+//            Test::getErrors()
+//        );
+        dd(Test::update(['email' => 'test@gmail.com']/*, ['id' => 7]*/), Test::getErrors());
         dd(Test::table()->insert([
 //            [
 //                8,
 //                null,
 //            ],
             [
-                'id' => 9,
-                'name' => null,
+                //'id' => 9,
+                'name' => '',
+                'email' => null,
             ],
             [
                 //'id' => 10,
                 'name' => 'name9',
+                'email' => 'test@gmail.com'
             ]
         ]), App::$DbInstances['mysql-for-developing']->getErrors());
         dd(

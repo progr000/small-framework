@@ -38,6 +38,26 @@ abstract class mMain
     }
 
     /**
+     * @param string $queries
+     * @return bool
+     * @throws DbException
+     */
+    protected function exec($queries)
+    {
+        $queries_ = explode(';', $queries);
+        foreach ($queries_ as $sql) {
+            $sql = trim($sql);
+            if (!empty($sql)) {
+                if (!$this->db->exec($sql)) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
+    /**
      * @return mixed
      */
     abstract public function up();
