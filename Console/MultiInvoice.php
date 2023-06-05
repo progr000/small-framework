@@ -47,7 +47,7 @@ class MultiInvoice extends ConsoleDriver
         //dump($this->for_the_date);
         LogDriver::setLog(App::$config->get('logs->multiInvoiceWorker.validate.log'));
 
-        if (IS_DEBUG) {
+        if (App::$config->get('IS_DEBUG', false)) {
             LogDriver::error("\tWARNING: Debug mode is enabled now", 0);
             LogDriver::error("\tIn this mode next limitation:", 0);
             LogDriver::error("\tTotal select records with products: {" . App::$config->get('debug.limit_fill_db_query', 50) . "}", 0);

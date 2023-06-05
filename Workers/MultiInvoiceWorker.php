@@ -132,7 +132,7 @@ class MultiInvoiceWorker
         }
 
         /* if debug mode, limit select to {debug.limit_fill_db_query} records */
-        if (IS_DEBUG) {
+        if (App::$config->get('IS_DEBUG', false)) {
             if (!App::$config->get('debug.limit_fill_db_query')) {
                 throw new ConfigException('Config param debug.limit_fill_db_query is required in DEBUG_MODE', 400);
             }
@@ -379,7 +379,7 @@ class MultiInvoiceWorker
     {
         /* in debug mode we do not send email to real client */
         $debug_email_warn_message = "Real client email is [success]{$data[0]['client_email']}[/success], but in debug mode it is replaced by debug-variant";
-        if (IS_DEBUG) {
+        if (App::$config->get('IS_DEBUG', false)) {
             if (!App::$config->get('debug.sendmail_debug_email_instead_clients')) {
                 throw new ConfigException('Config param debug.sendmail_debug_email_instead_clients is required in DEBUG_MODE', 400);
             }
@@ -440,12 +440,12 @@ class MultiInvoiceWorker
             return false;
         } elseif (isset($res['queue_id'])) {
             $executeMsgInvoice->showSuccess();
-            if (IS_DEBUG) LogDriver::warning($debug_email_warn_message, 3);
+            if (App::$config->get('IS_DEBUG', false)) LogDriver::warning($debug_email_warn_message, 3);
             LogDriver::warning("Mailer answer: queue_id=[success]{$res['queue_id']}[/success]", 3);
             $resultSent = true;
         } else {
             $executeMsgInvoice->showWarn();
-            if (IS_DEBUG) LogDriver::warning($debug_email_warn_message);
+            if (App::$config->get('IS_DEBUG', false)) LogDriver::warning($debug_email_warn_message);
             LogDriver::warning("For invoice_id=[warn]{$data[0]['invoice_id']}[/warn], mailer answer was NULL. Probably mailer need to check or serve mail-system", 3);
             // Probably here we must return false
             $resultSent = null;

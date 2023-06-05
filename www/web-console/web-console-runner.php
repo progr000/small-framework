@@ -74,9 +74,7 @@ try {
     }
 
 } catch (Exception $e) {
-    $error = IS_DEBUG
-        ? $e->getMessage() . "\n" . nl2br($e->getTraceAsString()) . "\nFile: {$e->getFile()} (line: {$e->getLine()})\n"
-        : "Something wrong. Perhaps task with this name doesn't exist\n";
+    $error = $e->getMessage() . "\n" . nl2br($e->getTraceAsString()) . "\nFile: {$e->getFile()} (line: {$e->getLine()})\n";
     LogDriver::error($error);
 }
 

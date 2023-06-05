@@ -4,6 +4,8 @@
 /** @var array $vars */
 //$menu = $view->renderView('layouts/menu', $vars);
 
+use Core\App;
+
 if (!isset($vars['js-stack']) || !is_array($vars['js-stack'])) {
     $vars['js-stack'] = [];
 }
@@ -31,7 +33,7 @@ $vars['css-stack'] = array_merge([
             ? filemtime(__WWW_DIR__ . $style)
             : time();
         ?>
-        <link rel="stylesheet" href="<?= $style ?><?= IS_DEBUG ? '?v=' . $filemtime : '' ?>">
+        <link rel="stylesheet" href="<?= $style ?><?= App::$config->get('IS_DEBUG', false) ? '?v=' . $filemtime : '' ?>">
         <?php
     }
     ?>
@@ -65,7 +67,7 @@ $vars['css-stack'] = array_merge([
         <td class="footer" colspan="2">Copyright (c) Maks</td>
     </tr>
     <?php
-    if (IS_DEBUG) {
+    if (App::$config->get('IS_DEBUG', false)) {
         ?>
         <tr>
             <td class="footer" colspan="2">
@@ -84,7 +86,7 @@ foreach ($vars['js-stack'] as $script) {
         ? filemtime(__WWW_DIR__ . $script)
         : time();
     ?>
-    <script src="<?= $script ?><?= IS_DEBUG ? '?v=' . $filemtime : '' ?>"></script>
+    <script src="<?= $script ?><?= App::$config->get('IS_DEBUG', false) ? '?v=' . $filemtime : '' ?>"></script>
     <?php
 }
 ?>
