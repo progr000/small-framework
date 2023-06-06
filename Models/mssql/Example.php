@@ -5,8 +5,8 @@ namespace Models\mssql;
 use Core\ActiveRecordDriver;
 
 
-class TestForMssql extends ActiveRecordDriver
+class Example extends ActiveRecordDriver
 {
     protected static $connection_name = 'mssql-for-developing';
-    protected static $_table_name = 'tbl_tests_for_mssql';
+    protected static $_table_name = '{{examples}}';
 }

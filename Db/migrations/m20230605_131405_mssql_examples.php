@@ -4,9 +4,8 @@ namespace Db\migrations;
 
 use Core\Exceptions\DbException;
 use Db\migrations\tpl\mMain;
-use PDOStatement;
 
-class m20230605_131405_tests_for_mssql extends mMain
+class m20230605_131405_mssql_examples extends mMain
 {
     /**
      * You can put in this var string with name
@@ -18,13 +17,13 @@ class m20230605_131405_tests_for_mssql extends mMain
     protected static $connection_name = 'mssql-for-developing';
 
     /**
-     * @return false|PDOStatement
+     * @return bool
      * @throws DbException
      */
     public function up()
     {
-        return $this->db->exec("
-            CREATE TABLE {{tests_for_mssql}} (
+        return $this->exec("
+            CREATE TABLE {{examples}} (
                 id INT IDENTITY(1,1) PRIMARY KEY,
                 amount DECIMAL(10, 2) NULL DEFAULT 0.00,
                 email VARCHAR(35) DEFAULT NULL,
@@ -35,13 +34,13 @@ class m20230605_131405_tests_for_mssql extends mMain
     }
 
     /**
-     * @return false|PDOStatement
+     * @return bool
      * @throws DbException
      */
     public function down()
     {
-        return $this->db->exec("
-            DROP TABLE IF EXISTS {{tests_for_mssql}};
+        return $this->exec("
+            DROP TABLE IF EXISTS {{examples}};
         ");
     }
 }

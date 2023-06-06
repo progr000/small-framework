@@ -4,9 +4,8 @@ namespace Db\migrations;
 
 use Core\Exceptions\DbException;
 use Db\migrations\tpl\mMain;
-use PDOStatement;
 
-class m20230605_115620_tests_for_pg extends mMain
+class m20230605_115620_postgres_examples extends mMain
 {
     /**
      * You can put in this var string with name
@@ -18,22 +17,22 @@ class m20230605_115620_tests_for_pg extends mMain
     protected static $connection_name = 'postgres-for-developing';
 
     /**
-     * @return false|PDOStatement
+     * @return bool
      * @throws DbException
      */
     public function up()
     {
         return $this->exec("
-            CREATE SEQUENCE tests_for_pg_id_seq
+            CREATE SEQUENCE examples_id_seq
                 INCREMENT 1
                 START 1
                 MINVALUE 1
                 MAXVALUE 9223372036854775807
                 CACHE 1;
          
-            CREATE TABLE {{tests_for_pg}}
+            CREATE TABLE {{examples}}
             (
-                id       BIGINT PRIMARY KEY     NOT NULL DEFAULT nextval('tests_for_pg_id_seq'::regclass),
+                id       BIGINT PRIMARY KEY     NOT NULL DEFAULT nextval('examples_id_seq'::regclass),
                 amount   NUMERIC(10, 2)         NOT NULL DEFAULT 0.00,
                 email    CHARACTER VARYING(35)           DEFAULT NULL,
                 name     CHARACTER VARYING(35)  NOT NULL
@@ -43,19 +42,19 @@ class m20230605_115620_tests_for_pg extends mMain
             TABLESPACE pg_default;
         
             CREATE UNIQUE INDEX email_idx
-                ON {{tests_for_pg}} USING BTREE (email);
+                ON {{examples}} USING BTREE (email);
         ");
     }
 
     /**
-     * @return false|PDOStatement
+     * @return bool
      * @throws DbException
      */
     public function down()
     {
         return $this->exec("
-            DROP TABLE IF EXISTS {{tests_for_pg}};
-            DROP SEQUENCE IF EXISTS tests_for_pg_id_seq;     
+            DROP TABLE IF EXISTS {{examples}};
+            DROP SEQUENCE IF EXISTS examples_id_seq;     
         ");
     }
 }

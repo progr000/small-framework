@@ -4,9 +4,10 @@ namespace Requests;
 
 use Core\RequestDriver;
 use Core\ResponseDriver;
+use Requests\Validators\ExampleValidator;
 
 
-class IndexRequest extends RequestDriver
+class ExampleRequest extends RequestDriver
 {
     /**
      * This function - example of possible
@@ -20,11 +21,22 @@ class IndexRequest extends RequestDriver
     {
         // here can create some rules
         return [
+            /*
             'test_int'     => "required|int|min:4|max:10",
             'test_double'  => "required|double|min:2.5|max:5.6",
             'test_string1' => "required|string|min:4|max:12",
             'test_string2' => "string|length:10",
             'test_string3' => "string",
+            */
+            'test' => "int|min:4|max:10|regex:/^[a-z0-9]$/|" . ExampleValidator::class,
+            'test2' => [
+                'required',
+                'int',
+                'min:4',
+                'max:10',
+                'regex:/^[a-z0-9]$/',
+                ExampleValidator::class,
+            ],
         ];
     }
 

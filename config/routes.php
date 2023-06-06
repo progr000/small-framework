@@ -1,36 +1,23 @@
 <?php
 return [
 
-    /* hello everyone */
-    '/hello(?:/?|/(.*))' => [Controllers\MainController::class, 'hello', /*'post'*/],
-    '/some-examples(?:(?:/)(.*))?' => [Controllers\MainController::class, 'someExamples', /*'post'*/ 'middleware' => [
+    /** controller with some examples */
+    '/some-examples(?:(?:/)(.*))?' => [Controllers\ExampleController::class, 'someExamples', /*'post'*/ 'middleware' => [
         //Middleware\TrustProxies::class,
     ]],
+    '/request-and-validation-example(?:(?:/)(.*))?' => [Controllers\ExampleController::class, 'exampleRequestAndValidation'],
+    '/database-and-activerecord-example(?:(?:/)(.*))?' => [Controllers\ExampleController::class, 'exampleDatabaseAndActiveRecord'],
 
-    /* debug */
+    /** debug middleware example */
     '/info(/.*)?' => [
         function(...$params) {
-            dump($params, $_GET, \Core\App::$request->ip());
+            //dump($params, $_GET, \Core\App::$request->ip());
             phpinfo();
         },
         'middleware' => [
             Middleware\allowOnlyInDebug::class,
             //Middleware\allowOnlyWithBearerAuth::class,
         ],
-    ],
-    '/info2/(.*)/(.*)' => [
-        function($p1, $p2) {
-            dump($p1, $p2, $_GET);
-            phpinfo();
-        },
-        //'method' => 'post',
-        //'middleware' => Middleware\allowOnlyInDebug::class,
-    ],
-    '/echo(/.*)?' => [
-        function(...$params) {
-            dump(file_get_contents('php://input'), $params, $_GET, $_POST);
-        },
-        'middleware' => Middleware\allowOnlyInDebug::class,
     ],
 
     /*
@@ -55,16 +42,10 @@ return [
      * (you can implement check for allowed http-method inside this method-function)
      */
     [Controllers\RestController::class], // automatic route path for rest by controller name will be created as /rest
-    [Controllers\RestController::class, '/api/rest/', 'middleware' => [Middleware\allowOnlyWithBearerAuth::class]], // manual route path for rest as /api/rest
-
-    /* Invoices rest + pdf */
-    [Controllers\ApiRestInvoicesController::class, '/api/invoices/', 'middleware' => [
-        Middleware\responseAsJson::class,
-        Middleware\allowOnlyWithBearerAuth::class,
-    ]],
-
-    /* show how we can use /api/invoices */
-    '/invoice-api-usage(?:/?|/(\d+)/?|/(\d+)/[a-z\-]{3,15})' => [Controllers\MainController::class, 'invoiceApiUsage', 'GET'],
+    [Controllers\RestController::class, '/api/rest/', 'middleware' => [
+        Middleware\responseAsJson::class, // middleware asJson example
+        Middleware\allowOnlyWithBearerAuth::class
+    ]], // manual route path for rest as /api/rest
 
     /*
      * document-root-index - must be the last,
@@ -88,5 +69,5 @@ return [
      * /index.html
      * /index.htm
      */
-    '(?:/?|/index(?:/?)|/index/([0-9]+)|/index(?:(?:/)(.*))?|/index\.htm(l?))' => [Controllers\MainController::class, 'index'],
+    '(?:/?|/index(?:/?)|/index/([0-9]+)|/index(?:(?:/)(.*))?|/index\.htm(l?))' => [Controllers\ExampleController::class, 'index'],
 ];

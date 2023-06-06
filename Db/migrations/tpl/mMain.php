@@ -58,6 +58,14 @@ abstract class mMain
     }
 
     /**
+     * @return array|mixed
+     */
+    public function getErrors()
+    {
+        return $this->db->getErrors();
+    }
+
+    /**
      * @return mixed
      */
     abstract public function up();

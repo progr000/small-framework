@@ -5,7 +5,6 @@ namespace Db\migrations;
 use Core\Exceptions\DbException;
 use Core\MigrationDriver;
 use Db\migrations\tpl\mMain;
-use PDOStatement;
 
 class m20010101_000000_init_db extends mMain
 {
@@ -19,12 +18,12 @@ class m20010101_000000_init_db extends mMain
     protected static $connection_name;
 
     /**
-     * @return false|PDOStatement
+     * @return bool
      * @throws DbException
      */
     public function up()
     {
-        return $this->db->exec("
+        return $this->exec("
             CREATE TABLE IF NOT EXISTS {{" . MigrationDriver::TABLE_LIST_MIGRATIONS . "}}
             (
                 `" . MigrationDriver::COLUMN_NAME . "` varchar(255) NOT NULL COMMENT 'migration name',
@@ -35,11 +34,11 @@ class m20010101_000000_init_db extends mMain
     }
 
     /**
-     * @return false|PDOStatement
+     * @return bool
      * @throws DbException
      */
     public function down()
     {
-        return $this->db->exec("DROP TABLE IF EXISTS {{" . MigrationDriver::TABLE_LIST_MIGRATIONS . "}};");
+        return $this->exec("DROP TABLE IF EXISTS {{" . MigrationDriver::TABLE_LIST_MIGRATIONS . "}};");
     }
 }
