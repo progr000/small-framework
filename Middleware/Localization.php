@@ -15,7 +15,6 @@ class Localization
     {
         //if (Session::has('locale')) {
         if (isset($_SESSION['app']['locale'])) {
-            dump(222);
             App::$locale = $_SESSION['app']['locale']; //Session::get('locale');
         }
     }

@@ -56,7 +56,6 @@ class ExampleController extends ControllerDriver
             ], ['id']),
             Example::getErrors()
         );
-        //dd(22222);
         //dd(Angebot::findOne(['an_preis' => "2.9"]));
         //dd(Angebot::find(['an_abr' => "p"], 10, ['an_preis' => "DESC", 'an_id' => "asc"], 165));
         //dd(Angebot::findAll());
