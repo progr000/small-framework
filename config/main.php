@@ -30,6 +30,7 @@ return array_merge([
     'global-middleware' => [
         Middleware\TrustProxies::class,
         Middleware\Maintenance::class,
+        Middleware\Localization::class,
     ],
 
     /* database params (should return array of config for available databases) */
@@ -37,6 +38,9 @@ return array_merge([
 
     /* templates for ViewDriver */
     'template-path' => __DIR__ . '/../Templates/simple-html',
+
+    /**/
+    'localization' => require_once('localization.php'),
 
     /* log params */
     'logs' => require_once('logs.php'),

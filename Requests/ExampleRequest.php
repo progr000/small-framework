@@ -48,7 +48,7 @@ class ExampleRequest extends RequestDriver
         return [
             'test_int' => "",
             'test2_required' => "",
-            'test2_min' => "min value for this variable is {%min}",
+            'test2_min' => __("min value for this variable is {%min}"),
         ];
     }
 

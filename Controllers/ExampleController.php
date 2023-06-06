@@ -17,6 +17,14 @@ use Requests\ExampleRequest;
 class ExampleController extends ControllerDriver
 {
     /**
+     * @return \Exception|string
+     */
+    public function index()
+    {
+        return $this->render('main/index');
+    }
+
+    /**
      * @throws DbException
      */
     public function exampleDatabaseAndActiveRecord()

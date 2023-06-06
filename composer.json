@@ -29,6 +29,6 @@
         "ext-json": "*",
         "ext-mbstring": "*",
         "ext-fileinfo": "*",
-        "maksym/small-framework-core-lib": "*"
+        "maksym/small-framework-core-lib": "dev-dev"
     }
 }
