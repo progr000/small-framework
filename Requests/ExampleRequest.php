@@ -22,11 +22,11 @@ class ExampleRequest extends RequestDriver
         // here can create some rules
         return [
             /*
-            'test_int'     => "required|int|min:4|max:10",
-            'test_double'  => "required|double|min:2.5|max:5.6",
-            'test_string1' => "required|string|min:4|max:12",
-            'test_string2' => "string|length:10",
-            'test_string3' => "string",
+            'var_int'     => "required|int|min:4|max:10",
+            'var_double'  => "required|double|min:2.5|max:5.6",
+            'var_string1' => "required|string|min:4|max:12",
+            'var_string2' => "string|length:10",
+            'var_string3' => "string",
             */
             'test' => "int|min:4|max:10|regex:/^[a-z0-9]$/|" . ExampleValidator::class,
             'test2' => [
@@ -37,6 +37,18 @@ class ExampleRequest extends RequestDriver
                 'regex:/^[a-z0-9]$/',
                 ExampleValidator::class,
             ],
+        ];
+    }
+
+    /**
+     * @return string[]
+     */
+    public function messages()
+    {
+        return [
+            'test_int' => "",
+            'test2_required' => "",
+            'test2_min' => "min value for this variable is {%min}",
         ];
     }
 
