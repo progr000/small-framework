@@ -12,6 +12,13 @@
     border: solid 1px gray;
 }
 
+.header-inner tr td {
+    border: none;
+}
+.header-inner tr td.lang {
+    font-size: 12px;
+}
+
 .header {
     font-size: 30px;
 }

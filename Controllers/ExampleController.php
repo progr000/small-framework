@@ -163,7 +163,7 @@ class ExampleController extends ControllerDriver
         //dd($r, $_SERVER);
         //dd($r instanceof RequestDriver);
         //dd(get_class($r));
-        if ($r->validated()['test_string1'] === 'as_response') {
+        if (isset($r->validated()['test_string1']) && $r->validated()['test_string1'] === 'as_response') {
 
             /* return Response */
             return App::$response->setStatus(200)
@@ -175,7 +175,7 @@ class ExampleController extends ControllerDriver
                 ->asJson()
                 ->setBody(['return' => "Set response value here"]);
 
-        } elseif ($r->validated()['test_string1'] === 'as_string') {
+        } elseif (isset($r->validated()['test_string1']) && $r->validated()['test_string1'] === 'as_string') {
 
             /* return string */
             dump($r, $p1, $_GET);

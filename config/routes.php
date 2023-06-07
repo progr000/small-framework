@@ -1,14 +1,25 @@
 <?php
 return [
+    /* language switch */
+    '/language|lang/([a-zA-Z]{2})/?' => [
+        function(...$params) {
+            //dump($params, \Core\App::$request);
+            $locales = \Core\App::$config->get('localization', ['available-locales' => []])['available-locales'];
+            if (isset($locales[$params[0]])) {
+                $_SESSION['app']['locale'] = $params[0];
+            }
+            return \Core\App::$response->goBack();
+        }
+    ],
 
-    /** controller with some examples */
+    /* controller with some examples */
     '/some-examples(?:(?:/)(.*))?' => [Controllers\ExampleController::class, 'someExamples', /*'post'*/ 'middleware' => [
         //Middleware\TrustProxies::class,
     ]],
     '/request-and-validation-example(?:(?:/)(.*))?' => [Controllers\ExampleController::class, 'exampleRequestAndValidation'],
     '/database-and-activerecord-example(?:(?:/)(.*))?' => [Controllers\ExampleController::class, 'exampleDatabaseAndActiveRecord'],
 
-    /** debug middleware example */
+    /* debug middleware example */
     '/info(/.*)?' => [
         function(...$params) {
             //dump($params, $_GET, \Core\App::$request->ip());

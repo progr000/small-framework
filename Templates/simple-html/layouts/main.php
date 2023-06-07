@@ -44,7 +44,23 @@ $vars['css-stack'] = array_merge([
 <table class="layout">
     <tr>
         <td colspan="2" class="header">
-            Simple html example<?= isset($vars['title']) ? " - {$vars['title']}" : "" ?>
+            <table width="100%" class="header-inner">
+                <tr>
+                    <td width="98%"><?= __('Simple html example') ?><?= isset($vars['title']) ? " - {$vars['title']}" : "" ?></td>
+                    <td class="lang">
+                        <?php
+                        $locales = App::$config->get('localization', ['available-locales' => []])['available-locales'];
+                        foreach ($locales as $k => $v) {
+                            if (isset($_SESSION['app']['locale']) && $_SESSION['app']['locale'] === $k) {
+                                echo '<span>' . $v . '</span><br/>';
+                            } else {
+                                echo '<a href="/lang/' . $k . '">' . $v . '</a><br/>';
+                            }
+                        }
+                        ?>
+                    </td>
+                </tr>
+            </table>
         </td>
     </tr>
     <tr>
