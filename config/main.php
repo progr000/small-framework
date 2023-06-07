@@ -31,7 +31,7 @@ return array_merge([
     'global-middleware' => [
         Middleware\Maintenance::class,
         Middleware\TrustProxies::class,
-        //Middleware\Localization::class,
+        Middleware\Localization::class,
     ],
 
     /* database params (should return array of config for available databases) */
