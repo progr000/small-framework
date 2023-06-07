@@ -4,8 +4,6 @@
 /** @var array $vars */
 //$menu = $view->renderView('layouts/menu', $vars);
 
-use Core\App;
-
 if (!isset($vars['js-stack']) || !is_array($vars['js-stack'])) {
     $vars['js-stack'] = [];
 }
@@ -33,7 +31,7 @@ $vars['css-stack'] = array_merge([
             ? filemtime(__WWW_DIR__ . $style)
             : time();
         ?>
-        <link rel="stylesheet" href="<?= $style ?><?= App::$config->get('IS_DEBUG', false) ? '?v=' . $filemtime : '' ?>">
+        <link rel="stylesheet" href="<?= $style ?><?= config('IS_DEBUG', false) ? '?v=' . $filemtime : '' ?>">
         <?php
     }
     ?>
@@ -49,9 +47,9 @@ $vars['css-stack'] = array_merge([
                     <td width="98%"><?= __('Simple html example') ?><?= isset($vars['title']) ? " - {$vars['title']}" : "" ?></td>
                     <td class="lang">
                         <?php
-                        $locales = App::$config->get('localization', ['available-locales' => []])['available-locales'];
+                        $locales = config('localization', ['available-locales' => []])['available-locales'];
                         foreach ($locales as $k => $v) {
-                            if (isset($_SESSION['app']['locale']) && $_SESSION['app']['locale'] === $k) {
+                            if (session('locale', config('localization', ['default-locale' => 'en'])['default-locale']) === $k) {
                                 echo '<span>' . $v . '</span><br/>';
                             } else {
                                 echo '<a href="/lang/' . $k . '">' . $v . '</a><br/>';
@@ -83,7 +81,7 @@ $vars['css-stack'] = array_merge([
         <td class="footer" colspan="2">Copyright (c) Maks</td>
     </tr>
     <?php
-    if (App::$config->get('IS_DEBUG', false)) {
+    if (config('IS_DEBUG', false)) {
         ?>
         <tr>
             <td class="footer" colspan="2">
@@ -102,7 +100,7 @@ foreach ($vars['js-stack'] as $script) {
         ? filemtime(__WWW_DIR__ . $script)
         : time();
     ?>
-    <script src="<?= $script ?><?= App::$config->get('IS_DEBUG', false) ? '?v=' . $filemtime : '' ?>"></script>
+    <script src="<?= $script ?><?= config('IS_DEBUG', false) ? '?v=' . $filemtime : '' ?>"></script>
     <?php
 }
 ?>

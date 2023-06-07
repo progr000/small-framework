@@ -1,7 +1,6 @@
 <?php
 namespace Console;
 
-use Core\App;
 use Core\ConsoleDriver;
 use Core\Exceptions\DbException;
 use Core\LogDriver;
@@ -36,7 +35,7 @@ class migrate extends ConsoleDriver
     {
         ignore_user_abort(true);
         LogDriver::setVerboseLevel($this->verbose_level);
-        LogDriver::setLog(App::$config->get('logs->migrations.log'));
+        LogDriver::setLog(config('logs->migrations.log'));
         $this->migrate = MigrationDriver::getInstance(__DIR__ . "/../Db/migrations");
         return true;
     }

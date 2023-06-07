@@ -13,9 +13,8 @@ class Localization
      */
     public function handle(RequestDriver $request)
     {
-        //if (Session::has('locale')) {
-        if (isset($_SESSION['app']['locale'])) {
-            App::$locale = $_SESSION['app']['locale']; //Session::get('locale');
+        if (session()->has('locale')) {
+            App::$locale = session('locale');
         }
     }
 }

@@ -2,7 +2,6 @@
 
 namespace Middleware;
 
-use Core\App;
 use Core\RequestDriver;
 
 /**
@@ -21,14 +20,14 @@ class TrustProxies
         // for encrypted x-header-prefix
         $ua = $request->userAgent();
         $salt = $request->header('X-Forwarded-Salt', '');
-        $key = App::$config->get('Trusted-Proxies-X-Forwarded-Prefix', 'no-config');
+        $key = config('Trusted-Proxies-X-Forwarded-Prefix', 'no-config');
         $check = md5($ua . '---' . $key . '---' . $salt);
         if ($request->header('X-Forwarded-Prefix', 'no-header') === $check) {
             $request->setTrustProxies([$request->ip()]);
         }
         */
 
-        if ($request->header('X-Forwarded-Hash', 'no-header') === App::$config->get('Trusted-Proxies-X-Forwarded-Hash', 'no-config')) {
+        if ($request->header('X-Forwarded-Hash', 'no-header') === config('Trusted-Proxies-X-Forwarded-Hash', 'no-config')) {
             $request->setTrustProxies([$request->ip()]);
         }
     }

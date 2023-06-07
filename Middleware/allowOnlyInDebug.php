@@ -2,7 +2,6 @@
 
 namespace Middleware;
 
-use Core\App;
 use Core\Exceptions\HttpForbiddenException;
 use Core\RequestDriver;
 
@@ -19,7 +18,7 @@ class allowOnlyInDebug
      */
     public function handle(RequestDriver $request)
     {
-        if (!App::$config->get('IS_DEBUG', false)) {
+        if (!config('IS_DEBUG', false)) {
             throw new HttpForbiddenException('Forbidden (allowed only in debug mode)', 403);
             //App::$response->redirect(App::$route->getRoute());
         }

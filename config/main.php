@@ -49,4 +49,7 @@ return array_merge([
     /* BearerAuth secret-key */
     'api.api-storage-access-token' => "",
 
+    /* for sign mail */
+    'sendmail_cert_dir' => "",
+
 ], $local_conf);

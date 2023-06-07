@@ -4,9 +4,9 @@ return [
     '/language|lang/([a-zA-Z]{2})/?' => [
         function(...$params) {
             //dump($params, \Core\App::$request);
-            $locales = \Core\App::$config->get('localization', ['available-locales' => []])['available-locales'];
+            $locales = config('localization', ['available-locales' => []])['available-locales'];
             if (isset($locales[$params[0]])) {
-                $_SESSION['app']['locale'] = $params[0];
+                session(['locale' => $params[0]]);
             }
             return \Core\App::$response->goBack();
         }

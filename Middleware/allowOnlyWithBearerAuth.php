@@ -2,7 +2,6 @@
 
 namespace Middleware;
 
-use Core\App;
 use Core\Exceptions\HttpForbiddenException;
 use Core\RequestDriver;
 
@@ -38,7 +37,7 @@ class allowOnlyWithBearerAuth
         }
 
         /* check that the token-hash from incoming header is equal the hash that we generate from our api.api-storage-access-token by determined rule */
-        if ($token_hash !== md5(mb_strtoupper($request->method()) . $x_utc_timestamp . App::$config->get('api.api-storage-access-token', uniqid('api.api-storage-access-token'))))
+        if ($token_hash !== md5(mb_strtoupper($request->method()) . $x_utc_timestamp . config('api.api-storage-access-token', uniqid('api.api-storage-access-token'))))
             throw new HttpForbiddenException('Forbidden (Bearer-Authorization failed, wrong token)', 403);
     }
 }
