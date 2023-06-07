@@ -13,13 +13,13 @@ return array_merge([
     'IS_DEBUG' => true,
 
     /* maintenance options */
-    'IS_UNDER_MAINTENANCE' => false,
+    'IS_UNDER_MAINTENANCE' => true,
     'MAINTENANCE_ACCESS_IPS' => [
         '127.0.0.1',
         '172.22.0.1',
         '172.18.0.1',
         '172.26.0.1',
-        //'192.168.96.1',
+        '192.168.96.1',
     ],
 
     /* wget params */
@@ -29,8 +29,9 @@ return array_merge([
     'routes' => require_once('routes.php'),
     /* middleware which were applied to each (any) request */
     'global-middleware' => [
+        Middleware\Maintenance::class,
         Middleware\TrustProxies::class,
-        Middleware\Localization::class,
+        //Middleware\Localization::class,
     ],
 
     /* database params (should return array of config for available databases) */
