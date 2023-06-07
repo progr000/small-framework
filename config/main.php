@@ -25,8 +25,12 @@ return array_merge([
     /* wget params */
     'IGNORE_SSL_ERRORS' => true, // if you planed sent request to the servers with wrong certificate need set to true
 
+    /* cookie encrypt ket */
+    'cookie-enc-key' => 'dfmBDfeow3ewcdsf323$%dDS*',
+
     /* routes */
     'routes' => require_once('routes.php'),
+
     /* middleware which were applied to each (any) request */
     'global-middleware' => [
         Middleware\Maintenance::class,
