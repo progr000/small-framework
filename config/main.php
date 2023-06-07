@@ -19,6 +19,7 @@ return array_merge([
         '172.22.0.1',
         '172.18.0.1',
         '172.26.0.1',
+        //'192.168.96.1',
     ],
 
     /* wget params */
@@ -29,7 +30,6 @@ return array_merge([
     /* middleware which were applied to each (any) request */
     'global-middleware' => [
         Middleware\TrustProxies::class,
-        Middleware\Maintenance::class,
         Middleware\Localization::class,
     ],
 
