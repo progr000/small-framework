@@ -25,9 +25,7 @@ abstract class mMain
     public function __construct()
     {
         if (!static::$connection_name) {
-            static::$connection_name = isset(config('databases', [])['default-db-connection-name'])
-                ? config('databases', [])['default-db-connection-name']
-                : 'db-main';
+            static::$connection_name = config('databases->default-db-connection-name', 'db-main');
         }
 
         if (isset(App::$DbInstances[static::$connection_name])) {

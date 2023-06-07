@@ -47,9 +47,9 @@ $vars['css-stack'] = array_merge([
                     <td width="98%"><?= __('Simple html example') ?><?= isset($vars['title']) ? " - {$vars['title']}" : "" ?></td>
                     <td class="lang">
                         <?php
-                        $locales = config('localization', ['available-locales' => []])['available-locales'];
+                        $locales = config('localization->available-locales', []);
                         foreach ($locales as $k => $v) {
-                            if (session('locale', config('localization', ['default-locale' => 'en'])['default-locale']) === $k) {
+                            if (session('locale', config('localization->default-locale', 'en')) === $k) {
                                 echo '<span>' . $v . '</span><br/>';
                             } else {
                                 echo '<a href="/lang/' . $k . '">' . $v . '</a><br/>';
