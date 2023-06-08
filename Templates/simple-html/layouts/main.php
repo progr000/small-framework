@@ -23,6 +23,7 @@ $vars['css-stack'] = array_merge([
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="csrf-token" content="<?= csrf() ?>">
     <title>Simple html example<?= isset($vars['title']) ? " - {$vars['title']}" : "" ?></title>
 
     <?php
