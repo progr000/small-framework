@@ -37,13 +37,15 @@ class VerifyCsrfToken
             $last_valid_csrf_val = session('csrf', null);
             $check_csrf_val_post = $request->post('csrf', null);
             if (!$last_valid_csrf_val) {
-                throw new HttpForbiddenException('CSRF-Validation failed ("csrf" on server is empty)');
+                // "csrf" on server is empty
+                throw new HttpForbiddenException('CSRF-Validation failed (please, reload page and try again)');
             }
             if (!$check_csrf_val_post) {
-                throw new HttpForbiddenException('CSRF-Validation failed (you don\'t sent "csrf" field in your request)');
+                throw new HttpForbiddenException('CSRF-Validation failed (please, repair your html form and add hidden field &ltintput type="hidden" value="&lt;?= csrf() ?&gt;"&gt;)');
             }
             if ($check_csrf_val_post !== $last_valid_csrf_val) {
-                throw new HttpForbiddenException('CSRF-Validation failed (Server "csrf" value does not match with value that you sent)');
+                // Server "csrf" value does not match with value that you sent
+                throw new HttpForbiddenException('CSRF-Validation failed (please, reload page and try again)');
             }
         }
 
