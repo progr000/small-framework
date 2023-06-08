@@ -22,6 +22,5 @@ class allowOnlyInDebug
             throw new HttpForbiddenException('Forbidden (allowed only in debug mode)', 403);
             //App::$response->redirect(App::$route->getRoute());
         }
-
     }
 }
