@@ -128,10 +128,10 @@ class AdminController extends ControllerDriver
     public function changePassword(RequestDriver $r)
     {
         if ($r->isPost()) {
-            // TODO create methods for change password
             $r = new ChangePasswordRequest();
             $data = $r->validated();
             User::update(['password' => User::generatePassword(session('Auth')->username, $data['password'])], ['id' => session('Auth')->id]);
+            set_flash_messages('Password was successfully changed', FLASH_SUCCESS);
             return $this->redirect('/admin-panel/change-password?success');
         } else {
             return $this->render('pages/change-password');

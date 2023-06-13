@@ -12,6 +12,8 @@
 <body>
     <div class="ad-panel-container">
 
+        <?= $view->renderView('layouts/flash-messages'); ?>
+
         <?= $view->renderView('layouts/menu', $vars); ?>
 
         <?= $content ?>

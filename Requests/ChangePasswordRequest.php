@@ -57,6 +57,7 @@ class ChangePasswordRequest extends RequestDriver
     {
         parent::onFailedValidation();
 
+        set_flash_messages('Some error on change password', FLASH_ERROR);
         App::$response->redirect('/admin-panel/change-password?error')->send();
         return false;
     }
