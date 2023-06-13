@@ -4,6 +4,7 @@ namespace Middleware;
 
 use Core\Exceptions\HttpForbiddenException;
 use Core\RequestDriver;
+use Core\SessionDriver;
 
 class VerifyCsrfToken
 {
@@ -26,15 +27,16 @@ class VerifyCsrfToken
         }
 
         /**/
+        $sess_csrf = SessionDriver::getInstance('csrf');
         if ($request->isGet()) {
-            session(['previous_csrf' => session('csrf', null)]);
+            $sess_csrf->put(['previous_csrf' => $sess_csrf->get('csrf')]);
             $new_valid_csrf_val = uniqid('') . "-". md5(microtime().mt_rand(0,999999)) . $request->route();
-            session(['csrf' => $new_valid_csrf_val]);
+            $sess_csrf->put(['csrf' => $new_valid_csrf_val]);
         }
 
         /* here verify csrf */
         if ($request->isPost()) {
-            $last_valid_csrf_val = session('csrf', null);
+            $last_valid_csrf_val = $sess_csrf->get('csrf', null);
             $check_csrf_val_post = $request->post('csrf', null);
             if (!$last_valid_csrf_val) {
                 // "csrf" on server is empty
