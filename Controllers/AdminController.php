@@ -131,7 +131,7 @@ class AdminController extends ControllerDriver
             // TODO create methods for change password
             $r = new ChangePasswordRequest();
             $data = $r->validated();
-            User::update(['password' => md5($data['password'])], ['id' => session('Auth')->id]);
+            User::update(['password' => User::generatePassword(session('Auth')->username, $data['password'])], ['id' => session('Auth')->id]);
             return $this->redirect('/admin-panel/change-password?success');
         } else {
             return $this->render('pages/change-password');

@@ -21,7 +21,7 @@ class User extends ActiveRecordDriver
      */
     public static function login($username, $password)
     {
-        $user = self::findOne(['username' => $username, 'password' => md5($password), 'role' => self::ROLE_ADMIN]);
+        $user = self::findOne(['username' => $username, 'password' => self::generatePassword($username, $password), 'role' => self::ROLE_ADMIN]);
         if ($user) {
             session()->set('Auth', $user);
             return true;
@@ -38,4 +38,15 @@ class User extends ActiveRecordDriver
         session()->delete('Auth');
         return true;
     }
+
+    /**
+     * @param $username
+     * @param $plain_password
+     * @return string
+     */
+    public static function generatePassword($username, $plain_password)
+    {
+        return md5($username . $plain_password . config('cookie-enc-key', 'cookie-enc-key-value'));
+    }
+
 }
