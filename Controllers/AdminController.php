@@ -9,7 +9,7 @@ use Core\LogDriver;
 use Core\RequestDriver;
 use Middleware\Auth;
 use Models\User;
-use Requests\LoginRequest;
+use Requests\ChangePasswordRequest;
 
 class AdminController extends ControllerDriver
 {
@@ -121,14 +121,18 @@ class AdminController extends ControllerDriver
     }
 
     /**
-     * @return \Exception|string
+     * @param RequestDriver $r
+     * @return \Core\ResponseDriver|\Exception|string
+     * @throws DbException
      */
     public function changePassword(RequestDriver $r)
     {
         if ($r->isPost()) {
             // TODO create methods for change password
-            //$r = new LoginRequest();
-            //return $this->redirect('/admin-panel/dashboard');
+            $r = new ChangePasswordRequest();
+            $data = $r->validated();
+            User::update(['password' => md5($data['password'])], ['id' => session('Auth')->id]);
+            return $this->redirect('/admin-panel/change-password?success');
         } else {
             return $this->render('pages/change-password');
         }

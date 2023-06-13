@@ -4,13 +4,36 @@
 
 $vars['title'] = 'Change password';
 //$vars['js-stack'][] = '/js/admin-panel/init-tabs.js';
+$errors = request_errors();
 ?>
 
-<div class="ad-panel-content active">
-    <h2>Change password</h2>
-    <input type="password" placeholder="Old password" required="required" aria-label="">
-    <input type="password" placeholder="New password" required="required" aria-label="">
-    <input type="password" placeholder="Repeat new password" required="required" aria-label="">
-    <button>Change</button>
-</div>
+<form method="post" action="/admin-panel/change-password">
+    <div class="ad-panel-content active">
+        <h2>Change password</h2>
+        <input type="hidden" name="csrf" value="<?= csrf() ?>">
+
+        <input type="password" name="old_password" value="<?= old('old_password') ?>" placeholder="Old password" -required="required" aria-label="">
+        <?php if (isset($errors['old_password'])) { ?>
+            <div style="color: red">
+                <?= implode(", ", $errors['old_password']) ?>
+            </div>
+        <?php } ?>
+
+        <input type="password" name="password" value="<?= old('password') ?>" placeholder="New password" -required="required" aria-label="">
+        <?php if (isset($errors['password'])) { ?>
+            <div style="color: red">
+                <?= implode(", ", $errors['password']) ?>
+            </div>
+        <?php } ?>
+
+        <input type="password" name="repeat_password" value="<?= old('repeat_password') ?>" placeholder="Repeat new password" -required="required" aria-label="">
+        <?php if (isset($errors['repeat_password'])) { ?>
+            <div style="color: red">
+                <?= implode(", ", $errors['repeat_password']) ?>
+            </div>
+        <?php } ?>
+
+        <button>Change</button>
+    </div>
+</form>
 

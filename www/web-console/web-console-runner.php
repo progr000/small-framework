@@ -1,4 +1,5 @@
 <?php
+die('Disabled');
 /** Enter-point for running console-app through http */
 
 require_once(__DIR__ . '/../../vendor/autoload.php');
