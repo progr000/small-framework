@@ -58,6 +58,16 @@ return [
         Middleware\allowOnlyWithBearerAuth::class
     ]], // manual route path for rest as /api/rest
 
+    /* Admin-Panel routes */
+    '/admin-panel/login' => [Controllers\AdminController::class, 'login'],
+    '/admin-panel/logout' => [Controllers\AdminController::class, 'logout', null, 'middleware' => [
+        Middleware\Auth::class,
+    ]],
+    /* index must be last */
+    '/admin-panel(?:/?|/index(?:/?))' => [Controllers\AdminController::class, 'index', 'get', 'middleware' => [
+        Middleware\Auth::class,
+    ]],
+
     /*
      * document-root-index - must be the last,
      * you can split this regex and create
