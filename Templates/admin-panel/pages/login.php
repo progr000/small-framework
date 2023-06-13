@@ -25,6 +25,6 @@ $errors = request_errors();
                 <?= implode(", ", $errors['password']) ?>
             </div>
         <?php } ?>
-        <button type="submit">Einloggen</button>
+        <button type="submit">Continue</button>
     </div>
 </form>

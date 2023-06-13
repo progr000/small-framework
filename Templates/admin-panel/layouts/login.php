@@ -10,14 +10,6 @@
     <?= $view->renderView('layouts/css', $vars); ?>
 </head>
 <body>
-    <div class="ad-panel-container">
-
-        <?= $view->renderView('layouts/menu', $vars); ?>
-
-        <?= $content ?>
-
-    </div>
-
-    <?= $view->renderView('layouts/js', $vars); ?>
+    <?= $content ?>
 </body>
 </html>

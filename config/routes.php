@@ -58,15 +58,15 @@ return [
         Middleware\allowOnlyWithBearerAuth::class
     ]], // manual route path for rest as /api/rest
 
+    /* Login-Logout routes */
+    '/admin-panel/login' => [Controllers\LoginController::class, 'login'],
+    '/admin-panel/logout' => [Controllers\LoginController::class, 'logout'],
+
     /* Admin-Panel routes */
-    '/admin-panel/login' => [Controllers\AdminController::class, 'login'],
-    '/admin-panel/logout' => [Controllers\AdminController::class, 'logout', null, 'middleware' => [
-        Middleware\Auth::class,
-    ]],
-    /* index must be last */
-    '/admin-panel(?:/?|/index(?:/?))' => [Controllers\AdminController::class, 'index', 'get', 'middleware' => [
-        Middleware\Auth::class,
-    ]],
+    '/admin-panel/change-password(?:/?)' => [Controllers\AdminController::class, 'changePassword'], //get+post
+    '/admin-panel/web-console(?:/?)' => [Controllers\AdminController::class, 'webConsole', 'get'],
+    '/admin-panel(?:/index|/dashboard|)(?:/?)' => [Controllers\AdminController::class, 'dashboard', 'get'],
+    '/admin-panel/users(?:/?)' => [Controllers\AdminController::class, 'users', 'get'],
 
     /*
      * document-root-index - must be the last,
