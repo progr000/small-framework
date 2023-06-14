@@ -3,7 +3,7 @@
 /** @var string $data */
 
 $vars['title'] = 'Web-Console';
-$view->putInCssStack($vars['style']);
+isset($vars['style']) && $view->putInCssStack($vars['style']);
 ?>
 <div class="ad-panel-content active">
     <h2>Web-Console</h2>

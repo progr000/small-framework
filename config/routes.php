@@ -53,9 +53,11 @@ return [
      * (you can implement check for allowed http-method inside this method-function)
      */
     [Controllers\RestController::class], // automatic route path for rest by controller name will be created as /rest
-    [Controllers\RestController::class, '/api/rest/', 'middleware' => [
-        Middleware\ResponseAsJson::class, // middleware asJson example
-        Middleware\AllowOnlyWithBearerAuth::class
+    [Controllers\RestController::class,
+        'prefix' => '/api/rest/',
+        'middleware' => [
+            Middleware\ResponseAsJson::class, // middleware asJson example
+            Middleware\AllowOnlyWithBearerAuth::class
     ]], // manual route path for rest as /api/rest
 
     /* Login-Logout routes */
@@ -64,8 +66,10 @@ return [
 
     /* Admin-Panel routes */
     '/admin-panel/phpinfo(?:/?)' => [Controllers\AdminController::class, 'phpinfo', 'get'],
-    [Controllers\UsersController::class, '/admin-panel/users/', 'middleware' => [Middleware\Auth::class]], // rest interface
-    '/admin-panel/change-password(?:/?)' => [Controllers\AdminController::class, 'changePassword'], //get+post
+    [Controllers\UsersController::class,
+        'prefix' => '/admin-panel/users/',
+        'middleware' => [Middleware\Auth::class]], // rest interface
+    '/admin-panel/change-password(?:/?)' => [Controllers\AdminController::class, 'changePassword'],
     '/admin-panel/web-console(?:/?)' => [Controllers\AdminController::class, 'webConsole', 'get'],
     '/admin-panel(?:/index|/dashboard|)(?:/?)' => [Controllers\AdminController::class, 'dashboard', 'get'],
 
@@ -91,5 +95,5 @@ return [
      * /index.html
      * /index.htm
      */
-    '(?:/?|/index(?:/?)|/index/([0-9]+)|/index(?:(?:/)(.*))?|/index\.htm(l?))' => [Controllers\ExampleController::class, 'index'],
+    '(?:/?|/index(?:/?)|/index/([0-9]+)|/index(?:(?:/)(.*))?|/index\.htm(l?))' => [Controllers\ExampleController::class, 'index', 'get'],
 ];
