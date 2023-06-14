@@ -9,7 +9,7 @@ use Core\RequestDriver;
  * All routes used this middleware
  * will be allowed only if Debug mode is ON
  */
-class allowOnlyInDebug
+class AllowOnlyInDebug
 {
     /**
      * @param RequestDriver $request

@@ -8,7 +8,7 @@ use Core\RequestDriver;
 /**
  * Force answer as json
  */
-class responseAsJson
+class ResponseAsJson
 {
     /**
      * @param RequestDriver $request

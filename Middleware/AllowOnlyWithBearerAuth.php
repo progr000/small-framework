@@ -8,7 +8,7 @@ use Core\RequestDriver;
 /**
  * Force check Bearer auth
  */
-class allowOnlyWithBearerAuth
+class AllowOnlyWithBearerAuth
 {
     /**
      * @param RequestDriver $request

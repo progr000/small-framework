@@ -26,8 +26,8 @@ return [
             phpinfo();
         },
         'middleware' => [
-            Middleware\allowOnlyInDebug::class,
-            //Middleware\allowOnlyWithBearerAuth::class,
+            Middleware\AllowOnlyInDebug::class,
+            //Middleware\AllowOnlyWithBearerAuth::class,
         ],
     ],
 
@@ -54,8 +54,8 @@ return [
      */
     [Controllers\RestController::class], // automatic route path for rest by controller name will be created as /rest
     [Controllers\RestController::class, '/api/rest/', 'middleware' => [
-        Middleware\responseAsJson::class, // middleware asJson example
-        Middleware\allowOnlyWithBearerAuth::class
+        Middleware\ResponseAsJson::class, // middleware asJson example
+        Middleware\AllowOnlyWithBearerAuth::class
     ]], // manual route path for rest as /api/rest
 
     /* Login-Logout routes */
@@ -63,10 +63,10 @@ return [
     '/admin-panel/logout' => [Controllers\LoginController::class, 'logout'],
 
     /* Admin-Panel routes */
+    '/admin-panel/users(?:/?)' => [Controllers\AdminController::class, 'users', 'get'],
     '/admin-panel/change-password(?:/?)' => [Controllers\AdminController::class, 'changePassword'], //get+post
     '/admin-panel/web-console(?:/?)' => [Controllers\AdminController::class, 'webConsole', 'get'],
     '/admin-panel(?:/index|/dashboard|)(?:/?)' => [Controllers\AdminController::class, 'dashboard', 'get'],
-    '/admin-panel/users(?:/?)' => [Controllers\AdminController::class, 'users', 'get'],
 
     /*
      * document-root-index - must be the last,

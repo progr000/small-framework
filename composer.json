@@ -9,6 +9,9 @@
         }
     ],
     "autoload": {
+        "files": [
+            "Helpers/_autoload.php"
+        ],
         "psr-4": {
             "Classes\\": "Classes/",
             "Console\\": "Console/",
