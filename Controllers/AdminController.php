@@ -132,23 +132,11 @@ class AdminController extends ControllerDriver
             $r = new ChangePasswordRequest();
             $data = $r->validated();
             User::update(['password' => User::generatePassword(session('Auth')->username, $data['password'])], ['id' => session('Auth')->id]);
-            //set_flash_messages('Password was successfully changed', FLASH_SUCCESS);
             FlashMessages::success('Password was successfully changed');
             return $this->redirect('/admin-panel/change-password?success');
         } else {
             return $this->render('pages/change-password');
         }
-    }
-
-    /**
-     * @return \Exception|string
-     * @throws DbException
-     */
-    public function users()
-    {
-        return $this->render('pages/users', [
-            'users' => User::find()->orderBy(['id' => 'ASC'])->get(),
-        ]);
     }
 
     /**
