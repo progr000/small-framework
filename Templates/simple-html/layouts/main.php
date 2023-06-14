@@ -4,20 +4,8 @@
 /** @var array $vars */
 //$menu = $view->renderView('layouts/menu', $vars);
 
-if (!isset($vars['js-stack']) || !is_array($vars['js-stack'])) {
-    $vars['js-stack'] = [];
-}
-if (!isset($vars['css-stack']) || !is_array($vars['css-stack'])) {
-    $vars['css-stack'] = [];
-}
-$vars['js-stack'] = array_merge([
-    '/js/simple-html/jquery-3.6.3.min.js',
-], $vars['js-stack']);
-$vars['css-stack'] = array_merge([
-    '/css/simple-html/main.css',
-], $vars['css-stack']);
-
-
+$view->firstInCssStack('/css/simple-html/main.css');
+$view->firstInJsStack('/js/simple-html/jquery-3.6.3.min.js');
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -25,9 +13,7 @@ $vars['css-stack'] = array_merge([
     <meta charset="UTF-8">
     <meta name="csrf-token" content="<?= csrf() ?>">
     <title>Simple html example<?= isset($vars['title']) ? " - {$vars['title']}" : "" ?></title>
-
-    <?= css_stack($vars['css-stack'], __WWW_DIR__) ?>
-
+    {%CSS-STACK}
 </head>
 <body>
 
@@ -86,7 +72,7 @@ $vars['css-stack'] = array_merge([
     ?>
 </table>
 
-<?= js_stack($vars['js-stack'], __WWW_DIR__) ?>
+{%JS-STACK}
 
 </body>
 </html>

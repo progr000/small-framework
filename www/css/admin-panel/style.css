@@ -96,22 +96,3 @@
 .admin-login-content button:hover {
   background-color: #A53E42;
 }
-
-.flash-message {
-  border-radius: 5px;
-  padding: 5px 15px;
-  margin: 0 0 10px 0;
-}
-
-.flash-error {
-  background-color: #d25d5d;
-}
-.flash-warning {
-  background-color: #e0c868;
-}
-.flash-success {
-  background-color: #6fd36b;
-}
-.flash-info {
-  background-color: #609cd7;
-}

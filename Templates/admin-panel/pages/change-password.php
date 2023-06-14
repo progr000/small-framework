@@ -3,7 +3,7 @@
 /** @var $users \Models\User[] */
 
 $vars['title'] = 'Change password';
-//$vars['js-stack'][] = '/js/admin-panel/init-tabs.js';
+
 $errors = request_errors();
 ?>
 

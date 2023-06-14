@@ -3,9 +3,7 @@
 /** @var $users \Models\User[] */
 
 $vars['title'] = 'Dashboard';
-//$vars['js-stack'][] = '/js/admin-panel/init-tabs.js';
 ?>
-
 <div class="ad-panel-content active">
     <h2>Dashboard</h2>
     <p></p>

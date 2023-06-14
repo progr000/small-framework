@@ -2,47 +2,6 @@
 
 use Core\SessionDriver;
 
-const FLASH_INFO = 'info';
-const FLASH_SUCCESS = 'success';
-const FLASH_WARNING = 'warning';
-const FLASH_ERROR = 'error';
-
-if (!function_exists('set_flash_messages')) {
-    /**
-     * @param string $message
-     * @param string $type
-     * @return true
-     */
-    function set_flash_messages($message, $type = FLASH_ERROR, $ttl = 0, $id = null)
-    {
-        $container = SessionDriver::getInstance('flash-messages');
-        $key = md5($message . $type);
-        $container->put([$key => [
-            'message' => $message,
-            'type' => $type,
-            'ttl' => $ttl,
-            'id' => isset($id) ? $id : $key
-        ]]);
-        return true;
-    }
-}
-
-if (!function_exists('get_flash_messages')) {
-    /**
-     * @param bool $clear_after_access
-     * @return mixed
-     */
-    function get_flash_messages($clear_after_access = true)
-    {
-        $container = SessionDriver::getInstance('flash-messages');
-        $messages = $container->all();
-        if ($clear_after_access) {
-            $container->clear();
-        }
-        return $messages;
-    }
-}
-
 if (!function_exists('csrf')) {
     /**
      * @return string

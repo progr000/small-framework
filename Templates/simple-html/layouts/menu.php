@@ -1,5 +1,7 @@
 <?php
-$vars['js-stack'][] = "/js/simple-html/menu.js";
+/** @var Core\ViewDriver $view */
+
+$view->putInJsStack('/js/simple-html/menu.js');
 
 $controller = Core\App::$route->getController();
 $action = Core\App::$route->getAction();

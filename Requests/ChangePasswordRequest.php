@@ -6,6 +6,7 @@ use Core\App;
 use Core\RequestDriver;
 use Models\User;
 use Requests\Validators\PasswordRulesValidator;
+use Services\FlashMessages;
 
 class ChangePasswordRequest extends RequestDriver
 {
@@ -57,7 +58,10 @@ class ChangePasswordRequest extends RequestDriver
     {
         parent::onFailedValidation();
 
-        set_flash_messages('Some error on change password', FLASH_ERROR);
+        FlashMessages::error('Some error on change password');
+//        FlashMessages::warning('Some error on change password');
+//        FlashMessages::success('Some error on change password');
+//        FlashMessages::info('Some error on change password');
         App::$response->redirect('/admin-panel/change-password?error')->send();
         return false;
     }
