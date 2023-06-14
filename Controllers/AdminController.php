@@ -151,6 +151,9 @@ class AdminController extends ControllerDriver
         ]);
     }
 
+    /**
+     * @return \Exception|string
+     */
     public function phpinfo()
     {
         ob_start();

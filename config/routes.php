@@ -64,7 +64,7 @@ return [
 
     /* Admin-Panel routes */
     '/admin-panel/phpinfo(?:/?)' => [Controllers\AdminController::class, 'phpinfo', 'get'],
-    '/admin-panel/users(?:/?)' => [Controllers\AdminController::class, 'users', 'get'],
+    [Controllers\UsersController::class, '/admin-panel/users/', 'middleware' => [Middleware\Auth::class]], // rest interface
     '/admin-panel/change-password(?:/?)' => [Controllers\AdminController::class, 'changePassword'], //get+post
     '/admin-panel/web-console(?:/?)' => [Controllers\AdminController::class, 'webConsole', 'get'],
     '/admin-panel(?:/index|/dashboard|)(?:/?)' => [Controllers\AdminController::class, 'dashboard', 'get'],
