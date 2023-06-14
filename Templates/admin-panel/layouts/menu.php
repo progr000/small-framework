@@ -4,6 +4,7 @@ $menu_items = [
     '/admin-panel/web-console' => 'Web-Console',
     '/admin-panel/change-password' => 'Change Password',
     '/admin-panel/users' => 'Users',
+    '/admin-panel/phpinfo' => 'PhpInfo',
     '/admin-panel/logout' => 'Logout',
 ];
 ?>

@@ -63,6 +63,7 @@ return [
     '/admin-panel/logout' => [Controllers\LoginController::class, 'logout'],
 
     /* Admin-Panel routes */
+    '/admin-panel/phpinfo(?:/?)' => [Controllers\AdminController::class, 'phpinfo', 'get'],
     '/admin-panel/users(?:/?)' => [Controllers\AdminController::class, 'users', 'get'],
     '/admin-panel/change-password(?:/?)' => [Controllers\AdminController::class, 'changePassword'], //get+post
     '/admin-panel/web-console(?:/?)' => [Controllers\AdminController::class, 'webConsole', 'get'],
