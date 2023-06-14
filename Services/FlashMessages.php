@@ -32,6 +32,9 @@ class FlashMessages
         return $messages;
     }
 
+    /**
+     * @return string
+     */
     public static function getDefaultJs()
     {
         return "
@@ -92,6 +95,9 @@ class FlashMessages
 ";
     }
 
+    /**
+     * @return string
+     */
     public static function getDefaultCss()
     {
         return "
