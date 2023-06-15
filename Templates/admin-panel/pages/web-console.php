@@ -3,11 +3,12 @@
 /** @var string $data */
 
 $vars['title'] = 'Web-Console';
-isset($vars['style']) && $view->putInCssStack($vars['style']);
+isset($vars['phpinfo']) && $view->putInCssStack('/css/admin-panel/phpinfo.css')
+
 ?>
 <div class="ad-panel-content active">
     <h2>Web-Console</h2>
-    <div style="height: 600px;">
+    <div style="height: 600px;" class="<?= isset($vars['phpinfo']) ? 'ap-phpinfo' : '' ?>">
         <?= $data ?>
     </div>
 </div>

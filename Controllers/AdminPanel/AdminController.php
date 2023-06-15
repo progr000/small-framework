@@ -113,7 +113,6 @@ class AdminController extends _MainController
         ob_end_clean();
 
         return $this->render('pages/web-console', ['data' => $data]);
-        //echo $data;
     }
 
     /**
@@ -144,16 +143,11 @@ class AdminController extends _MainController
         $data = ob_get_contents();
         ob_end_clean();
 
-        //dd($data);
-
-        $tmp = explode('</style>', $data);
-        $tmp = explode('<style type="text/css">', $tmp[0]);
-        $style = "<style>" . (isset($tmp[1]) ? $tmp[1] : '') . "</style>";
         $tmp = explode('<body>', $data);
         $body = isset($tmp[1]) ? $tmp[1] : '';
         $tmp = explode('</body>', $body);
         $body = $tmp[0];
 
-        return $this->render('pages/web-console', ['style' => $style, 'data' => $body]);
+        return $this->render('pages/web-console', ['phpinfo' => true, 'data' => $body]);
     }
 }

@@ -1,0 +1,57 @@
+.ap-phpinfo h1 {
+    margin-top: 20px
+}
+
+.ap-phpinfo table {
+    width: 100%;
+    border-top: 1px solid #ddd;
+    border-spacing: 0;
+}
+
+.ap-phpinfo table:first-child {
+    border-top: 0
+}
+
+.ap-phpinfo td {
+    padding: 5px;
+}
+/*.ap-phpinfo td,*/
+/*.ap-phpinfo th {*/
+/*    border: 1px solid black;*/
+/*    border-collapse: separate;*/
+/*}*/
+
+.ap-phpinfo table tr.h th {
+    padding: 6px;
+    border-bottom: 1px solid #ddd
+}
+
+.ap-phpinfo table tr.v td {
+    padding: 10px
+}
+
+.ap-phpinfo table .e {
+    padding: 3px 6px;
+    width: 300px;
+    background-color: #eff2f9;
+    font-weight: 700;
+    color: #000;
+    border-bottom: 1px solid #ddd
+}
+
+.ap-phpinfo table .v {
+    padding: 3px 6px;
+    background-color: #efefef;
+    color: #000;
+    border-bottom: 1px solid #ddd
+}
+
+.ap-phpinfo table .vr {
+    background-color: #efefef;
+    text-align: right;
+    color: #000
+}
+
+.ap-phpinfo hr {
+    display: none
+}
