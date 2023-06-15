@@ -1,11 +1,9 @@
 <?php
 
-namespace Requests;
+namespace Requests\Examples;
 
 use Core\RequestDriver;
 use Core\ResponseDriver;
-use Requests\Validators\ExampleValidator;
-
 
 class ExampleRequest extends RequestDriver
 {

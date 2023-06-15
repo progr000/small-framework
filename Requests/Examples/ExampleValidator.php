@@ -1,6 +1,6 @@
 <?php
 
-namespace Requests\Validators;
+namespace Requests\Examples;
 
 class ExampleValidator
 {

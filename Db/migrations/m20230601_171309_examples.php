@@ -4,7 +4,6 @@ namespace Db\migrations;
 
 use Core\Exceptions\DbException;
 use Db\migrations\tpl\mMain;
-use PDOStatement;
 
 class m20230601_171309_examples extends mMain
 {

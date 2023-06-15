@@ -1,23 +1,19 @@
 <?php
 
-namespace Controllers;
+namespace Controllers\AdminPanel;
 
-use Core\App;
-use Core\ControllerDriver;
-use Core\Exceptions\DbException;
-use Core\LogDriver;
 use Core\RequestDriver;
 use Models\User;
 use Requests\LoginRequest;
 
-class LoginController extends ControllerDriver
+class LoginController extends _MainController
 {
     /**
      *
      */
     public function __construct()
     {
-        App::$config->set('template-path', config('admin-template-path'));
+        parent::__construct();
         $this->layout = "layouts/login";
     }
 

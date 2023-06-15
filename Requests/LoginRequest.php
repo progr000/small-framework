@@ -6,7 +6,6 @@ use Core\App;
 use Core\RequestDriver;
 use Requests\Validators\LoginValidator;
 
-
 class LoginRequest extends RequestDriver
 {
     /**

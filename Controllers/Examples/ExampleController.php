@@ -1,17 +1,16 @@
 <?php
 
-namespace Controllers;
+namespace Controllers\Examples;
 
 use Core\App;
 use Core\ControllerDriver;
-use Core\DbDriver;
 use Core\Exceptions\DbException;
 use Core\RequestDriver;
 use Core\ResponseDriver;
-use Models\mssql\Example as MsSqlExample;
-use Models\pgsql\Example as PgSqlExample;
-use Models\Example;
-use Requests\ExampleRequest;
+use Models\Examples\Example;
+use Models\Examples\mssql\Example as MsSqlExample;
+use Models\Examples\pgsql\Example as PgSqlExample;
+use Requests\Examples\ExampleRequest;
 
 
 class ExampleController extends ControllerDriver

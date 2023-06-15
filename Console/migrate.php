@@ -7,7 +7,6 @@ use Core\LogDriver;
 use Core\MigrationDriver;
 use Exception;
 
-
 class migrate extends ConsoleDriver
 {
     /** @var string[] */

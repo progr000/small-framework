@@ -13,11 +13,11 @@ return [
     ],
 
     /* controller with some examples */
-    '/some-examples(?:(?:/)(.*))?' => [Controllers\ExampleController::class, 'someExamples', /*'post'*/ 'middleware' => [
+    '/some-examples(?:(?:/)(.*))?' => [Controllers\Examples\ExampleController::class, 'someExamples', /*'post'*/ 'middleware' => [
         //Middleware\TrustProxies::class,
     ]],
-    '/request-and-validation-example(?:(?:/)(.*))?' => [Controllers\ExampleController::class, 'exampleRequestAndValidation'],
-    '/database-and-activerecord-example(?:(?:/)(.*))?' => [Controllers\ExampleController::class, 'exampleDatabaseAndActiveRecord'],
+    '/request-and-validation-example(?:(?:/)(.*))?' => [Controllers\Examples\ExampleController::class, 'exampleRequestAndValidation'],
+    '/database-and-activerecord-example(?:(?:/)(.*))?' => [Controllers\Examples\ExampleController::class, 'exampleDatabaseAndActiveRecord'],
 
     /* debug middleware example */
     '/info(/.*)?' => [
@@ -52,8 +52,8 @@ return [
      * this action will be available by any http-method GET/POST/PUT...
      * (you can implement check for allowed http-method inside this method-function)
      */
-    [Controllers\RestController::class], // automatic route path for rest by controller name will be created as /rest
-    [Controllers\RestController::class,
+    [Controllers\Examples\RestController::class], // automatic route path for rest by controller name will be created as /rest
+    [Controllers\Examples\RestController::class,
         'prefix' => '/api/rest/',
         'middleware' => [
             Middleware\ResponseAsJson::class, // middleware asJson example
@@ -61,17 +61,17 @@ return [
     ]], // manual route path for rest as /api/rest
 
     /* Login-Logout routes */
-    '/admin-panel/login' => [Controllers\LoginController::class, 'login'],
-    '/admin-panel/logout' => [Controllers\LoginController::class, 'logout'],
+    '/admin-panel/login' => [Controllers\AdminPanel\LoginController::class, 'login'],
+    '/admin-panel/logout' => [Controllers\AdminPanel\LoginController::class, 'logout'],
 
     /* Admin-Panel routes */
-    '/admin-panel/phpinfo(?:/?)' => [Controllers\AdminController::class, 'phpinfo', 'get'],
-    [Controllers\UsersController::class,
+    '/admin-panel/phpinfo(?:/?)' => [Controllers\AdminPanel\AdminController::class, 'phpinfo', 'get'],
+    [Controllers\AdminPanel\UsersController::class,
         'prefix' => '/admin-panel/users/',
         'middleware' => [Middleware\Auth::class]], // rest interface
-    '/admin-panel/change-password(?:/?)' => [Controllers\AdminController::class, 'changePassword'],
-    '/admin-panel/web-console(?:/?)' => [Controllers\AdminController::class, 'webConsole', 'get'],
-    '/admin-panel(?:/index|/dashboard|)(?:/?)' => [Controllers\AdminController::class, 'dashboard', 'get'],
+    '/admin-panel/change-password(?:/?)' => [Controllers\AdminPanel\AdminController::class, 'changePassword'],
+    '/admin-panel/web-console(?:/?)' => [Controllers\AdminPanel\AdminController::class, 'webConsole', 'get'],
+    '/admin-panel(?:/index|/dashboard|)(?:/?)' => [Controllers\AdminPanel\AdminController::class, 'dashboard', 'get'],
 
     /*
      * document-root-index - must be the last,
@@ -95,5 +95,5 @@ return [
      * /index.html
      * /index.htm
      */
-    '(?:/?|/index(?:/?)|/index/([0-9]+)|/index(?:(?:/)(.*))?|/index\.htm(l?))' => [Controllers\ExampleController::class, 'index', 'get'],
+    '(?:/?|/index(?:/?)|/index/([0-9]+)|/index(?:(?:/)(.*))?|/index\.htm(l?))' => [Controllers\MainController::class, 'index', 'get'],
 ];

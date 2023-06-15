@@ -1,9 +1,8 @@
 <?php
 
-namespace Controllers;
+namespace Controllers\AdminPanel;
 
 use Core\App;
-use Core\ControllerDriver;
 use Core\Exceptions\DbException;
 use Core\Interfaces\RestInterface;
 use Models\User;
@@ -11,18 +10,8 @@ use Models\User;
 /**
  * RestController example
  */
-class UsersController extends ControllerDriver implements RestInterface
+class UsersController extends _MainController implements RestInterface
 {
-    /**
-     *
-     */
-    public function __construct()
-    {
-        /* change layouts global for all methods in this controller */
-        App::$config->set('template-path', config('admin-template-path'));
-        $this->layout = "layouts/main";
-    }
-
     /**
      *
      */

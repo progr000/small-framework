@@ -1,9 +1,8 @@
 <?php
 
-namespace Models;
+namespace Models\Examples;
 
 use Core\ActiveRecordDriver;
-
 
 class Example extends ActiveRecordDriver
 {

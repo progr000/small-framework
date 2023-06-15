@@ -3,7 +3,6 @@ namespace Console;
 
 use Core\ConsoleDriver;
 
-
 class Example extends ConsoleDriver
 {
     protected $available_params = [

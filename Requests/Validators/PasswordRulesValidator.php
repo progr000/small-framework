@@ -2,9 +2,6 @@
 
 namespace Requests\Validators;
 
-use Core\Exceptions\DbException;
-use Models\User;
-
 class PasswordRulesValidator
 {
     const MIN = 8;

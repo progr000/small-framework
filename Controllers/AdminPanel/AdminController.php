@@ -1,9 +1,8 @@
 <?php
 
-namespace Controllers;
+namespace Controllers\AdminPanel;
 
 use Core\App;
-use Core\ControllerDriver;
 use Core\Exceptions\DbException;
 use Core\LogDriver;
 use Core\RequestDriver;
@@ -12,7 +11,7 @@ use Models\User;
 use Requests\ChangePasswordRequest;
 use Services\FlashMessages;
 
-class AdminController extends ControllerDriver
+class AdminController extends _MainController
 {
     /**
      *
@@ -23,9 +22,8 @@ class AdminController extends ControllerDriver
         $auth = new Auth();
         $auth->handle(App::$request);
 
-        /* change layouts global for all methods in this controller */
-        App::$config->set('template-path', config('admin-template-path'));
-        $this->layout = "layouts/main";
+        /**/
+        parent::__construct();
     }
 
     /**
@@ -48,7 +46,7 @@ class AdminController extends ControllerDriver
         ob_start();
         LogDriver::beginConsole();
 
-        $TASK_DIR = __DIR__ . "/../Console";
+        $TASK_DIR = __DIR__ . "/../../Console";
 
 
         /* route */
@@ -91,18 +89,15 @@ class AdminController extends ControllerDriver
 
         if (isset($show_usage)) {
 
-            $tasks = scandir($TASK_DIR);
-            array_splice($tasks, array_search('.', $tasks ), 1);
-            array_splice($tasks, array_search('..', $tasks ), 1);
-
-
             $Usage = LogDriver::createMessage("\n", 0)
                 ->messageAppend("Please determine the Task\n")
                 ->messageAppend("Usage [warn]" . $r->route() . "?task=TaskName[/warn]\n")
                 ->messageAppend("[default]---------------------------[/default]\n")
                 ->messageAppend("Available tasks:\n");
 
+            $tasks = glob($TASK_DIR . '/*.php');
             foreach ($tasks as $task) {
+                $task = basename($task);
                 if (strrpos($task,'.php') !== false) {
                     $task = str_replace('.php', '', $task);
                     $link = '<a href="' . $r->route() . '?task=' . $task . '">[success]' . $task . '[/success]</a>';

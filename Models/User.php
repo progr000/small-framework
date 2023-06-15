@@ -3,7 +3,6 @@
 namespace Models;
 
 use Core\ActiveRecordDriver;
-use Core\App;
 use Core\Exceptions\DbException;
 
 class User extends ActiveRecordDriver

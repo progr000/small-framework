@@ -1,6 +1,6 @@
 <?php
 
-namespace Controllers;
+namespace Controllers\Examples;
 
 use Core\App;
 use Core\ControllerDriver;
