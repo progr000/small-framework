@@ -29,7 +29,11 @@ return array_merge([
     'cookie-enc-key' => 'dfmBDfeow3ewcdsf323$%dDS*',
 
     /* routes */
-    'routes' => require_once('routes.php'),
+    //'routes' => require_once('routes.php'),
+    'routes' => array_merge(
+        require_once('routes.php'),
+        require_once('routes-examples.php')
+    ),
 
     /* middleware which were applied to each (any) request */
     'global-middleware' => [

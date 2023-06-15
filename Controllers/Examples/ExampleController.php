@@ -188,7 +188,7 @@ class ExampleController extends ControllerDriver
             dump($r, $p1, $_GET);
             dump($r->validated());
             dump($r->getErrors());
-            return $this->render('main/some-examples');
+            return $this->render('examples/some-examples');
 
         }
     }
@@ -200,5 +200,17 @@ class ExampleController extends ControllerDriver
     public function requestExample(RequestDriver $r)
     {
         dd($r);
+    }
+
+    /**
+     * @param RequestDriver $r
+     * @param string $name
+     * @return \Exception|string
+     */
+    public function hello(RequestDriver $r, $name = "")
+    {
+        dump($r);
+        if (!trim($name)) $name = 'Stranger';
+        return $this->render('examples/hello', ['name' => $name]);
     }
 }
