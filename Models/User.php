@@ -5,6 +5,14 @@ namespace Models;
 use Core\ActiveRecordDriver;
 use Core\Exceptions\DbException;
 
+/**
+ * Class User
+ * @package Models
+ * @property int $id
+ * @property string $username
+ * @property string password
+ * @property int $role
+ */
 class User extends ActiveRecordDriver
 {
     //protected static $connection_name = 'mysql-for-developing';
