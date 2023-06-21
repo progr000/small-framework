@@ -35,7 +35,7 @@ class VerifyCsrfToken
         }
 
         /* here verify csrf */
-        if ($request->isPost()) {
+        if (!$request->isGet()) {
             $last_valid_csrf_val = $sess_csrf->get('csrf', null);
             $check_csrf_val_post = $request->post('csrf', null);
             if (!$last_valid_csrf_val) {

@@ -72,4 +72,12 @@ class UsersController extends _MainController implements RestInterface
     {
         dd('rest/delete', $id, App::$request);
     }
+
+    /**
+     * @param int $id
+     */
+    public function destroy($id)
+    {
+        dd('rest/delete', $id, App::$request);
+    }
 }
