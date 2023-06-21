@@ -17,3 +17,14 @@ if (!function_exists('minimize')) {
         );
     }
 }
+
+if (!function_exists('asset')) {
+    /**
+     * @param string $file
+     * @return string
+     */
+    function asset($file)
+    {
+        return \Core\App::$site_url . "/" . ltrim($file, '/');
+    }
+}

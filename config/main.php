@@ -9,6 +9,10 @@ if (file_exists(__DIR__ . "/main-local.php")) {
 /* config data */
 return array_merge([
 
+    /* site conf */
+    'SITE_URL' => null,
+    'SITE_ROOT' => __DIR__ . '/../www',
+
     /* debug mode */
     'IS_DEBUG' => true,
 
