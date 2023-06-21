@@ -19,7 +19,7 @@ $errors = request_errors();
                 <?= implode(", ", $errors['username']) ?>
             </div>
         <?php } ?>
-        <input type="password" name="password" placeholder="Kennwort" data-required="required" aria-label=""/>
+        <input type="password" name="password" placeholder="Password" data-required="required" aria-label=""/>
         <?php if (isset($errors['password'])) { ?>
             <div style="color: red">
                 <?= implode(", ", $errors['password']) ?>

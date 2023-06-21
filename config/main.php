@@ -16,9 +16,7 @@ return array_merge([
     'IS_UNDER_MAINTENANCE' => true,
     'MAINTENANCE_ACCESS_IPS' => [
         '127.0.0.1',
-        '172.22.0.1',
-        '172.18.0.1',
-        '172.26.0.1',
+        '172.20.0.1',
         '192.168.96.1',
     ],
 

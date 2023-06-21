@@ -8,7 +8,7 @@ $vars['title'] = 'Users';
     <h2>Users</h2>
     <p>All users in DB will be showed here</p>
 
-    <table border="1">
+    <table class="list-of-something">
         <tr>
             <th>Id</th>
             <th>Name</th>

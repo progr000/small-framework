@@ -8,7 +8,7 @@ $vars['title'] = 'Users';
     <h2>Users</h2>
     <p>Info about user</p>
 
-    <table border="1">
+    <table class="list-of-something">
         <tr><td>Id:</td><td><?= $user->id ?></td></tr>
         <tr><td>Name:</td><td><?= $user->username ?></td></tr>
         <tr><td>Role:</td><td><?= $user->role ?></td></tr>

@@ -96,3 +96,15 @@
 .admin-login-content button:hover {
   background-color: #A53E42;
 }
+
+.tr-bold {
+  font-weight: 600;
+}
+
+.list-of-something, .list-of-something th, .list-of-something td {
+  border: 1px solid #cccccc;
+  border-collapse: collapse;
+}
+.list-of-something th, .list-of-something td {
+  padding: 5px 15px;
+}
