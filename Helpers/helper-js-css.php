@@ -28,3 +28,14 @@ if (!function_exists('asset')) {
         return \Core\App::$site_url . "/" . ltrim($file, '/');
     }
 }
+
+if (!function_exists('url')) {
+    /**
+     * @param string $file
+     * @return string
+     */
+    function url($path)
+    {
+        return \Core\App::$site_url . "/" . ltrim($path, '/');
+    }
+}
