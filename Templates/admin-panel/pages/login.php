@@ -4,7 +4,7 @@
 $vars['title'] = 'Login';
 $errors = request_errors();
 ?>
-<form method="post" action="/admin-panel/login">
+<form method="post" action="<?= url('/admin-panel/login') ?>">
     <div class="admin-login-content">
         <h2>Admin System</h2>
         <input type="hidden" name="csrf" value="<?= csrf() ?>">

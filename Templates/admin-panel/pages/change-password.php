@@ -7,7 +7,7 @@ $vars['title'] = 'Change password';
 $errors = request_errors();
 ?>
 
-<form method="post" action="/admin-panel/change-password">
+<form method="post" action="<?= url('/admin-panel/change-password') ?>">
     <div class="ad-panel-content active">
         <h2>Change password</h2>
         <input type="hidden" name="csrf" value="<?= csrf() ?>">

@@ -1,12 +1,11 @@
 <?php
 /** @var Core\ViewDriver $view */
-/** @var $users \Models\User[] */
+/** @var $users Models\User[] */
 
 $vars['title'] = 'Users';
 ?>
 <div class="ad-panel-content active">
     <h2>Users</h2>
-    <p>All users in DB will be showed here</p>
 
     <table class="list-of-something">
         <tr>
