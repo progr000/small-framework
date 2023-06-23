@@ -37,7 +37,7 @@ class VerifyCsrfToken
         /* here verify csrf */
         if (!$request->isGet()) {
             $last_valid_csrf_val = $sess_csrf->get('csrf', null);
-            $check_csrf_val_post = $request->post('csrf', null);
+            $check_csrf_val_post = $request->all('csrf', null);
             if (!$last_valid_csrf_val) {
                 // "csrf" on server is empty
                 throw new HttpForbiddenException('CSRF-Validation failed (please, reload page and try again)');
