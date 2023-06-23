@@ -50,8 +50,8 @@ class AdminController extends _MainController
 
 
         /* route */
-        $_task['task'] = $r->get('task');
-        if ($_task['task']) {
+        $_task = $r->get();
+        if (isset($_task['task'])) {
 
             $tmp = explode(':', $_task['task']);
             if (sizeof($tmp) == 2) {
@@ -127,7 +127,7 @@ class AdminController extends _MainController
             $data = $r->validated();
             User::update(['password' => User::generatePassword(session('Auth')->username, $data['password'])], ['id' => session('Auth')->id]);
             FlashMessages::success('Password was successfully changed');
-            return $this->redirect('/admin-panel/change-password?success');
+            return $this->redirect(url('/admin-panel/change-password?success'));
         } else {
             return $this->render('pages/change-password');
         }

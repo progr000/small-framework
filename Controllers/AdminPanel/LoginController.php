@@ -24,11 +24,11 @@ class LoginController extends _MainController
     public function login(RequestDriver $r)
     {
         if (session('Auth')) {
-            return $this->redirect('/admin-panel/dashboard');
+            return $this->redirect(url('/admin-panel/dashboard'));
         }
         if ($r->isPost()) {
             $r = new LoginRequest();
-            return $this->redirect('/admin-panel/dashboard');
+            return $this->redirect(url('/admin-panel/dashboard'));
         } else {
             return $this->render('pages/login');
         }
@@ -40,6 +40,6 @@ class LoginController extends _MainController
     public function logout()
     {
         User::logout();
-        return $this->redirect('/admin-panel/login');
+        return $this->redirect(url('/admin-panel/login'));
     }
 }

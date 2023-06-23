@@ -2,8 +2,8 @@
 
 namespace Controllers\AdminPanel;
 
-use Core\App;
 use Core\Exceptions\DbException;
+use Core\Exceptions\HttpForbiddenException;
 use Core\Interfaces\RestInterface;
 use Models\User;
 
@@ -13,7 +13,7 @@ use Models\User;
 class UsersController extends _MainController implements RestInterface
 {
     /**
-     *
+     * @throws DbException
      */
     public function index()
     {
@@ -33,51 +33,60 @@ class UsersController extends _MainController implements RestInterface
         ]);
     }
 
+
+
+
+
+    /** ********************************************************* **/
     /**
      * @param int $id
+     * @throws HttpForbiddenException
      */
     public function edit($id)
     {
-        dd('rest/edit', $id, App::$request);
+        throw new HttpForbiddenException('Not implemented');
     }
 
     /**
      * @param int $id
+     * @throws HttpForbiddenException
      */
     public function update($id)
     {
-        dd('rest/update', $id, App::$request);
+        throw new HttpForbiddenException('Not implemented');
     }
 
     /**
-     *
+     * @throws HttpForbiddenException
      */
     public function create()
     {
-        dd('rest/create', App::$request);
+        throw new HttpForbiddenException('Not implemented');
     }
 
     /**
-     *
+     * @throws HttpForbiddenException
      */
     public function store()
     {
-        dd('rest/store', App::$request);
+        throw new HttpForbiddenException('Not implemented');
     }
 
     /**
      * @param int $id
+     * @throws HttpForbiddenException
      */
     public function delete($id)
     {
-        dd('rest/delete', $id, App::$request);
+        throw new HttpForbiddenException('Not implemented');
     }
 
     /**
      * @param int $id
+     * @throws HttpForbiddenException
      */
     public function destroy($id)
     {
-        dd('rest/delete', $id, App::$request);
+        throw new HttpForbiddenException('Not implemented');
     }
 }
