@@ -10,7 +10,7 @@ use Core\Exceptions\DbException;
  * @package Models
  * @property int $id
  * @property string $username
- * @property string password
+ * @property string $password
  * @property int $role
  */
 class User extends ActiveRecordDriver
