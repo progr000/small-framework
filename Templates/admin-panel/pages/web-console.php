@@ -1,6 +1,6 @@
 <?php
-/** @var Core\ViewDriver $view */
-/** @var string $data */
+/** @var $view Core\ViewDriver */
+/** @var $data string */
 
 $vars['title'] = 'Web-Console';
 isset($vars['phpinfo']) && $view->putInCssStack('/css/admin-panel/phpinfo.css')

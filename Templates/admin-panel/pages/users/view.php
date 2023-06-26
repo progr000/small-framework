@@ -1,6 +1,6 @@
 <?php
-/** @var Core\ViewDriver $view */
-/** @var $user \Models\User */
+/** @var $view Core\ViewDriver */
+/** @var $user Models\User */
 
 $vars['title'] = 'Users';
 ?>

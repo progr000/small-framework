@@ -11,7 +11,7 @@ $menu_items = [
 <div class="ad-panel-tabs">
     <?php
     foreach ($menu_items as $url => $name) {
-        if (\Core\App::$request->route() === $url) {
+        if (Core\App::$request->route() === $url) {
             $active = 'active';
         } else {
             $active = '';

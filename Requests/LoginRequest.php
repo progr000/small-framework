@@ -32,7 +32,7 @@ class LoginRequest extends RequestDriver
     {
         parent::onFailedValidation();
 
-        App::$response->redirect('/admin-panel/login')->send();
+        App::$response->redirect(url('/admin-panel/login'))->send();
         return false;
     }
 }

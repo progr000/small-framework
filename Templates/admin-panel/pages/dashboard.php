@@ -1,6 +1,5 @@
 <?php
-/** @var Core\ViewDriver $view */
-/** @var $users \Models\User[] */
+/** @var $view Core\ViewDriver */
 
 $vars['title'] = 'Dashboard';
 ?>

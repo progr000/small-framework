@@ -63,7 +63,7 @@ class ChangePasswordRequest extends RequestDriver
 //        FlashMessages::warning('Some error on change password',10);
 //        FlashMessages::success('Some error on change password', 25);
 //        FlashMessages::info('Some error on change password',8);
-        App::$response->redirect('/admin-panel/change-password?error')->send();
+        App::$response->redirect(url('/admin-panel/change-password?error'))->send();
         return false;
     }
 }

@@ -1,110 +1,134 @@
 
 .ad-panel-container {
-  margin: 50px;
+    margin: 50px;
 }
 
 .ad-panel-tabs {
-  display: flex;
-  justify-content: flex-start;
-  margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
 }
 
 .ad-panel-tab {
-  padding: 10px 20px;
-  background-color: #ccc;
-  border-radius: 5px 5px 0 0;
-  cursor: pointer;
+    *padding: 10px 20px;
+    background-color: #ccc;
+    border-radius: 20px 5px 0 0;
+    *cursor: pointer;
+    border: 1px solid #aaaaaa;
+}
+
+.ad-panel-tab a, .ad-panel-tab a:visited, .ad-panel-tab a:hover {
+    color: #666666;
+    padding: 10px 20px;
+    display: block;
+    text-decoration: none;
 }
 
 .ad-panel-tab.active {
-  background-color: #f9f9f9;
+    background-color: #f9f9f9;
+}
+
+.ad-panel-tab.active a {
+    color: #333333;
 }
 
 .ad-panel-content {
-  display: none;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: none;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    /*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);*/
 }
 
 .ad-panel-content.active {
-  display: block;
+    display: block;
 }
 
 .ad-panel-content h2 {
-  text-align: center;
-  margin-bottom: 20px;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .ad-panel-content input[type="password"],
 .ad-panel-content button {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 3px;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 3px;
 }
 
 .ad-panel-content button {
-  background-color: #4CAF50;
-  color: #fff;
-  border: none;
-  cursor: pointer;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
 }
 
 .ad-panel-content button:hover {
-  background-color: #45a049;
+    background-color: #45a049;
 }
 
 .admin-login-content {
-  width: 300px;
-  margin: 100px auto;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: 100px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .admin-login-content h2 {
-  text-align: center;
-  margin-bottom: 50px;
+    text-align: center;
+    margin-bottom: 50px;
 }
 
-.admin-login-content input{
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 3px;
+.admin-login-content input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 3px;
 }
 
 .admin-login-content button {
-  margin-top:30px;
-  width: 100%;
-  padding: 10px;
-  background-color: #e84e1d;
-  color: #fff;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-  transition: 0.2s;
+    margin-top: 30px;
+    width: 100%;
+    padding: 10px;
+    background-color: #e84e1d;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
 .admin-login-content button:hover {
-  background-color: #A53E42;
+    background-color: #A53E42;
 }
 
 .tr-bold {
-  font-weight: 600;
+    font-weight: 600;
 }
 
 .list-of-something, .list-of-something th, .list-of-something td {
-  border: 1px solid #cccccc;
-  border-collapse: collapse;
+    border: 1px solid #cccccc;
+    border-collapse: collapse;
 }
+
+.list-of-something th {
+    background-color: #badbe7;
+}
+
 .list-of-something th, .list-of-something td {
-  padding: 5px 15px;
+    padding: 5px 15px;
+}
+
+.narrow-center {
+    width: 300px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -0%);
 }

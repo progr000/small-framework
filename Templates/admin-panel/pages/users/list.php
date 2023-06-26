@@ -1,5 +1,5 @@
 <?php
-/** @var Core\ViewDriver $view */
+/** @var $view Core\ViewDriver */
 /** @var $users Models\User[] */
 
 $vars['title'] = 'Users';

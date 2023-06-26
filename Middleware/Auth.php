@@ -18,7 +18,7 @@ class Auth
     public function handle(RequestDriver $request)
     {
         if (!session('Auth')) {
-            App::$response->redirect('/admin-panel/login');
+            App::$response->redirect(url('/admin-panel/login'));
         }
     }
 }

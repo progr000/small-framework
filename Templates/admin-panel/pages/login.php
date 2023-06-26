@@ -1,5 +1,5 @@
 <?php
-/** @var Core\ViewDriver $view */
+/** @var $view Core\ViewDriver */
 
 $vars['title'] = 'Login';
 $errors = request_errors();
