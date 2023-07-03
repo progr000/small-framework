@@ -7,6 +7,7 @@
   "Reset": "Zurücksetzen",
   "Delete": "Löschen",
   "Add new": "Neu hinzufügen",
+  "Error": "Fehler",
 
   "------------------------------------------------------------------": "Main title",
   "Admin-panel": "Verwaltungskonsole",
@@ -73,5 +74,11 @@
 
   "------------------------------------------------------------------": "Database backup",
   "Filename": "Dateiname",
-  "Create new backup": "Neues Backup erstellen"
+  "Create new backup": "Neues Backup erstellen",
+
+  "------------------------------------------------------------------": "Contact form validator",
+  "Wrong phone format, allowed symbols: [0-9], +, -, (, ) and SPACE, min length 5, max length 20": "Falsches Telefonformat, erlaubte Symbole: [0-9], +, -, (, ) und SPACE. Mindestlänge 5, maximale Länge 20",
+  "Please confirm that you are not a robot.": "Bitte bestätigen Sie, dass Sie kein Roboter sind.",
+  "ReCaptcha validation failed.": "ReCaptcha-Validierung fehlgeschlagen."
+
 }

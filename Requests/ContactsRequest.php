@@ -50,9 +50,9 @@ class ContactsRequest extends RequestDriver
     public function messages()
     {
         return [
-            'phone_regex' => 'Wrong phone format, allowed simbols: [0-9], + and SPACE, min length 5, max length 15',
-            'g-recaptcha-response_required' => "Please confirm that you are not a robot",
-            'g-recaptcha-response_closure' => "ReCaptcha validation failed. ",// . $this->re_captcha_error,
+            'phone_phone' => __('Wrong phone format, allowed symbols: [0-9], +, -, (, ) and SPACE, min length 5, max length 20'),
+            'g-recaptcha-response_required' => __("Please confirm that you are not a robot."),
+            'g-recaptcha-response_closure' => "", //__("ReCaptcha validation failed."),// . $this->re_captcha_error,
         ];
     }
 
