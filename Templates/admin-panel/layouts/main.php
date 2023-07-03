@@ -9,7 +9,7 @@ $view->firstInJsStack('/js/simple-html/jquery-3.6.3.min.js');
 <!DOCTYPE html>
 <html lang="<?= Core\App::$locale ?>">
 <head>
-    <title><?= isset($vars['title']) ? $vars['title'] . " | " : "" ?>Admin-panel</title>
+    <title><?= isset($vars['title']) ? $vars['title'] . " | " : "" ?><?= __('Admin-panel') ?></title>
     {%CSS-STACK}
 </head>
 <body>

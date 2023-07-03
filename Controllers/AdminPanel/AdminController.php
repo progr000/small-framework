@@ -4,12 +4,17 @@ namespace Controllers\AdminPanel;
 
 use Core\App;
 use Core\Exceptions\DbException;
+use Core\Exceptions\HttpNotFoundException;
 use Core\LogDriver;
 use Core\RequestDriver;
+use Core\ResponseDriver;
+use Ifsnop\Mysqldump\Mysqldump;
 use Middleware\Auth;
+use Models\Contact;
 use Models\User;
 use Requests\ChangePasswordRequest;
 use Services\FlashMessages;
+use Ifsnop\Mysqldump as IMysqldump;
 
 class AdminController extends _MainController
 {
@@ -32,7 +37,9 @@ class AdminController extends _MainController
      */
     public function dashboard()
     {
-        return $this->render('pages/dashboard');
+        return $this->render('pages/dashboard', [
+            'new_contacts_count' => Contact::find()->where(['is_new' => Contact::IS_NEW])->count(),
+        ]);
     }
 
     /**
@@ -126,7 +133,7 @@ class AdminController extends _MainController
             $r = new ChangePasswordRequest();
             $data = $r->validated();
             User::update(['password' => User::generatePassword(session('Auth')->username, $data['password'])], ['id' => session('Auth')->id]);
-            FlashMessages::success('Password was successfully changed');
+            FlashMessages::success(__('Password was successfully changed'));
             return $this->redirect(url('/admin-panel/change-password?success'));
         } else {
             return $this->render('pages/change-password');
@@ -149,5 +156,80 @@ class AdminController extends _MainController
         $body = $tmp[0];
 
         return $this->render('pages/web-console', ['phpinfo' => true, 'data' => $body]);
+    }
+
+    /**
+     * @param RequestDriver $request
+     * @return ResponseDriver|\Exception|string|void
+     * @throws HttpNotFoundException
+     */
+    public function backupDatabase(RequestDriver $request)
+    {
+        $backup_dir = rtrim(config('backup-database-path'), "/") . "/";
+        if ($request->isPost()) {
+
+            try {
+                $dumpSettings = [
+                    //'include-tables' => array('table1', 'table2'),
+                    //'exclude-tables' => array('table3', 'table4'),
+                    'compress' => Mysqldump::GZIP, /* CompressMethod::[GZIP, BZIP2, NONE] */
+                    //'no-data' => false,
+                    //'add-drop-table' => false,
+                    //'single-transaction' => true,
+                    //'lock-tables' => false,
+                    //'add-locks' => true,
+                    'extended-insert' => false,
+                ];
+                $dump = new IMysqldump\Mysqldump(
+                    config('databases->mysql-for-developing')['dsn'],
+                    config('databases->mysql-for-developing')['user'],
+                    config('databases->mysql-for-developing')['password'],
+                    $dumpSettings
+                );
+
+                @mkdir($backup_dir, 0777, true);
+                @chmod($backup_dir, 0777);
+                $file_name = $backup_dir . date('Ymd_His') . '_dump.sql.gz';
+
+                $dump->start($file_name);
+
+                @chmod($file_name, 0777);
+                FlashMessages::success(__("Backup file &laquo{%file_name}&raquo successfully created" , ['file_name' => $file_name]), 15);
+            } catch (\Exception $e) {
+                FlashMessages::error(__("Fail on create backup file. Error: {%error}", ['error' => $e->getMessage()]), 15);
+            }
+            return $this->redirect(url('/admin-panel/backup-database'));
+
+        } elseif ($request->isDelete() && $request->all('file_name')) {
+
+            $file_name = $backup_dir . basename($request->all('file_name'));
+            if (file_exists($file_name)) {
+                @unlink($file_name);
+                FlashMessages::success(__("Backup file &laquo{%file_name}&raquo successfully deleted", ['file_name' => $file_name]), 15);
+                return $this->redirect(url('/admin-panel/backup-database'));
+            } else {
+                FlashMessages::error(__("Fail on delete backup file &laquo{%file_name}&raquo", ['file_name' => $file_name]), 15);
+                throw new HttpNotFoundException("File doesn't exists");
+            }
+
+        } elseif ($request->get('download')) {
+
+            $file_name = $backup_dir . basename($request->get('download'));
+            if (file_exists($file_name)) {
+                return App::$response
+                    ->setBody(file_get_contents($file_name))
+                    ->asFile($file_name);
+            } else {
+                FlashMessages::error(__("Fail on download backup file &laquo{%file_name}&raquo", ['file_name' => $file_name]), 15);
+                throw new HttpNotFoundException("File doesn't exists");
+                //return $this->redirect(url('/admin-panel/backup-database'));
+            }
+
+        } else {
+
+            $list_of_dumps = glob($backup_dir . "*_dump.sql.gz");
+            return $this->render('pages/backup-database', ['list_of_dumps' => $list_of_dumps]);
+
+        }
     }
 }

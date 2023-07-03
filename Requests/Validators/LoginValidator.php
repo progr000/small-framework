@@ -7,7 +7,15 @@ use Models\User;
 
 class LoginValidator
 {
-    public $errorMessage = "Wrong login or password";
+    public $errorMessage;
+
+    /**
+     * LoginValidator constructor.
+     */
+    public function __construct()
+    {
+        $this->errorMessage = __("Wrong login or password");
+    }
 
     /**
      * @throws DbException
@@ -17,7 +25,7 @@ class LoginValidator
         if (!empty($all_data['username']) && !empty($all_data['password'])) {
             return User::login($all_data['username'], $all_data['password']);
         } else {
-            $this->errorMessage = 'username and password are required';
+            $this->errorMessage = __('Username and password are required');
         }
 
         return false;

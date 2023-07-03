@@ -64,5 +64,15 @@ return array_merge([
 
     /* for sign mail */
     'sendmail_cert_dir' => "",
+    'sendmail_from_name' => "",
+    'sendmail_from_email' => "",
+    'sendmail_to_email' => "",
+
+    /**/
+    'backup-database-path' => __DIR__ . '/../logs/dump',
+
+    /**/
+    're-captcha-site-key' => "6Le-wO4mAAAAAPOuK0Aquxjq0bkol8X36KmVeT0d",
+    're-captcha-secret-key' => "6Le-wO4mAAAAAB8pmAm3SYcY_YdRJBGtDXNPpLFj",
 
 ], $local_conf);

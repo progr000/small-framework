@@ -1,3 +1,7 @@
+.request-error {
+    color: #BD323E;
+    font-size: 12px;
+}
 
 .ad-panel-container {
     margin: 50px;
@@ -28,6 +32,10 @@
     background-color: #f9f9f9;
 }
 
+.ad-panel-tab.logout {
+    background-color: #f1c4c4;
+}
+
 .ad-panel-tab.active a {
     color: #333333;
 }
@@ -53,7 +61,7 @@
 .ad-panel-content button {
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-top: 10px;
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 3px;
@@ -73,7 +81,7 @@
 .admin-login-content {
     width: 300px;
     margin: 100px auto;
-    background-color: #fff;
+    background-color: #dddddd;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -81,15 +89,15 @@
 
 .admin-login-content h2 {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 .admin-login-content input {
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-top: 10px;
     box-sizing: border-box;
-    border: 1px solid #ccc;
+    border: 1px solid #cccccc;
     border-radius: 3px;
 }
 
@@ -125,10 +133,46 @@
 .list-of-something th, .list-of-something td {
     padding: 5px 15px;
 }
+.list-of-something td input {
+    *width: 90%;
+}
 
 .narrow-center {
     width: 300px;
     position: absolute;
     left: 50%;
     transform: translate(-50%, -0%);
+}
+
+.ad-panel-content input[type=submit],
+.ad-panel-content input[type=reset],
+a.delete-item {
+    padding: 10px;
+    *margin-bottom: 10px;
+    box-sizing: border-box;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    font: 12px/18px Arial, Sans-serif;
+}
+
+.ad-panel-content input[type=submit] {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.ad-panel-content input[type=reset] {
+    background-color: #3b7e7a;
+    color: #fff;
+}
+
+.delete-item input[type=submit] {
+    background-color: #d25d5d;
+    color: #fff;
+}
+
+a.delete-item {
+    background-color: #d25d5d;
+    color: #fff;
+    text-decoration: none;
 }

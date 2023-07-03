@@ -1,6 +1,11 @@
 <?php
 /** Enter-point for http-app running */
 
+/** default TimeZone */
+if(!ini_get('date.timezone') ) {
+    date_default_timezone_set('GMT');
+}
+
 /** base www dir */
 const __WWW_DIR__ = __DIR__;
 

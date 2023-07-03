@@ -1,11 +1,12 @@
 <?php
 return [
-    'json-path' => __DIR__ . '/../Templates/simple-html/translate/',
+    'json-path' => __DIR__ . '/../Templates/translate/',
 
-    'default-locale' => 'en',
+    'default-locale' => 'de',
 
     'available-locales' => [
-        'en' => 'English',
         'de' => 'Deutsch',
+        'en' => 'English',
+        'ua' => 'Українська',
     ],
 ];
