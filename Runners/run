@@ -7,5 +7,5 @@
 #echo "$#"
 #echo "$@"
 #echo "$@" > file
-
-php ./console-runner.php "$@"
+p__dir=`realpath $0`
+php `dirname $p__dir`/console-runner.php "$@"
