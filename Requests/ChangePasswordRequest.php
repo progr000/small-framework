@@ -46,8 +46,8 @@ class ChangePasswordRequest extends RequestDriver
     public function messages()
     {
         return [
-            'old_password_closure' => "Wrong old password",
-            'repeat_password_compareEquals' => "Password and its confirmation do not match",
+            'old_password_closure' => __("Wrong old password"),
+            'repeat_password_compareEquals' => __("Password and its confirmation do not match"),
         ];
     }
 
