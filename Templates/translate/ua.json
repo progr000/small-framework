@@ -79,6 +79,6 @@
   "------------------------------------------------------------------": "Contact form validator",
   "Wrong phone format, allowed symbols: [0-9], +, -, (, ) and SPACE, min length 5, max length 20": "Неправильний формат телефону, дозволені символи: [0-9], +, -, (, ) і пробіл. Мінімальна довжина 5, максимальна довжина 20",
   "Please confirm that you are not a robot.": "Будь ласка, підтвердіть, що ви не робот.",
-  "ReCaptcha validation failed.": "Валідація ReCaptcha не пройшла.",
+  "ReCaptcha validation failed.": "Валідація ReCaptcha не пройшла."
 
 }
