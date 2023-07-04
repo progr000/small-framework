@@ -2,7 +2,6 @@
 
 namespace Controllers\AdminPanel;
 
-use Core\App;
 use Core\Exceptions\DbException;
 use Core\Exceptions\HttpForbiddenException;
 use Core\Interfaces\RestInterface;

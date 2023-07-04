@@ -35,7 +35,8 @@ class Content extends ActiveRecordDriver
     }
 
     /**
-     * @param $key
+     * @param string $key
+     * @param string $default
      * @return string
      */
     public static function get($key, $default = "")

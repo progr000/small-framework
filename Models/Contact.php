@@ -18,7 +18,7 @@ use Core\ActiveRecordDriver;
  */
 class Contact extends ActiveRecordDriver
 {
+    //protected static $connection_name = 'mysql-for-developing';
     const IS_NEW = 1;
     const IS_OLD = 0;
-    //protected static $connection_name = 'mysql-for-developing';
 }

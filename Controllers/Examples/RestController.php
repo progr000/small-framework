@@ -66,4 +66,12 @@ class RestController extends ControllerDriver implements RestInterface
     {
         dd('rest/delete', $id, App::$request);
     }
+
+    /**
+     * @param $id
+     */
+    public function destroy($id)
+    {
+        dd('rest/destroy', $id, App::$request);
+    }
 }

@@ -70,8 +70,8 @@ class User extends ActiveRecordDriver
     }
 
     /**
-     * @param $username
-     * @param $plain_password
+     * @param string $username
+     * @param string $plain_password
      * @return string
      */
     public static function generatePassword($username, $plain_password)
