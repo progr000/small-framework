@@ -30,6 +30,6 @@ class MainController extends ControllerDriver
      */
     public function contacts()
     {
-        return $this->render('pages/kontakte');
+        return $this->render('pages/contacts');
     }
 }

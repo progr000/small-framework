@@ -58,3 +58,11 @@ a.selected {
     text-decoration: underline;
 }
 /*.li-up-level { margin-top: 10px; margin-bottom: 10px; }*/
+
+label.error {
+    color: #e74c3c;
+    font-size: 14.5px;
+    font-weight: 300;
+    margin-bottom: 20px;
+    display: block;
+}

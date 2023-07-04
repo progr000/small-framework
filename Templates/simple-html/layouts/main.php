@@ -5,7 +5,13 @@
 //$menu = $view->renderView('layouts/menu', $vars);
 
 $view->firstInCssStack('/css/simple-html/main.css');
-$view->firstInJsStack('/js/simple-html/jquery-3.6.3.min.js');
+$view->firstInJsStack([
+    '/js/simple-html/jquery-3.6.3.min.js',
+    '/js/simple-html/jquery.validate/jquery.validate.min.js',
+    '/js/simple-html/jquery.validate/additional-methods.min.js',
+    "/js/simple-html/jquery.validate/localization/messages_" . Core\App::$locale . ".js",
+    '/js/simple-html/common-functions.js',
+]);
 ?>
 <!DOCTYPE html>
 <html lang="ru">
