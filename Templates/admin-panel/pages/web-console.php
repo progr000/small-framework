@@ -2,7 +2,7 @@
 /** @var $view Core\ViewDriver */
 /** @var $data string */
 
-$vars['title'] = __('Web-Console');
+$vars['title'] = isset($vars['phpinfo']) ? __('PhpInfo') : __('Web-Console');
 isset($vars['phpinfo']) && $view->putInCssStack('/css/admin-panel/phpinfo.css')
 
 ?>

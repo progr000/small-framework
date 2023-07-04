@@ -132,7 +132,7 @@ class AdminController extends _MainController
         if ($r->isPost()) {
             $r = new ChangePasswordRequest();
             $data = $r->validated();
-            User::update(['password' => User::generatePassword(session('Auth')->username, $data['password'])], ['id' => session('Auth')->id]);
+            User::update(['password' => User::generatePassword(App::$user->username, $data['password'])], ['id' => App::$user->id]);
             FlashMessages::success(__('Password was successfully changed'));
             return $this->redirect(url('/admin-panel/change-password?success'));
         } else {

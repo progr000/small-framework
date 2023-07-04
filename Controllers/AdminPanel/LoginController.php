@@ -2,6 +2,7 @@
 
 namespace Controllers\AdminPanel;
 
+use Core\App;
 use Core\RequestDriver;
 use Models\User;
 use Requests\LoginRequest;
@@ -23,7 +24,7 @@ class LoginController extends _MainController
      */
     public function login(RequestDriver $r)
     {
-        if (session('Auth')) {
+        if (App::$user) {
             return $this->redirect(url('/admin-panel/dashboard'));
         }
         if ($r->isPost()) {

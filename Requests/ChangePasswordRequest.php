@@ -20,9 +20,7 @@ class ChangePasswordRequest extends RequestDriver
                 'required',
                 'string',
                 function ($key, $params, $all_data) {
-                    /** @var User $user */
-                    $user = session('Auth');
-                    $db_user = User::findOne(['username' => $user->username, 'password' => User::generatePassword($user->username, $all_data[$key]), 'role' => User::ROLE_ADMIN]);
+                    $db_user = User::findOne(['username' => App::$user->username, 'password' => User::generatePassword(App::$user->username, $all_data[$key]), 'role' => User::ROLE_ADMIN]);
                     if ($db_user) {
                         return true;
                     }

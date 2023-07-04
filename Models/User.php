@@ -3,6 +3,7 @@
 namespace Models;
 
 use Core\ActiveRecordDriver;
+use Core\App;
 use Core\Exceptions\DbException;
 
 /**
@@ -51,6 +52,7 @@ class User extends ActiveRecordDriver
         $user = self::findOne(['username' => $username, 'password' => self::generatePassword($username, $password), 'role' => self::ROLE_ADMIN]);
         if ($user) {
             session()->set('Auth', $user);
+            App::$user = $user;
             return true;
         }
 
@@ -63,6 +65,7 @@ class User extends ActiveRecordDriver
     public static function logout()
     {
         session()->delete('Auth');
+        App::$user = null;
         return true;
     }
 
