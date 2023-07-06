@@ -22,7 +22,7 @@ return [
     ],
 
     'mssql-for-developing' => [
-        'dsn' => "sqlsrv:Server=mssql-for-developing,1433;Database=test",
+        'dsn' => "sqlsrv:Server=mssql-for-developing,1433;Database=test;TrustServerCertificate=1",
         'user' => "SA",
         'password' => "Secret1234",
         'table_prefix' => "tbl_",
@@ -36,4 +36,29 @@ return [
         'table_prefix' => "tbl_",
         'charset' => 'utf8',
     ],
+
+    'mssql-wl-hosting' => [
+        'dsn' => "sqlsrv:Server=mssql-for-developing,1433;Database=WLAdmin;TrustServerCertificate=1",
+        'user' => "SA",
+        'password' => "Secret1234",
+        'table_prefix' => "",
+        'charset' => 'utf8',
+    ],
+
+    'mssql-wl-domain' => [
+        'dsn' => "sqlsrv:Server=mssql-for-developing,1433;Database=Domainnamen;TrustServerCertificate=1",
+        'user' => "SA",
+        'password' => "Secret1234",
+        'table_prefix' => "",
+        'charset' => 'utf8',
+    ],
+
+    'mysql-for-orderdesk' => [
+        'dsn' => "mysql:host=176.9.103.55;dbname=hs-crm;port=9007",
+        'user' => "root",
+        'password' => "jgf@Y%jH!dR86vmu",
+        'table_prefix' => "tbl_",
+        'charset' => 'utf8',
+    ],
+
 ];
