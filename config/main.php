@@ -17,7 +17,7 @@ return array_merge([
     'IS_DEBUG' => true,
 
     /* maintenance options */
-    'IS_UNDER_MAINTENANCE' => true,
+    'IS_UNDER_MAINTENANCE' => false,
     'MAINTENANCE_ACCESS_IPS' => [
         '127.0.0.1',
         '172.20.0.1',

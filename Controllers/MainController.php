@@ -4,6 +4,7 @@ namespace Controllers;
 
 use Core\ControllerDriver;
 use Core\Exceptions\DbException;
+use Models\Contact;
 use Models\Content;
 
 class MainController extends ControllerDriver
@@ -22,6 +23,7 @@ class MainController extends ControllerDriver
      */
     public function index()
     {
+        dd(Contact::findOrFail(1)->order());
         return $this->render('pages/index');
     }
 

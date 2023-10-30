@@ -2,6 +2,8 @@
 
 namespace Models;
 
+use Core\Exceptions\DbException;
+use Core\Traits\HasRelationships;
 use Core\ActiveRecordDriver;
 
 /**
@@ -18,7 +20,17 @@ use Core\ActiveRecordDriver;
  */
 class Contact extends ActiveRecordDriver
 {
+    use HasRelationships;
+
     //protected static $connection_name = 'mysql-for-developing';
     const IS_NEW = 1;
     const IS_OLD = 0;
+
+    /**
+     * @throws DbException
+     */
+    public function order()
+    {
+        $this->hasOne(User::class, 'contact_id', 'id');
+    }
 }

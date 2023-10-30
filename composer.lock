@@ -123,12 +123,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/progr000/small-framework-core-lib.git",
-                "reference": "11841fc47583d9769fd8890b2cf07ff64350f92b"
+                "reference": "ad81011a07089e140a048084e33a76c5a3263243"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/progr000/small-framework-core-lib/zipball/11841fc47583d9769fd8890b2cf07ff64350f92b",
-                "reference": "11841fc47583d9769fd8890b2cf07ff64350f92b",
+                "url": "https://api.github.com/repos/progr000/small-framework-core-lib/zipball/ad81011a07089e140a048084e33a76c5a3263243",
+                "reference": "ad81011a07089e140a048084e33a76c5a3263243",
                 "shasum": ""
             },
             "require": {
@@ -169,7 +169,7 @@
                 "issues": "https://github.com/progr000/small-framework-core-lib/issues",
                 "source": "https://github.com/progr000/small-framework-core-lib/tree/dev"
             },
-            "time": "2023-07-04T07:53:52+00:00"
+            "time": "2023-10-30T13:22:49+00:00"
         }
     ],
     "packages-dev": [],
@@ -189,5 +189,5 @@
         "ext-openssl": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }

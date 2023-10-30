@@ -22,7 +22,7 @@ return [
     ],
 
     'mssql-for-developing' => [
-        'dsn' => "sqlsrv:Server=mssql-for-developing,1433;Database=test",
+        'dsn' => "sqlsrv:Server=mssql-for-developing,1433;Database=test;TrustServerCertificate=1",
         'user' => "SA",
         'password' => "Secret1234",
         'table_prefix' => "tbl_",
