@@ -1,0 +1,12 @@
+name: Deploy
+on:
+  push:
+    branches: [ "dev" ]
+jobs:
+  pullProject:
+    runs-on: self-hosted
+    steps:
+    - name: Pull Project
+      run: |
+        cd /home/progr/test/small-framework
+        git pull origin dev
