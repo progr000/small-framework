@@ -8,5 +8,5 @@ jobs:
     steps:
     - name: Pull Project
       run: |
-        cd /home/progr/test/small-framework
+        cd /mnt/my-personal-data/work/www/test.localhost
         git pull origin dev
