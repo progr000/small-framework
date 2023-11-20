@@ -3,6 +3,7 @@
 namespace Controllers;
 
 use Core\ControllerDriver;
+use Core\DbDriver;
 use Core\Exceptions\DbException;
 use Models\Contact;
 use Models\Content;
@@ -20,10 +21,13 @@ class MainController extends ControllerDriver
 
     /**
      * @return \Exception|string
+     * @throws DbException
      */
     public function index()
     {
-        dd(Contact::findOrFail(1)->order());
+        //dd(DbDriver::getInstance('postgres-for-developing')->exec("SELECT version()")->fetchAll());
+        //dd(Contact::findOrFail(1)->order());
+        //Contact::find()->where('1')->all();
         return $this->render('pages/index');
     }
 

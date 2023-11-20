@@ -24,6 +24,9 @@ return array_merge([
         '192.168.96.1',
     ],
 
+    /* handler for 404 */
+    'OWN_404_HANDLER' => true, // if this framework used as part of another project, you should set this parameter to false
+
     /* wget params */
     'IGNORE_SSL_ERRORS' => true, // if you planed sent request to the servers with wrong certificate need set to true
 
