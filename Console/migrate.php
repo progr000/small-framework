@@ -11,20 +11,22 @@ class migrate extends ConsoleDriver
 {
     /** @var string[] */
     protected $available_params = [
-        'migrate:up'      => " [warn][ --set-steps=INT ][/warn]\tInstall all new migrations",
-        'migrate:down'    => " [error]--set-steps=INT[/error]\tUninstall some migrations",
-        'migrate:create'  => " [error]--set-name=NAME[/error]\tCreate new migration file",
-        'migrate:refresh' => "\t\t\tReinstall all migration (full down an then full up)",
-        'migrate:reset'   => "\t\t\tUninstall all migration",
-        '--set-steps'     => "=INT\t\t\tRequired with :down and not necessarily with :up",
-        '--set-name'      => "=NAME\t\t\tRequired with :create",
-        '--web-version-help' => "\t\tShow how you can use this through http"
+        'migrate:up'          => " [warn][ --set-steps=INT ][/warn]\tInstall all new migrations",
+        'migrate:down'        => " [error]--set-steps=INT[/error]\tUninstall some migrations",
+        'migrate:create'      => " [error]--set-name=NAME[/error]\tCreate new migration file",
+        'migrate:refresh'     => "\t\t\tReinstall all migration (full down an then full up)",
+        'migrate:reset'       => "\t\t\tUninstall all migration",
+        '--set-delete-lock'   => "=true\t\tDelete lock file",
+        '--set-steps'         => "=INT\t\t\tRequired with :down and not necessarily with :up",
+        '--set-name'          => "=NAME\t\t\tRequired with :create",
+        '--web-version-help'  => "\t\tShow how you can use this through http"
     ];
 
     /** @var MigrationDriver */
     private $migrate;
     protected $steps;
     protected $name;
+    protected $delete_lock = 'false';
 
     /**
      * @return true
@@ -35,7 +37,7 @@ class migrate extends ConsoleDriver
         ignore_user_abort(true);
         LogDriver::setVerboseLevel($this->verbose_level);
         LogDriver::setLog(config('logs->migrations.log'));
-        $this->migrate = MigrationDriver::getInstance(__DIR__ . "/../Db/migrations");
+        $this->migrate = MigrationDriver::getInstance(__DIR__ . "/../Db/migrations", $this->delete_lock === 'true');
         return true;
     }
 
