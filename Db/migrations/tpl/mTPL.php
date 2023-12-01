@@ -17,7 +17,7 @@ class __NEW_CLASS_NAME__ extends mMain
     protected static $connection_name;
 
     /**
-     * @return false
+     * @return bool
      * @throws DbException
      */
     public function up()
@@ -26,7 +26,7 @@ class __NEW_CLASS_NAME__ extends mMain
     }
 
     /**
-     * @return false
+     * @return bool
      * @throws DbException
      */
     public function down()

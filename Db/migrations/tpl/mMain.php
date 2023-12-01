@@ -37,16 +37,17 @@ abstract class mMain
 
     /**
      * @param string $queries
+`     * @param array $params
      * @return bool
      * @throws DbException
      */
-    protected function exec($queries)
+    protected function exec($queries, $params = [])
     {
         $queries_ = explode(';', $queries);
         foreach ($queries_ as $sql) {
             $sql = trim($sql);
             if (!empty($sql)) {
-                if (!$this->db->exec($sql)) {
+                if (!$this->db->exec($sql, $params)) {
                     return false;
                 }
             }
