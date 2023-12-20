@@ -13,7 +13,7 @@ if (!function_exists('minimize')) {
         return str_replace(
             ["\n", "\r\n", ": ", "; ", "} ", "{ ", " }", " {", " =", "= ", ", ", " ,"],
             ["", "", ":", ";", "}", "{", "}", "{", "=", "=", ",", ","],
-            preg_replace("/[\s]+/", " ", $str)
+            replaceMultiSpacesAndNewLine($str)
         );
     }
 }
