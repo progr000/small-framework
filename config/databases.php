@@ -14,7 +14,7 @@ return [
 
     /* config params for database connection named as mysql-for-developing, you can create another new connections instead bellow */
     'mysql-for-developing' => [
-        'dsn' => "mysql:host=mysql-for-developing;dbname=test;port=3306",
+        'dsn' => "mysql:host=for-dev-mysql;dbname=test;port=3306",
         'user' => "root",
         'password' => "mauFJcuf5dhRMQrjj",
         'table_prefix' => "tbl_",
@@ -22,7 +22,7 @@ return [
     ],
 
     'mssql-for-developing' => [
-        'dsn' => "sqlsrv:Server=mssql-for-developing,1433;Database=test;TrustServerCertificate=1",
+        'dsn' => "sqlsrv:Server=for-dev-mssql,1433;Database=test;TrustServerCertificate=1",
         'user' => "SA",
         'password' => "Secret1234",
         'table_prefix' => "tbl_",
@@ -30,7 +30,7 @@ return [
     ],
 
     'postgres-for-developing' => [
-        'dsn' => "pgsql:host=postgres-for-developing;dbname=test;port=5432",
+        'dsn' => "pgsql:host=for-dev-postgres;dbname=test;port=5432",
         'user' => "postgres",
         'password' => "secret",
         'table_prefix' => "tbl_",

@@ -51,6 +51,9 @@ return array_merge([
     /* database params (should return array of config for available databases) */
     'databases' => require_once('databases.php'),
 
+    /* caching driver and credentials */
+    'caching' => require_once('caching.php'),
+
     /* templates for ViewDriver */
     'template-path' => __DIR__ . '/../Templates/simple-html',
     'admin-template-path' => __DIR__ . '/../Templates/admin-panel',

@@ -145,6 +145,11 @@ class AdminController extends _MainController
      */
     public function phpinfo()
     {
+        $a = 2;
+        echo App::$cache->cacheResult(function () use ($a) {
+            dump($a);
+            return date('Y-m-d H:i:s');
+        }, 30);
         ob_start();
         phpinfo();
         $data = ob_get_contents();
