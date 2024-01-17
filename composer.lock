@@ -123,12 +123,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/progr000/small-framework-core-lib.git",
-                "reference": "996721813bbb84ee3dfb05ccc82450a957d4f42a"
+                "reference": "4520e5fb14d9856478a5142f9f06087ad202d793"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/progr000/small-framework-core-lib/zipball/996721813bbb84ee3dfb05ccc82450a957d4f42a",
-                "reference": "996721813bbb84ee3dfb05ccc82450a957d4f42a",
+                "url": "https://api.github.com/repos/progr000/small-framework-core-lib/zipball/4520e5fb14d9856478a5142f9f06087ad202d793",
+                "reference": "4520e5fb14d9856478a5142f9f06087ad202d793",
                 "shasum": ""
             },
             "require": {
@@ -170,7 +170,7 @@
                 "issues": "https://github.com/progr000/small-framework-core-lib/issues",
                 "source": "https://github.com/progr000/small-framework-core-lib/tree/dev"
             },
-            "time": "2023-12-19T10:48:31+00:00"
+            "time": "2024-01-16T21:40:19+00:00"
         }
     ],
     "packages-dev": [],
