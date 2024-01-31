@@ -36,4 +36,13 @@ return [
         'table_prefix' => "tbl_",
         'charset' => 'utf8',
     ],
+
+    /**/
+    'maria-db-whmcs' => [
+        'dsn' => "mysql:host=whm-mariadb;dbname=whmcs;port=3306",
+        'user' => 'whmcs-user',
+        'password' => 'DYu8B+jCnFysb3D5',
+        'table_prefix' => 'tbl',
+        'charset' => 'utf8',
+    ],
 ];
