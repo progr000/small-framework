@@ -60,7 +60,7 @@ $view->putInJsStack('
             if (session('locale', config('localization->default-locale', 'en')) !== $k) {
                 ?>
                 <a href="<?= url("/lang/{$k}") ?>">
-                    <img class="lang-img" src="<?= asset("/images/admin-panel/flags/{$k}.jpg") ?>" alt="<?= $locales[$current_lang] ?>">
+                    <img class="lang-img" src="<?= asset("/images/admin-panel/flags/{$k}.jpg") ?>" alt="<?= $v ?>">
                 </a>
                 <br/>
                 <?php

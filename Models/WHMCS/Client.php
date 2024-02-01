@@ -19,4 +19,13 @@ class Client extends ActiveRecordDriver
     {
         return $this->hasOne(Currency::class, 'id', 'currency');
     }
+
+    /**
+     * @return Invoice[]|null
+     * @throws \Core\Exceptions\DbException
+     */
+    public function invoices()
+    {
+        return $this->hasMany(Invoice::class, 'userid', 'id');
+    }
 }

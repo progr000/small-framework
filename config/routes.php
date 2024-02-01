@@ -11,6 +11,11 @@ return [
         }
     ],
 
+    /* for testing */
+    '/test' => [Controllers\TestController::class, 'dispatch', 'get', 'middleware' => [
+        Middleware\AllowOnlyInDebug::class,
+    ]],
+
     /* debug middleware example */
     '/info(/.*)?' => [
         function(...$params) {
