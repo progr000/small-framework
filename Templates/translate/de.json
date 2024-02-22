@@ -35,6 +35,7 @@
   "Type of file is undefined": "Dateityp ist undefiniert",
   "Wrong file type. Expected {%type}": "Falscher Dateityp. Erwartet {%type}",
   "File to lage, max size {%max} bytes": "Datei zum Speichern, maximale Größe {%max} Bytes",
+  "Error on upload": "Fehler beim Hochladen",
 
   "------------------------------------------------------------------": "Main title",
   "Admin-panel": "Verwaltungskonsole",

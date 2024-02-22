@@ -15,6 +15,7 @@ return array_merge([
 
     /* debug mode */
     'IS_DEBUG' => true,
+    'SHOW_DEBUG_PANEL' => true,
 
     /* maintenance options */
     'IS_UNDER_MAINTENANCE' => false,

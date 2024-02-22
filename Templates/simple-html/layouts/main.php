@@ -64,18 +64,6 @@ $view->firstInJsStack([
     <tr>
         <td class="footer" colspan="2">Copyright (c) Maks</td>
     </tr>
-    <?php
-    if (config('IS_DEBUG', false)) {
-        ?>
-        <tr>
-            <td class="footer" colspan="2">
-                DEBUG-Console:<br>
-                <div style="text-align:left; background-color: #cccccc; width: 100%; max-height: 200px !important; overflow: auto;">%%%DEBUG-DATA%%%</div>
-            </td>
-        </tr>
-        <?php
-    }
-    ?>
 </table>
 
 {%JS-STACK}

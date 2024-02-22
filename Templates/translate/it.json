@@ -1,0 +1,15 @@
+{
+  "------------------------------------------------------------------": "Common Validation",
+  "Wrong value": "Valore errato",
+  "Value is required": "Il valore è richiesto",
+  "Value too small, min value {%min}": "Valore troppo piccolo, valore minimo {%min}",
+  "Value too big, max value {%max}": "Valore troppo grande, valore massimo {%max}",
+  "Value must be an integer": "Il valore deve essere un numero intero",
+  "Value must be a double": "Il valore deve essere doppio",
+  "Value too short, min length {%min}": "Valore troppo corto, lunghezza minima {%min}",
+  "Value too long, max length {%max}": "Valore troppo lungo, lunghezza massima {%max}",
+  "Value length must be {%length}": "La lunghezza del valore deve essere {%length}",
+  "Wrong regex for validation": "Regex errata per la convalida",
+  "Value not match with regex {%regex}": "Il valore non corrisponde alla regex {%regex}",
+  "Value doesn't equals value {%compareEquals}": "Il valore non è uguale al valore {%compareEquals}"
+}
