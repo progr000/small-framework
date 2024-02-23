@@ -49,6 +49,11 @@ return array_merge([
         Middleware\Localization::class,
     ],
 
+    /* middleware which were applied to each (any) response */
+    'global-response-middleware' => [
+        Middleware\ResponseDebugPanel::class,
+    ],
+
     /* database params (should return array of config for available databases) */
     'databases' => require_once('databases.php'),
 
