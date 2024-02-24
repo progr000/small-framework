@@ -29,6 +29,13 @@ try {
 } catch (Exception $e) {
     /** if something wrong */
     header(Core\ResponseDriver::getHeaderForResponseStatus($e->getCode()));
-    echo $e->getMessage();
+    echo '<html lang="en"><body>';
+    echo '<div style="width: 100%; text-align: center; padding-top: 100px; color: #9a1a00; font-size: 5em;">Something going wrong</div>';
+    if (config('IS_DEBUG', false)) {
+        echo '<pre>';
+        var_dump($e->getMessage(), $e->getTraceAsString());
+        echo '</pre>';
+    }
+    echo '</body></html>';
     die();
 }

@@ -16,6 +16,13 @@ return array_merge([
     /* debug mode */
     'IS_DEBUG' => true,
     'SHOW_DEBUG_PANEL' => true,
+    'error_reporting' => E_ALL,
+    'display_errors' => 1,
+    // if error_handler is null then will be used default, but you can put callable here
+    'error_handler' => function ($errno, $errstr, $errfile, $errline) {
+        echo "<pre>"; var_dump($errno, $errstr, $errfile, $errline); echo "</pre>";
+    },
+    'error_handler' => null,
 
     /* maintenance options */
     'IS_UNDER_MAINTENANCE' => false,
