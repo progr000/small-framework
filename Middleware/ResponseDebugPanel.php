@@ -17,8 +17,6 @@ class ResponseDebugPanel
      */
     public function handle(ResponseDriver $response)
     {
-        //dd(strlen($response->getBody()));
-        //$response->setBody();
         if (config('SHOW_DEBUG_PANEL', false) && config('IS_DEBUG', false) && !$response->isJson()) {
             /* if SHOW_DEBUG_PANEL=true and IS_DEBUG=true then will be showed special debug panel with all debug info */
             $response->setBody(
