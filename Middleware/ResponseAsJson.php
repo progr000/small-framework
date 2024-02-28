@@ -2,20 +2,31 @@
 
 namespace Middleware;
 
-use Core\App;
+use Core\Interfaces\MiddlewareInterface;
 use Core\RequestDriver;
+use Core\ResponseDriver;
 
 /**
  * Force answer as json
  */
-class ResponseAsJson
+class ResponseAsJson implements MiddlewareInterface
 {
     /**
      * @param RequestDriver $request
+     * @param ResponseDriver $response
+     * @interitdoc
      * @return void
      */
-    public function handle(RequestDriver $request)
+    public function handleOnRequest(RequestDriver $request, ResponseDriver $response)
     {
-        App::$response->asJson();
+        $response->asJson();
+    }
+
+    /**
+     * @param ResponseDriver $response
+     * @return void
+     */
+    public function handleOnResponse(ResponseDriver $response)
+    {
     }
 }

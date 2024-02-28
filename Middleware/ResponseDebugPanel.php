@@ -3,21 +3,31 @@
 namespace Middleware;
 
 use Core\App;
+use Core\Interfaces\MiddlewareInterface;
 use Core\RequestDriver;
 use Core\ResponseDriver;
 
 /**
  * Force answer as json
  */
-class ResponseDebugPanel
+class ResponseDebugPanel implements MiddlewareInterface
 {
+    /**
+     * @param RequestDriver $request
+     * @param ResponseDriver $response
+     * @return void
+     */
+    public function handleOnRequest(RequestDriver $request, ResponseDriver $response)
+    {
+    }
+
     /**
      * @param ResponseDriver $response
      * @return void
      */
-    public function handle(ResponseDriver $response)
+    public function handleOnResponse(ResponseDriver $response)
     {
-        if (config('SHOW_DEBUG_PANEL', false) && config('IS_DEBUG', false) && !$response->isJson()) {
+        if (config('SHOW_DEBUG_PANEL', false) && config('IS_DEBUG', false) && $response->isHtml()) {
             /* if SHOW_DEBUG_PANEL=true and IS_DEBUG=true then will be showed special debug panel with all debug info */
             $response->setBody(
                 str_replace(
@@ -26,7 +36,7 @@ class ResponseDebugPanel
                     $response->getBody()
                 )
             );
-        } elseif (config('IS_DEBUG', false) && !$response->isJson()) {
+        } elseif (config('IS_DEBUG', false) && $response->isHtml()) {
             /* if SHOW_DEBUG_PANEL=false and IS_DEBUG=true then debug info will be showed before main page output (base-content) */
             $response->setBody($response->getDebugData() . $response->getBody());
         }

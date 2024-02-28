@@ -3,10 +3,12 @@
 namespace Middleware;
 
 use Core\Exceptions\HttpForbiddenException;
+use Core\Interfaces\MiddlewareInterface;
 use Core\RequestDriver;
+use Core\ResponseDriver;
 use Core\SessionDriver;
 
-class VerifyCsrfToken
+class VerifyCsrfToken implements MiddlewareInterface
 {
     protected $except_routes_regex = [
         '~^/api/(.*)$~',
@@ -14,10 +16,11 @@ class VerifyCsrfToken
 
     /**
      * @param RequestDriver $request
+     * @param ResponseDriver $response
      * @return void
      * @throws HttpForbiddenException
      */
-    public function handle(RequestDriver $request)
+    public function handleOnRequest(RequestDriver $request, ResponseDriver $response)
     {
         /* do not apply this middleware to except routes */
         foreach ($this->except_routes_regex as $v) {
@@ -51,5 +54,13 @@ class VerifyCsrfToken
             }
         }
 
+    }
+
+    /**
+     * @param ResponseDriver $response
+     * @return void
+     */
+    public function handleOnResponse(ResponseDriver $response)
+    {
     }
 }

@@ -3,19 +3,22 @@
 namespace Middleware;
 
 use Core\Exceptions\MaintenanceException;
+use Core\Interfaces\MiddlewareInterface;
 use Core\RequestDriver;
+use Core\ResponseDriver;
 
 /**
  * For on/off maintenance mode
  */
-class Maintenance
+class Maintenance implements MiddlewareInterface
 {
     /**
      * @param RequestDriver $request
+     * @param ResponseDriver $response
      * @return void
      * @throws MaintenanceException
      */
-    public function handle(RequestDriver $request)
+    public function handleOnRequest(RequestDriver $request, ResponseDriver $response)
     {
         if (config('IS_UNDER_MAINTENANCE', false)) {
             $ip = $request->ip();
@@ -23,5 +26,13 @@ class Maintenance
                 throw new MaintenanceException('Site is under maintenance now, please try late', 503);
             }
         }
+    }
+
+    /**
+     * @param ResponseDriver $response
+     * @return void
+     */
+    public function handleOnResponse(ResponseDriver $response)
+    {
     }
 }

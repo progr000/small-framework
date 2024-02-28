@@ -25,7 +25,7 @@ class AdminController extends _MainController
     {
         /* check is user authenticated */
         $auth = new Auth();
-        $auth->handle(App::$request);
+        $auth->handleOnRequest(App::$request, App::$response);
 
         /**/
         parent::__construct();
