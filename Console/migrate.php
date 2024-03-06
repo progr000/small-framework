@@ -27,6 +27,7 @@ class migrate extends ConsoleDriver
     protected $steps;
     protected $name;
     protected $delete_lock = 'false';
+    protected $verbose_level = 0;
 
     /**
      * @return true
