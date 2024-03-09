@@ -4,6 +4,7 @@ namespace Db\migrations\tpl;
 
 use Core\App;
 use Core\Exceptions\DbException;
+use Core\Providers\MigrationSchemaProvider;
 
 abstract class mMain
 {
@@ -19,6 +20,9 @@ abstract class mMain
     /** @var \Core\DbDriver */
     protected $db;
 
+    /** @var MigrationSchemaProvider */
+    protected $Schema;
+
     /**
      * @throws DbException
      */
@@ -30,6 +34,7 @@ abstract class mMain
 
         if (isset(App::$DbInstances[static::$connection_name])) {
             $this->db = App::$DbInstances[static::$connection_name];
+            $this->Schema = (new MigrationSchemaProvider())->register($this->db);
         } else {
             throw new DbException("This connection is not initialized correctly", 500);
         }
