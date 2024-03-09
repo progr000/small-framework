@@ -25,14 +25,16 @@ $view->putInJsStack('/js/admin-panel/common.js');
         </thead>
         <tbody>
             <?php
-            foreach ($users as $user) {
-                ?>
-                <tr>
-                    <td><?= $user->id ?></td>
-                    <td><a href="<?= url("/admin-panel/users/{$user->id}") ?>"><?= $user->username ?></a></td>
-                    <td><?= Models\User::getRoles($user->role) ?></td>
-                </tr>
-                <?php
+            if ($users) {
+                foreach ($users as $user) {
+                    ?>
+                    <tr>
+                        <td><?= $user->id ?></td>
+                        <td><a href="<?= url("/admin-panel/users/{$user->id}") ?>"><?= $user->username ?></a></td>
+                        <td><?= Models\User::getRoles($user->role) ?></td>
+                    </tr>
+                    <?php
+                }
             }
             ?>
         </tbody>
