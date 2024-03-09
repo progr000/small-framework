@@ -2,6 +2,7 @@
 
 namespace Controllers;
 
+use Core\App;
 use Core\ControllerDriver;
 use Core\Providers\RelationshipContainer;
 use Core\RequestDriver;
@@ -31,6 +32,8 @@ class TestController extends ControllerDriver
      */
     public function testEagerRelations(RequestDriver $r)
     {
+        //dd(\PDO::getAvailableDrivers());
+        //dd(App::$DbInstances['sqlite-for-developing']->exec('create table foo (col_1 number, col_2 varchar2)'));
 //        $invoices = Invoice::query()
 //            ->with(['client' => ['currency' => function ($builder) {
 //                $builder

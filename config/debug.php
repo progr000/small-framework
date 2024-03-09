@@ -14,9 +14,9 @@ return [
     'display_errors' => 1,
     // if error_handler is null then will be used default, but you can put callable here
     'error_handler' => null,
-    'sql_error_handler' => function (Exception $e, $sql) {
+    'sql_error_handler' => function (Exception $e, $sql = "") {
         //if (config('IS_DEBUG', false)) {
-            throw new Core\Exceptions\DbException(get_class($this) . "::exec: {$e->getMessage()}\n\n{$sql}\n", 500);
+            throw new Core\Exceptions\DbException("DbException::error: {$e->getMessage()}\n\n{$sql}\n", 500);
         //} else {
             //return false;
         //}

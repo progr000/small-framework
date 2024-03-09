@@ -45,4 +45,13 @@ return [
         'table_prefix' => 'tbl',
         'charset' => 'utf8',
     ],
+
+    /**/
+    'sqlite-for-developing' => [
+        'dsn' => "sqlite:/tmp/sqlite-for-developing.sq3",
+        'user' => 'any',
+        'password' => 'any',
+        'table_prefix' => 'tbl_',
+        'charset' => 'utf8',
+    ],
 ];
