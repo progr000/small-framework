@@ -16,7 +16,6 @@ class TestController extends ControllerDriver
      */
     public function dispatch(RequestDriver $r)
     {
-        hardSetErrorHandler();
         $method = $r->get('action', 'test');
         if (method_exists($this, $method)) {
             $this->$method($r);
