@@ -9,35 +9,6 @@ if (file_exists(__DIR__ . "/main-local.php")) {
 /* config data */
 return array_merge([
 
-    /* site conf */
-    'SITE_URL' => null,
-    'SITE_ROOT' => __DIR__ . '/../www',
-
-    /* debug mode */
-    'IS_DEBUG' => true,
-    'SHOW_DEBUG_PANEL' => true,
-    'error_reporting' => E_ALL,
-    'display_errors' => 1,
-    // if error_handler is null then will be used default, but you can put callable here
-    'error_handler' => null,
-
-    /* maintenance options */
-    'IS_UNDER_MAINTENANCE' => false,
-    'MAINTENANCE_ACCESS_IPS' => [
-        '127.0.0.1',
-        '172.20.0.1',
-        '192.168.96.1',
-    ],
-
-    /* handler for 404 */
-    'OWN_404_HANDLER' => true, // if this framework used as part of another project, you should set this parameter to false
-
-    /* wget params */
-    'IGNORE_SSL_ERRORS' => true, // if you planed sent request to the servers with wrong certificate need set to true
-
-    /* cookie encrypt ket */
-    'cookie-enc-key' => 'dfmBDfeow3ewcdsf323$%dDS*',
-
     /* routes */
     //'routes' => require_once('routes.php'),
     'routes' => array_merge(
@@ -45,25 +16,11 @@ return array_merge([
         require_once('routes-examples.php')
     ),
 
-    /* middleware which were applied to each (any) request */
-    'global-middleware' => [
-        Middleware\Maintenance::class,
-        Middleware\VerifyCsrfToken::class,
-        Middleware\TrustProxies::class,
-        Middleware\Localization::class,
-        Middleware\ResponseDebugPanel::class,
-    ],
-
     /* database params (should return array of config for available databases) */
     'databases' => require_once('databases.php'),
 
     /* caching driver and credentials */
     'caching' => require_once('caching.php'),
-
-    /* templates for ViewDriver */
-    'template-path' => __DIR__ . '/../Templates/simple-html',
-    'admin-template-path' => __DIR__ . '/../Templates/admin-panel',
-    'minimize-plain-css-js' => true,
 
     /**/
     'localization' => require_once('localization.php'),
@@ -71,20 +28,18 @@ return array_merge([
     /* log params */
     'logs' => require_once('logs.php'),
 
-    /* BearerAuth secret-key */
-    'api.api-storage-access-token' => "",
+    /* company configuration */
+    'company_data' => require_once('company_data.php'),
 
-    /* for sign mail */
-    'sendmail_cert_dir' => "",
-    'sendmail_from_name' => "",
-    'sendmail_from_email' => "",
-    'sendmail_to_email' => "",
-
-    /**/
+    /* mysqldump folder for backup */
     'backup-database-path' => __DIR__ . '/../logs/dump',
 
-    /* Google ReCaptcha https://github.com/google/recaptcha, https://www.google.com/recaptcha/admin */
-    're-captcha-site-key' => "6Le-wO4mAAAAAPOuK0Aquxjq0bkol8X36KmVeT0d",
-    're-captcha-secret-key' => "6Le-wO4mAAAAAB8pmAm3SYcY_YdRJBGtDXNPpLFj",
-
-], $local_conf);
+],
+    require_once('maintenance.php'),
+    require_once('site.php'),
+    require_once('debug.php'),
+    require_once('view.php'),
+    require_once('middleware.php'),
+    require_once('sendmail.php'),
+    $local_conf
+);
