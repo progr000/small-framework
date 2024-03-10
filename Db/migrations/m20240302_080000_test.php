@@ -15,7 +15,8 @@ class m20240302_080000_test extends mMain
      * instead default (when this var not set)
      * @var string
      */
-    protected static $connection_name;
+    //protected static $connection_name;
+    protected static $connection_name = 'sqlite-for-developing';
 
     /**
      * @return bool
@@ -33,7 +34,7 @@ class m20240302_080000_test extends mMain
             $table->column('double_test')->double()->unsigned()->nullable(false)->defaultVal(12.567);
             $table->column('decimal_test')->decimal()->unsigned()->nullable(false)->defaultVal(13.891);
             $table->column('bit_test')->bit(4)->unsigned()->nullable(false)->defaultVal(3);
-            $table->column('bool_test')->bool()->unsigned()->nullable(false)->defaultVal(55)->index();
+            $table->column('bool_test')->bool()->unsigned()->nullable(false)->defaultVal(true)->index();
             $table->column('text_test')->text()->defaultVal('text')->nullable(false);
             $table->column('blob_test')->blob()->defaultVal('text')->nullable(false);
             $table->column('date_test')->date()->defaultVal('2024-12-05')->nullable(false);
@@ -44,6 +45,7 @@ class m20240302_080000_test extends mMain
             $table->column('json_test')->nullable(false)->defaultVal('dddd')->manual_raw('json NOT NULL');
             $table->unique('idx_name', ['name', 'reserved']);
             $table->index('idx_name', 'name');
+            $table->index('idx_name2', ['name', 'double_test']);
             $table->foreignKey('idx_foreign_user_id', 'user_id', '{{users}}', 'id', 'SET NULL', 'CASCADE');
         });
     }

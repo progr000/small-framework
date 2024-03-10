@@ -21,21 +21,21 @@ return [
         'charset' => 'utf8',
     ],
 
-    'mssql-for-developing' => [
-        'dsn' => "sqlsrv:Server=for-dev-mssql,1433;Database=test;TrustServerCertificate=1",
-        'user' => "SA",
-        'password' => "Secret1234",
-        'table_prefix' => "tbl_",
-        'charset' => 'utf8',
-    ],
-
-    'postgres-for-developing' => [
-        'dsn' => "pgsql:host=for-dev-postgres;dbname=test;port=5432",
-        'user' => "postgres",
-        'password' => "secret",
-        'table_prefix' => "tbl_",
-        'charset' => 'utf8',
-    ],
+//    'mssql-for-developing' => [
+//        'dsn' => "sqlsrv:Server=for-dev-mssql,1433;Database=test;TrustServerCertificate=1",
+//        'user' => "SA",
+//        'password' => "Secret1234",
+//        'table_prefix' => "tbl_",
+//        'charset' => 'utf8',
+//    ],
+//
+//    'postgres-for-developing' => [
+//        'dsn' => "pgsql:host=for-dev-postgres;dbname=test;port=5432",
+//        'user' => "postgres",
+//        'password' => "secret",
+//        'table_prefix' => "tbl_",
+//        'charset' => 'utf8',
+//    ],
 
     /**/
     'maria-db-whmcs' => [
@@ -48,7 +48,7 @@ return [
 
     /**/
     'sqlite-for-developing' => [
-        'dsn' => "sqlite:/tmp/sqlite-for-developing.sq3",
+        'dsn' => "sqlite:/var/log/php/sqlite-for-developing.sq3",
         'user' => 'any',
         'password' => 'any',
         'table_prefix' => 'tbl_',
