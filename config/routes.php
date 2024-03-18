@@ -21,6 +21,7 @@ return [
         function(...$params) {
             //dump($params, $_GET, \Core\App::$request->ip());
             phpinfo();
+            exit;
         },
         'middleware' => [
             Middleware\AllowOnlyInDebug::class,
