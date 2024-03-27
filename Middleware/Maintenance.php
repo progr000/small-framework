@@ -22,7 +22,42 @@ class Maintenance implements MiddlewareInterface
     {
         if (config('IS_UNDER_MAINTENANCE', false)) {
             $ip = $request->ip();
-            if (!in_array($ip, config('MAINTENANCE_ACCESS_IPS', []))) {
+            $tmp_current = explode('.', $ip);
+            /**/
+            $allowed_ips = config('MAINTENANCE_ACCESS_ALLOWED_IPS', []);
+            $allow = false;
+            foreach ($allowed_ips as $allowed_ip) {
+                $d0 = false;
+                $d1 = false;
+                $d2 = false;
+                $d3 = false;
+                /**/
+                $tmp_allowed = explode('.', $allowed_ip);
+                if (!isset($tmp_allowed[1]) || $tmp_allowed[1] === '') { $tmp_allowed[1] = '*'; }
+                if (!isset($tmp_allowed[2]) || $tmp_allowed[2] === '') { $tmp_allowed[2] = '*'; }
+                if (!isset($tmp_allowed[3]) || $tmp_allowed[3] === '') { $tmp_allowed[3] = '*'; }
+                /**/
+                if ($tmp_allowed[0] === $tmp_current[0] || $tmp_allowed[0] === '*') {
+                    $d0 = true;
+                }
+                if (isset($tmp_current[1]) && ($tmp_allowed[1] === $tmp_current[1] || $tmp_allowed[1] === '*')) {
+                    $d1 = true;
+                }
+                if (isset($tmp_current[2]) && ($tmp_allowed[2] === $tmp_current[2] || $tmp_allowed[2] === '*')) {
+                    $d2 = true;
+                }
+                if (isset($tmp_current[3]) && ($tmp_allowed[3] === $tmp_current[3] || $tmp_allowed[3] === '*')) {
+                    $d3 = true;
+                }
+                /**/
+                if ($d0 && $d1 && $d2 && $d3) {
+                    $allow = true;
+                    break;
+                }
+            }
+
+            /**/
+            if (!$allow) {
                 throw new MaintenanceException('Site is under maintenance now, please try late', 503);
             }
         }
