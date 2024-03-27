@@ -58,7 +58,7 @@ class Maintenance implements MiddlewareInterface
 
             /**/
             if (!$allow) {
-                throw new MaintenanceException('Site is under maintenance now, please try late', 503);
+                throw new MaintenanceException(config('MAINTENANCE_MESSAGE', 'Site is under maintenance now, please try late'), 503);
             }
         }
     }
