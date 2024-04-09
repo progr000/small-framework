@@ -17,11 +17,10 @@ class seed extends ConsoleDriver
         '--class' => "\t\t\t\tThe class name of the root seeder [warn][default: DbSeeder][/warn]",
     ];
 
-    /** @var MigrationDriver */
-    private $seeder;
+    /** @var string */
     protected $class;
+    /** @var string */
     protected $name;
-    protected $delete_lock = 'false';
 
     /**
      * @return true
@@ -31,8 +30,7 @@ class seed extends ConsoleDriver
     {
         ignore_user_abort(true);
         LogDriver::setVerboseLevel($this->verbose_level);
-        //LogDriver::setLog(config('logs->migrations.log'));
-        //$this->seeder = ''
+        LogDriver::setLog(config('logs->migrations.log'));
         return true;
     }
 
@@ -67,10 +65,13 @@ class seed extends ConsoleDriver
 
         if (isset($class)) {
             if (method_exists($class, 'run')) {
-                LogDriver::warning("Start seeding for {$this->class}");
+                LogDriver::success("Start seeding for {$this->class}");
                 $seeder = new $class();
-                $seeder->run();
-                LogDriver::info("Finish seeding for {$this->class}");
+                if ($seeder->run()) {
+                    LogDriver::success("Finish seeding for {$this->class}");
+                } else {
+                    LogDriver::error("Finish seeding for {$this->class} with some errors.");
+                }
             } else {
                 LogDriver::error("The '{$this->class}' class is incorrect, it doesn't have a run() method.");
             }

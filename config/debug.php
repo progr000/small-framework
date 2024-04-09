@@ -19,7 +19,7 @@ return [
 //    },
     'sql_error_handler' => function (Exception $e, $sql = "") {
         //if (config('IS_DEBUG', false)) {
-            throw new Core\Exceptions\DbException("DbException::error: {$e->getMessage()}\n\n{$sql}\n", 500);
+            throw new Core\Exceptions\DbException("DbDriver::exec: {$e->getMessage()}\n\n{$sql}\n", 500);
         //} else {
             //return false;
         //}

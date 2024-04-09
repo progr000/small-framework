@@ -4,7 +4,6 @@ namespace Db\migrations;
 
 use Core\Exceptions\DbException;
 use Db\migrations\tpl\mMain;
-use Models\User;
 
 class m20230612_200049_users extends mMain
 {
@@ -15,7 +14,7 @@ class m20230612_200049_users extends mMain
      * instead default (when this var not set)
      * @var string
      */
-    protected static $connection_name;
+    //protected static $connection_name;
 
     /**
      * @return false
@@ -23,10 +22,6 @@ class m20230612_200049_users extends mMain
      */
     public function up()
     {
-        $init_username = 'admin';
-        $init_password = 'test';
-        $init_password_enc = User::generatePassword($init_username, $init_password);
-
         return $this->exec("
             CREATE TABLE IF NOT EXISTS {{users}}
             (
@@ -38,8 +33,6 @@ class m20230612_200049_users extends mMain
                 UNIQUE KEY `username_idx` (`username`)
             ) ENGINE = InnoDB
               COLLATE = 'utf8_general_ci';  
-
-            INSERT INTO {{users}} (username, password, role) VALUES ('admin', '{$init_password_enc}', 0);
         ");
     }
 
