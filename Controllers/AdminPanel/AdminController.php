@@ -71,7 +71,7 @@ class AdminController extends _MainController
             if (file_exists($TASK_DIR . "/{$_task['task']}.php")) {
 
                 /* Show back-link */
-                LogDriver::warning("<a href=\"{$r->route()}\" data-off-onclick=\"history.back()\">[warn]&lt;&lt;&lt;[BACK][/warn]</a>\n", 0);
+                LogDriver::warning("<a class=\"link-back\" href=\"{$r->route()}\" data-off-onclick=\"history.back()\">[warn]&lt;&lt;&lt;[BACK][/warn]</a>\n", 0);
 
                 /* prepare route and params */
                 $route = 'Console\\' . $_task['task'];
@@ -107,7 +107,7 @@ class AdminController extends _MainController
                 $task = basename($task);
                 if (strrpos($task,'.php') !== false) {
                     $task = str_replace('.php', '', $task);
-                    $link = '<a href="' . $r->route() . '?task=' . $task . '">[success]' . $task . '[/success]</a>';
+                    $link = '<a class="console-tasks" href="' . $r->route() . '?task=' . $task . '">[success]' . $task . '[/success]</a>';
                     $Usage->messageAppend("\t" . $link . "\n");
                 }
             }
@@ -132,8 +132,10 @@ class AdminController extends _MainController
         if ($r->isPost()) {
             $r = new ChangePasswordRequest();
             $data = $r->validated();
-            User::update(['password' => User::generatePassword(App::$user->username, $data['password'])], ['id' => App::$user->id]);
-            FlashMessages::success(__('Password was successfully changed'));
+            /** @var User $Auth */
+            $Auth = session('Auth');
+            User::update(['password' => User::generatePassword($Auth->username, $data['password'])], ['id' => $Auth->id]);
+            FlashMessages::success('Password was successfully changed');
             return $this->redirect(url('/admin-panel/change-password?success'));
         } else {
             return $this->render('pages/change-password');

@@ -1,0 +1,12 @@
+a.console-tasks,
+a.console-tasks:visited,
+a.console-tasks:hover {
+    text-decoration: underline;
+    color: #6caa36;
+}
+a.link-back,
+a.link-back:visited,
+a.link-back:hover {
+    text-decoration: underline;
+    color: #cc9900;
+}

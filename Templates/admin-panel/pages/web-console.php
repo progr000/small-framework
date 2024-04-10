@@ -3,7 +3,8 @@
 /** @var $data string */
 
 $vars['title'] = isset($vars['phpinfo']) ? __('PhpInfo') : __('Web-Console');
-isset($vars['phpinfo']) && $view->putInCssStack('/css/admin-panel/phpinfo.css')
+isset($vars['phpinfo']) && $view->putInCssStack('/css/admin-panel/phpinfo.css');
+$view->putInCssStack('/css/admin-panel/web-console.css');
 
 ?>
 <div class="ad-panel-content active">
