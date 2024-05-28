@@ -2,12 +2,9 @@
 
 namespace Controllers;
 
-use Core\App;
 use Core\ControllerDriver;
-use Core\Providers\RelationshipContainer;
 use Core\RequestDriver;
 use Models\WHMCS\Client;
-use Models\WHMCS\Invoice;
 
 class TestController extends ControllerDriver
 {
@@ -19,7 +16,7 @@ class TestController extends ControllerDriver
     {
         $method = $r->get('action', 'test');
         if (method_exists($this, $method)) {
-            $this->$method($r);
+            return $this->$method($r);
         } else {
             return 'please set ?action=action_name';
         }
