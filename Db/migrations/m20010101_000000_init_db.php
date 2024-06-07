@@ -23,7 +23,7 @@ class m20010101_000000_init_db extends mMain
      */
     public function up()
     {
-        if ($this->db->driver === 'mysql') {
+        if ($this->db->getDriver() === 'mysql') {
 
             return $this->exec("
                 CREATE TABLE IF NOT EXISTS {{" . MigrationDriver::TABLE_LIST_MIGRATIONS . "}}
@@ -34,7 +34,7 @@ class m20010101_000000_init_db extends mMain
                   COLLATE = 'utf8_general_ci';        
             ");
 
-        } elseif ($this->db->driver === 'pgsql') {
+        } elseif ($this->db->getDriver() === 'pgsql') {
 
             return $this->exec('
                 CREATE TABLE IF NOT EXISTS {{' . MigrationDriver::TABLE_LIST_MIGRATIONS . '}}
