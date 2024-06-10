@@ -1,6 +1,7 @@
 <?php
 namespace Console;
 
+use Core\App;
 use Core\ConsoleDriver;
 use Core\Exceptions\DbException;
 use Core\LogDriver;
@@ -35,6 +36,7 @@ class migrate extends ConsoleDriver
      */
     public function init()
     {
+        App::$config->set('sql_error_handler', null);
         ignore_user_abort(true);
         LogDriver::setVerboseLevel($this->verbose_level);
         LogDriver::setLog(config('logs->migrations.log'));
