@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "86494973bd959297f254fd6cd9348bfd",
+    "content-hash": "51f58c39c514e43da31a115284ccaecf",
     "packages": [
         {
             "name": "google/recaptcha",
@@ -118,17 +118,62 @@
             "time": "2023-04-12T07:43:14+00:00"
         },
         {
+            "name": "maksym/dumper",
+            "version": "dev-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/progr000/dumper.git",
+                "reference": "3f4a0c09d87bd4b158809539b238c6ed4fe6c6f6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/progr000/dumper/zipball/3f4a0c09d87bd4b158809539b238c6ed4fe6c6f6",
+                "reference": "3f4a0c09d87bd4b158809539b238c6ed4fe6c6f6",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=5.6.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/functions/dumper.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maksym Haivoronskyi",
+                    "email": "maksym.haivoronskyi@gmail.com"
+                }
+            ],
+            "description": "Convenient var_dump functions",
+            "keywords": [
+                "dumper",
+                "var_dump"
+            ],
+            "support": {
+                "issues": "https://github.com/progr000/dumper/issues",
+                "source": "https://github.com/progr000/dumper/tree/dev"
+            },
+            "time": "2024-06-26T07:01:51+00:00"
+        },
+        {
             "name": "maksym/small-framework-core-lib",
             "version": "dev-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/progr000/small-framework-core-lib.git",
-                "reference": "1c1830fc40be9321cc4413636e5fac33a172cbe0"
+                "reference": "929620b031d8c0c87cd390698261a6966605acc2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/progr000/small-framework-core-lib/zipball/1c1830fc40be9321cc4413636e5fac33a172cbe0",
-                "reference": "1c1830fc40be9321cc4413636e5fac33a172cbe0",
+                "url": "https://api.github.com/repos/progr000/small-framework-core-lib/zipball/929620b031d8c0c87cd390698261a6966605acc2",
+                "reference": "929620b031d8c0c87cd390698261a6966605acc2",
                 "shasum": ""
             },
             "require": {
@@ -145,7 +190,6 @@
             "type": "library",
             "autoload": {
                 "files": [
-                    "src/functions/dumper.php",
                     "src/functions/helpers.php"
                 ],
                 "psr-4": {
@@ -170,14 +214,15 @@
                 "issues": "https://github.com/progr000/small-framework-core-lib/issues",
                 "source": "https://github.com/progr000/small-framework-core-lib/tree/dev"
             },
-            "time": "2024-05-29T11:55:28+00:00"
+            "time": "2024-06-26T07:22:09+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "maksym/small-framework-core-lib": 20
+        "maksym/small-framework-core-lib": 20,
+        "maksym/dumper": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

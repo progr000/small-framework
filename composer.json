@@ -34,6 +34,7 @@
         "ext-fileinfo": "*",
         "ext-openssl": "*",
         "maksym/small-framework-core-lib": "dev-dev",
+        "maksym/dumper": "dev-dev",
         "ifsnop/mysqldump-php": "^2.12",
         "google/recaptcha": "1.2"
     }
