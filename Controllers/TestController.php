@@ -14,12 +14,29 @@ class TestController extends ControllerDriver
      */
     public function dispatch(RequestDriver $r)
     {
-        $method = $r->get('action', 'test');
+        $act = trim($r->route(), "/");
+        $act = explode("/", $act);
+        if (isset($act[1])) {
+            $method = $act[1];
+        }
+        if (!isset($method)) {
+            $method = $r->get('action', 'test');
+        }
         if (method_exists($this, $method)) {
             return $this->$method($r);
         } else {
-            return 'please set ?action=action_name';
+            return "please set ?action=action_name or /test/action_name";
         }
+    }
+
+    private function act1(RequestDriver $r)
+    {
+        return '--act1--';
+    }
+
+    private function act2(RequestDriver $r)
+    {
+        return '--act2--' . implode(">", $r->get());
     }
 
     /**
@@ -27,7 +44,7 @@ class TestController extends ControllerDriver
      * @return void
      * @throws \Core\Exceptions\DbException
      */
-    public function testEagerRelations(RequestDriver $r)
+    private function testEagerRelations(RequestDriver $r)
     {
         //dd(\PDO::getAvailableDrivers());
         //dd(App::$DbInstances['sqlite-for-developing']->exec('create table foo (col_1 number, col_2 varchar2)'));

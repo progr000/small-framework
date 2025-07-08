@@ -12,7 +12,7 @@ return [
     ],
 
     /* for testing */
-    '/test' => [Controllers\TestController::class, 'dispatch', 'get', 'middleware' => [
+    '/test(/.*)?' => [Controllers\TestController::class, 'dispatch', 'get', 'middleware' => [
         Middleware\AllowOnlyInDebug::class,
         Middleware\AllowOnlyWhitelistedIPs::class,
     ]],
