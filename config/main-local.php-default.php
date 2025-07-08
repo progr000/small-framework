@@ -10,4 +10,10 @@ return [
 
     /* Prefix that we wait from proxies in header=X-Forwarded-Prefix to count them as trusted */
     'Trusted-Proxies-X-Forwarded-Hash' => "some-hash-key",
+
+    /* list of IPs for middleware AllowOnlyWhitelistedIPs */
+    'WHITE_LISTED_IPS' => [
+        '127.0.0.1',
+        '192.168.0.0/16',
+    ],
 ];
