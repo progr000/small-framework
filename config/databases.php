@@ -20,31 +20,31 @@ return [
         'table_prefix' => "tbl_",
         'charset' => 'utf8',
     ],
-
-//    'mssql-for-developing' => [
-//        'dsn' => "sqlsrv:Server=for-dev-mssql,1433;Database=test;TrustServerCertificate=1",
-//        'user' => "SA",
-//        'password' => "Secret1234",
-//        'table_prefix' => "tbl_",
-//        'charset' => 'utf8',
-//    ],
-//
-//    'postgres-for-developing' => [
-//        'dsn' => "pgsql:host=for-dev-postgres;dbname=test;port=5432",
-//        'user' => "postgres",
-//        'password' => "secret",
-//        'table_prefix' => "tbl_",
-//        'charset' => 'utf8',
-//    ],
-
-    /**/
-    'maria-db-whmcs' => [
-        'dsn' => "mysql:host=whm-mariadb;dbname=whmcs;port=3306",
-        'user' => 'whmcs-user',
-        'password' => 'DYu8B+jCnFysb3D5',
-        'table_prefix' => 'tbl',
+/*
+    'mssql-for-developing' => [
+        'dsn' => "sqlsrv:Server=for-dev-mssql,1433;Database=test;TrustServerCertificate=1",
+        'user' => "SA",
+        'password' => "Secret1234",
+        'table_prefix' => "tbl_",
         'charset' => 'utf8',
     ],
+
+    'postgres-for-developing' => [
+        'dsn' => "pgsql:host=for-dev-postgres;dbname=test;port=5432",
+        'user' => "postgres",
+        'password' => "secret",
+        'table_prefix' => "tbl_",
+        'charset' => 'utf8',
+    ],
+*/
+    /**/
+//    'maria-db-whmcs' => [
+//        'dsn' => "mysql:host=whm-mariadb;dbname=whmcs;port=3306",
+//        'user' => 'whmcs-user',
+//        'password' => 'DYu8B+jCnFysb3D5',
+//        'table_prefix' => 'tbl',
+//        'charset' => 'utf8',
+//    ],
 
     /**/
     'sqlite-for-developing' => [

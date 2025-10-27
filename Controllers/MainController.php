@@ -2,6 +2,7 @@
 
 namespace Controllers;
 
+use Core\App;
 use Core\ControllerDriver;
 use Core\DbDriver;
 use Core\Exceptions\DbException;
@@ -27,6 +28,9 @@ class MainController extends ControllerDriver
      */
     public function index()
     {
+        //var_dump(App::$cookie->set('test-cookie', 'test-value'));
+        //var_dump(App::$cookie->get('test-cookie'));
+        var_dump(App::$cookie->all());
         return $this->render('pages/index');
     }
 

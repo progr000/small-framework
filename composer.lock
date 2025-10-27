@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "51f58c39c514e43da31a115284ccaecf",
+    "content-hash": "aaade43b0bc66d6a5b9a14b2482001fb",
     "packages": [
         {
             "name": "google/recaptcha",
@@ -118,27 +118,80 @@
             "time": "2023-04-12T07:43:14+00:00"
         },
         {
-            "name": "maksym/dumper",
-            "version": "dev-dev",
+            "name": "maksym/config-lib",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/progr000/dumper.git",
-                "reference": "3f4a0c09d87bd4b158809539b238c6ed4fe6c6f6"
+                "url": "https://github.com/progr000/config-lib.git",
+                "reference": "8e12848051fd04fad32608db0db9dae55e612f47"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/progr000/dumper/zipball/3f4a0c09d87bd4b158809539b238c6ed4fe6c6f6",
-                "reference": "3f4a0c09d87bd4b158809539b238c6ed4fe6c6f6",
+                "url": "https://api.github.com/repos/progr000/config-lib/zipball/8e12848051fd04fad32608db0db9dae55e612f47",
+                "reference": "8e12848051fd04fad32608db0db9dae55e612f47",
                 "shasum": ""
             },
             "require": {
-                "ext-mbstring": "*",
-                "php": ">=5.6.0"
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "@stable"
             },
             "type": "library",
             "autoload": {
                 "files": [
-                    "src/functions/dumper.php"
+                    "src/helper.php"
+                ],
+                "psr-4": {
+                    "Maksym\\Config\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maksym Haivoronskyi",
+                    "email": "maksym.haivoronskyi@gmail.com"
+                }
+            ],
+            "description": "config-package for small framework",
+            "keywords": [
+                "config",
+                "ini"
+            ],
+            "support": {
+                "issues": "https://github.com/progr000/config-lib/issues",
+                "source": "https://github.com/progr000/config-lib/tree/1.0.0"
+            },
+            "time": "2025-10-26T16:38:07+00:00"
+        },
+        {
+            "name": "maksym/helper-functions",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/progr000/helper-functions.git",
+                "reference": "357e604d727ecb1f570397532491bd7ef7447d5e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/progr000/helper-functions/zipball/357e604d727ecb1f570397532491bd7ef7447d5e",
+                "reference": "357e604d727ecb1f570397532491bd7ef7447d5e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "@stable"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/_autoload.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -151,29 +204,29 @@
                     "email": "maksym.haivoronskyi@gmail.com"
                 }
             ],
-            "description": "Convenient var_dump functions",
+            "description": "helpful functions",
             "keywords": [
-                "dumper",
-                "var_dump"
+                "functions",
+                "helper"
             ],
             "support": {
-                "issues": "https://github.com/progr000/dumper/issues",
-                "source": "https://github.com/progr000/dumper/tree/dev"
+                "issues": "https://github.com/progr000/helper-functions/issues",
+                "source": "https://github.com/progr000/helper-functions/tree/1.0.0"
             },
-            "time": "2024-06-26T07:01:51+00:00"
+            "time": "2025-10-27T13:40:12+00:00"
         },
         {
             "name": "maksym/small-framework-core-lib",
-            "version": "dev-dev",
+            "version": "0.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/progr000/small-framework-core-lib.git",
-                "reference": "929620b031d8c0c87cd390698261a6966605acc2"
+                "reference": "8b76c9621850a41fc21ed2a63dcc096f9ccb5719"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/progr000/small-framework-core-lib/zipball/929620b031d8c0c87cd390698261a6966605acc2",
-                "reference": "929620b031d8c0c87cd390698261a6966605acc2",
+                "url": "https://api.github.com/repos/progr000/small-framework-core-lib/zipball/8b76c9621850a41fc21ed2a63dcc096f9ccb5719",
+                "reference": "8b76c9621850a41fc21ed2a63dcc096f9ccb5719",
                 "shasum": ""
             },
             "require": {
@@ -185,7 +238,13 @@
                 "ext-memcached": "*",
                 "ext-openssl": "*",
                 "ext-pdo": "*",
+                "maksym/config-lib": ">=1.0",
+                "maksym/helper-functions": ">=1.0",
                 "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "*",
+                "phpunit/phpunit": "@stable"
             },
             "type": "library",
             "autoload": {
@@ -212,18 +271,115 @@
             ],
             "support": {
                 "issues": "https://github.com/progr000/small-framework-core-lib/issues",
-                "source": "https://github.com/progr000/small-framework-core-lib/tree/dev"
+                "source": "https://github.com/progr000/small-framework-core-lib/tree/0.6.1"
             },
-            "time": "2024-06-26T07:22:09+00:00"
+            "time": "2025-10-27T16:08:57+00:00"
         }
     ],
-    "packages-dev": [],
+    "packages-dev": [
+        {
+            "name": "maksym/debug-panel",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/progr000/debug-panel.git",
+                "reference": "e58e74183439bb9493b0f38842d997a64860b006"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/progr000/debug-panel/zipball/e58e74183439bb9493b0f38842d997a64860b006",
+                "reference": "e58e74183439bb9493b0f38842d997a64860b006",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "maksym/config-lib": ">=1.0",
+                "maksym/dumper": ">=1.0",
+                "maksym/helper-functions": ">=1.0",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "@stable"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Maksym\\DebugPanel\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maksym Haivoronskyi",
+                    "email": "maksym.haivoronskyi@gmail.com"
+                }
+            ],
+            "description": "debug-panel",
+            "keywords": [
+                "debug",
+                "panel"
+            ],
+            "support": {
+                "issues": "https://github.com/progr000/debug-panel/issues",
+                "source": "https://github.com/progr000/debug-panel/tree/1.0.4"
+            },
+            "time": "2025-10-27T16:13:31+00:00"
+        },
+        {
+            "name": "maksym/dumper",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/progr000/dumper.git",
+                "reference": "a3b2e9a27d515afdf120b0a62411084a8d95ddae"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/progr000/dumper/zipball/a3b2e9a27d515afdf120b0a62411084a8d95ddae",
+                "reference": "a3b2e9a27d515afdf120b0a62411084a8d95ddae",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "@stable"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/functions/dumper.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maksym Haivoronskyi",
+                    "email": "maksym.haivoronskyi@gmail.com"
+                }
+            ],
+            "description": "Convenient var_dump functions",
+            "keywords": [
+                "dumper",
+                "var_dump"
+            ],
+            "support": {
+                "issues": "https://github.com/progr000/dumper/issues",
+                "source": "https://github.com/progr000/dumper/tree/1.0.1"
+            },
+            "time": "2025-10-24T14:34:20+00:00"
+        }
+    ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "maksym/small-framework-core-lib": 20,
-        "maksym/dumper": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

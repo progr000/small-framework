@@ -1,41 +1,44 @@
 {
-    "name": "maksym/small-framework",
-    "type": "project",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Maksym Haivoronskyi",
-            "email": "maksym.haivoronskyi@gmail.com"
-        }
-    ],
-    "autoload": {
-        "files": [
-            "Helpers/_autoload.php"
-        ],
-        "psr-4": {
-            "Classes\\": "Classes/",
-            "Console\\": "Console/",
-            "Controllers\\": "Controllers/",
-            "Db\\": "Db/",
-            "Middleware\\": "Middleware/",
-            "Models\\": "Models/",
-            "Requests\\": "Requests/",
-            "Services\\": "Services",
-            "Workers\\": "Workers/"
-        }
-    },
-    "minimum-stability": "stable",
-    "prefer-stable": true,
-    "require": {
-        "php": ">=5.6.0",
-        "ext-pdo": "*",
-        "ext-json": "*",
-        "ext-mbstring": "*",
-        "ext-fileinfo": "*",
-        "ext-openssl": "*",
-        "maksym/small-framework-core-lib": "dev-dev",
-        "maksym/dumper": "dev-dev",
-        "ifsnop/mysqldump-php": "^2.12",
-        "google/recaptcha": "1.2"
+  "name": "maksym/small-framework",
+  "type": "project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Maksym Haivoronskyi",
+      "email": "maksym.haivoronskyi@gmail.com"
     }
+  ],
+  "autoload": {
+    "files": [
+      "Helpers/_autoload.php"
+    ],
+    "psr-4": {
+      "Classes\\": "Classes/",
+      "Console\\": "Console/",
+      "Controllers\\": "Controllers/",
+      "Db\\": "Db/",
+      "Middleware\\": "Middleware/",
+      "Models\\": "Models/",
+      "Requests\\": "Requests/",
+      "Services\\": "Services",
+      "Workers\\": "Workers/"
+    }
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true,
+  "require": {
+    "php": ">=5.6.0",
+    "ext-pdo": "*",
+    "ext-json": "*",
+    "ext-mbstring": "*",
+    "ext-fileinfo": "*",
+    "ext-openssl": "*",
+    "ifsnop/mysqldump-php": "^2.12",
+    "google/recaptcha": "1.2",
+    "maksym/small-framework-core-lib": ">=0.5.0"
+  },
+  "require-dev": {
+    "maksym/dumper": ">=1.0",
+    "maksym/debug-panel": ">=1.0"
+  }
 }
