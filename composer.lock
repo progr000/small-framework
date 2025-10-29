@@ -217,16 +217,16 @@
         },
         {
             "name": "maksym/small-framework-core-lib",
-            "version": "0.6.1",
+            "version": "0.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/progr000/small-framework-core-lib.git",
-                "reference": "8b76c9621850a41fc21ed2a63dcc096f9ccb5719"
+                "reference": "375c388e22abaad6aecc473f3003669628bad95d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/progr000/small-framework-core-lib/zipball/8b76c9621850a41fc21ed2a63dcc096f9ccb5719",
-                "reference": "8b76c9621850a41fc21ed2a63dcc096f9ccb5719",
+                "url": "https://api.github.com/repos/progr000/small-framework-core-lib/zipball/375c388e22abaad6aecc473f3003669628bad95d",
+                "reference": "375c388e22abaad6aecc473f3003669628bad95d",
                 "shasum": ""
             },
             "require": {
@@ -271,29 +271,28 @@
             ],
             "support": {
                 "issues": "https://github.com/progr000/small-framework-core-lib/issues",
-                "source": "https://github.com/progr000/small-framework-core-lib/tree/0.6.1"
+                "source": "https://github.com/progr000/small-framework-core-lib/tree/0.6.2"
             },
-            "time": "2025-10-27T16:08:57+00:00"
+            "time": "2025-10-29T20:28:33+00:00"
         }
     ],
     "packages-dev": [
         {
             "name": "maksym/debug-panel",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/progr000/debug-panel.git",
-                "reference": "e58e74183439bb9493b0f38842d997a64860b006"
+                "reference": "34648490129d8c997fab321d6c90bf0b0aa7065e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/progr000/debug-panel/zipball/e58e74183439bb9493b0f38842d997a64860b006",
-                "reference": "e58e74183439bb9493b0f38842d997a64860b006",
+                "url": "https://api.github.com/repos/progr000/debug-panel/zipball/34648490129d8c997fab321d6c90bf0b0aa7065e",
+                "reference": "34648490129d8c997fab321d6c90bf0b0aa7065e",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "maksym/config-lib": ">=1.0",
                 "maksym/dumper": ">=1.0",
                 "maksym/helper-functions": ">=1.0",
                 "php": ">=5.3.0"
@@ -324,9 +323,9 @@
             ],
             "support": {
                 "issues": "https://github.com/progr000/debug-panel/issues",
-                "source": "https://github.com/progr000/debug-panel/tree/1.0.4"
+                "source": "https://github.com/progr000/debug-panel/tree/1.0.5"
             },
-            "time": "2025-10-27T16:13:31+00:00"
+            "time": "2025-10-29T20:16:06+00:00"
         },
         {
             "name": "maksym/dumper",
