@@ -23,6 +23,11 @@ try {
     header(Core\ResponseDriver::getHeaderForResponseStatus($e->getCode()));
     echo '<html lang="en"><body><div style="width: 100%; text-align: center; padding-top: 100px; color: #9a1a00; font-size: 5em;">' . $e->getMessage() . '</div></body></html>';
     die();
+} catch (Maksym\Config\ConfigException $e) {
+    header(Core\ResponseDriver::getHeaderForResponseStatus($e->getCode()));
+    echo '<html lang="en"><body><div style="width: 100%; text-align: center; padding-top: 100px; color: #9a1a00; font-size: 5em;">Configuration failure. Check you config dir</div>';
+    echo '<div style="width: 100%; text-align: center;">Details: ' . $e->getMessage() . '</div></body></html>';
+    die();
 } catch (Exception $e) {
     /** if something wrong */
     header(Core\ResponseDriver::getHeaderForResponseStatus($e->getCode()));
