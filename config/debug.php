@@ -3,9 +3,6 @@ return [
 
     /* handler 404 */
     'OWN_404_HANDLER' => true, // if this framework used as part of another project, you should set this parameter to false
-    /* wget params */
-    'IGNORE_SSL_ERRORS' => true, // if you planed sent request to the servers with wrong certificate need set to true
-
 
     /* debug mode */
     'IS_DEBUG' => true,
