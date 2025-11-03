@@ -2,10 +2,8 @@
 namespace Console;
 
 use Core\ConsoleDriver;
-use Core\Exceptions\DbException;
-use Core\Exceptions\IntegrityException;
-use Core\LogDriver;
-use Core\MigrationDriver;
+use Maksym\Db\Exceptions\DbException;
+use Maksym\Log\LogDriver;
 use Db\seeders\DbSeeder;
 use Exception;
 

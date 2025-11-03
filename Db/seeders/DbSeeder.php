@@ -2,7 +2,7 @@
 
 namespace Db\seeders;
 
-use Core\SeederDriver;
+use Maksym\Db\SeederDriver;
 use Db\seeders\small_framework\_MainSeeder as SF_MainSeeder;
 
 class DbSeeder extends SeederDriver

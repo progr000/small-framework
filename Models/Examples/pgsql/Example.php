@@ -2,7 +2,7 @@
 
 namespace Models\Examples\pgsql;
 
-use Core\ActiveRecordDriver;
+use Maksym\Db\ActiveRecordDriver;
 
 class Example extends ActiveRecordDriver
 {

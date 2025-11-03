@@ -6,6 +6,7 @@ use Core\Exceptions\HttpForbiddenException;
 use Core\Interfaces\MiddlewareInterface;
 use Core\RequestDriver;
 use Core\ResponseDriver;
+use Maksym\Config\ConfigException;
 
 /**
  * Force check Bearer auth
@@ -16,7 +17,7 @@ class AllowOnlyWithBearerAuth implements MiddlewareInterface
      * @param RequestDriver $request
      * @param ResponseDriver $response
      * @return void
-     * @throws HttpForbiddenException
+     * @throws HttpForbiddenException|ConfigException
      */
     public function handleOnRequest(RequestDriver $request, ResponseDriver $response)
     {

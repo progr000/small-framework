@@ -4,6 +4,9 @@ namespace Controllers;
 
 use Core\ControllerDriver;
 use Core\RequestDriver;
+use Maksym\Config\ConfigException;
+use Maksym\Db\Exceptions\DbException;
+use Models\Content;
 use Models\WHMCS\Client;
 
 class TestController extends ControllerDriver
@@ -42,10 +45,12 @@ class TestController extends ControllerDriver
     /**
      * @param RequestDriver $r
      * @return void
-     * @throws \Core\Exceptions\DbException
+     * @throws ConfigException
+     * @throws DbException
      */
     private function testEagerRelations(RequestDriver $r)
     {
+        dump(Content::query()->where(['key' => 'FOOTER_ADDRESS'])->one());
         //dd(\PDO::getAvailableDrivers());
         //dd(App::$DbInstances['sqlite-for-developing']->exec('create table foo (col_1 number, col_2 varchar2)'));
 //        $invoices = Invoice::query()

@@ -2,9 +2,9 @@
 
 namespace Models;
 
-use Core\ActiveRecordDriver;
 use Core\App;
-use Core\Exceptions\DbException;
+use Maksym\Db\ActiveRecordDriver;
+use Maksym\Db\Exceptions\DbException;
 
 /**
  * Class User

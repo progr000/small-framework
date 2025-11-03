@@ -2,9 +2,10 @@
 
 namespace Models;
 
-use Core\Exceptions\DbException;
-use Core\Traits\HasRelationships;
-use Core\ActiveRecordDriver;
+use Maksym\Config\ConfigException;
+use Maksym\Db\Exceptions\DbException;
+use Maksym\Db\Traits\HasRelationships;
+use Maksym\Db\ActiveRecordDriver;
 
 /**
  * Class Contact
@@ -27,7 +28,7 @@ class Contact extends ActiveRecordDriver
     const IS_OLD = 0;
 
     /**
-     * @throws DbException
+     * @throws DbException|ConfigException
      */
     public function order()
     {

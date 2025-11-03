@@ -2,7 +2,9 @@
 
 namespace Models\WHMCS;
 
-use Core\ActiveRecordDriver;
+use Maksym\Db\Exceptions\DbException;
+use Maksym\Config\ConfigException;
+use Maksym\Db\ActiveRecordDriver;
 
 class Currency extends ActiveRecordDriver
 {
@@ -11,7 +13,8 @@ class Currency extends ActiveRecordDriver
 
     /**
      * @return array
-     * @throws \Core\Exceptions\DbException
+     * @throws ConfigException
+     * @throws DbException
      */
     public static function primaryKeyasArrayKey()
     {

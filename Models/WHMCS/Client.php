@@ -2,8 +2,10 @@
 
 namespace Models\WHMCS;
 
-use Core\ActiveRecordDriver;
-use Core\Traits\HasRelationships;
+use Maksym\Db\Exceptions\DbException;
+use Maksym\Config\ConfigException;
+use Maksym\Db\ActiveRecordDriver;
+use Maksym\Db\Traits\HasRelationships;
 
 class Client extends ActiveRecordDriver
 {
@@ -13,7 +15,9 @@ class Client extends ActiveRecordDriver
     //protected static $_table_name = '{{clients}}';
 
     /**
-     * @throws \Core\Exceptions\DbException
+     * @return ActiveRecordDriver|mixed|null
+     * @throws ConfigException
+     * @throws DbException
      */
     public function currency()
     {
@@ -21,8 +25,9 @@ class Client extends ActiveRecordDriver
     }
 
     /**
-     * @return Invoice[]|null
-     * @throws \Core\Exceptions\DbException
+     * @return Invoice[]|false|string
+     * @throws ConfigException
+     * @throws DbException
      */
     public function invoices()
     {

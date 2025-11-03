@@ -6,6 +6,7 @@ use Core\Exceptions\MaintenanceException;
 use Core\Interfaces\MiddlewareInterface;
 use Core\RequestDriver;
 use Core\ResponseDriver;
+use Maksym\Config\ConfigException;
 
 /**
  * For on/off maintenance mode
@@ -16,7 +17,7 @@ class Maintenance implements MiddlewareInterface
      * @param RequestDriver $request
      * @param ResponseDriver $response
      * @return void
-     * @throws MaintenanceException
+     * @throws MaintenanceException|ConfigException
      */
     public function handleOnRequest(RequestDriver $request, ResponseDriver $response)
     {

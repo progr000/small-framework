@@ -4,6 +4,9 @@ namespace Requests;
 
 use Core\App;
 use Core\RequestDriver;
+use Core\Exceptions\BadResponseException;
+use Core\Exceptions\IntegrityException;
+use Maksym\Config\ConfigException;
 use Requests\Validators\LoginValidator;
 
 class LoginRequest extends RequestDriver
@@ -27,6 +30,9 @@ class LoginRequest extends RequestDriver
 
     /**
      * @return false
+     * @throws BadResponseException
+     * @throws IntegrityException
+     * @throws ConfigException
      */
     public function onFailedValidation()
     {

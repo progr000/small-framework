@@ -2,7 +2,7 @@
 
 namespace Db\seeders\small_framework;
 
-use Core\SeederDriver;
+use Maksym\Db\SeederDriver;
 
 class TestSeeder extends SeederDriver
 {

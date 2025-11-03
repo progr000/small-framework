@@ -3,11 +3,12 @@
 namespace Controllers\AdminPanel;
 
 use Core\App;
-use Core\Exceptions\DbException;
 use Core\Exceptions\HttpNotFoundException;
-use Core\LogDriver;
 use Core\RequestDriver;
 use Core\ResponseDriver;
+use Maksym\Config\ConfigException;
+use Maksym\Log\LogDriver;
+use Maksym\Db\Exceptions\DbException;
 use Ifsnop\Mysqldump\Mysqldump;
 use Middleware\Auth;
 use Models\Contact;
@@ -33,7 +34,7 @@ class AdminController extends _MainController
 
     /**
      * @return \Exception|string
-     * @throws DbException
+     * @throws DbException|ConfigException
      */
     public function dashboard()
     {

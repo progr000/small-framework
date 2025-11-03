@@ -2,14 +2,15 @@
 
 namespace Db\seeders\small_framework;
 
-use Core\Exceptions\DbException;
-use Core\SeederDriver;
+use Maksym\Config\ConfigException;
+use Maksym\Db\Exceptions\DbException;
+use Maksym\Db\SeederDriver;
 use Models\User;
 
 class UserSeeder extends SeederDriver
 {
     /**
-     * @throws DbException
+     * @throws DbException|ConfigException
      */
     public function run()
     {

@@ -2,7 +2,7 @@
 
 namespace Controllers\AdminPanel;
 
-use Core\Exceptions\DbException;
+use Maksym\Db\Exceptions\DbException;
 use Core\Exceptions\HttpForbiddenException;
 use Core\Interfaces\RestInterface;
 use Core\RequestDriver;

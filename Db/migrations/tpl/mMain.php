@@ -2,9 +2,10 @@
 
 namespace Db\migrations\tpl;
 
-use Core\App;
-use Core\Exceptions\DbException;
-use Core\Providers\MigrationSchemaProvider;
+use Maksym\Db\DbDriver;
+use Maksym\Db\Providers\MigrationSchemaProvider;
+use Maksym\Db\Exceptions\DbException;
+use Maksym\Config\ConfigException;
 
 abstract class mMain
 {
@@ -17,14 +18,14 @@ abstract class mMain
      */
     protected static $connection_name;
 
-    /** @var \Core\DbDriver */
+    /** @var DbDriver */
     protected $db;
 
     /** @var MigrationSchemaProvider */
     protected $Schema;
 
     /**
-     * @throws DbException
+     * @throws DbException|ConfigException
      */
     public function __construct()
     {
@@ -32,8 +33,8 @@ abstract class mMain
             static::$connection_name = config('databases->default-db-connection-name', 'db-main');
         }
 
-        if (isset(App::$DbInstances[static::$connection_name])) {
-            $this->db = App::$DbInstances[static::$connection_name];
+        if (isset(DbDriver::$DbInstances[static::$connection_name])) {
+            $this->db = DbDriver::$DbInstances[static::$connection_name];
             $this->Schema = (new MigrationSchemaProvider())->register($this->db);
         } else {
             throw new DbException("This connection is not initialized correctly", 500);
@@ -42,9 +43,9 @@ abstract class mMain
 
     /**
      * @param string $queries
-`     * @param array $params
+     * @param array $params
      * @return bool
-     * @throws DbException
+     * @throws DbException|ConfigException
      */
     protected function exec($queries, $params = [])
     {

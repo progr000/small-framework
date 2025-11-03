@@ -2,7 +2,8 @@
 
 namespace Db\migrations;
 
-use Core\Exceptions\DbException;
+use Maksym\Config\ConfigException;
+use Maksym\Db\Exceptions\DbException;
 use Db\migrations\tpl\mMain;
 
 class m20230623_072900_contents extends mMain
@@ -18,7 +19,7 @@ class m20230623_072900_contents extends mMain
 
     /**
      * @return false
-     * @throws DbException
+     * @throws DbException|ConfigException
      */
     public function up()
     {
@@ -44,7 +45,7 @@ class m20230623_072900_contents extends mMain
 
     /**
      * @return false
-     * @throws DbException
+     * @throws DbException|ConfigException
      */
     public function down()
     {

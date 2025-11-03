@@ -4,12 +4,8 @@ namespace Controllers;
 
 use Core\App;
 use Core\ControllerDriver;
-use Core\DbDriver;
-use Core\Exceptions\DbException;
-use Core\Providers\RelationshipContainer;
-use Models\Contact;
+use Maksym\Db\Exceptions\DbException;
 use Models\Content;
-use Models\WHMCS\Invoice;
 
 class MainController extends ControllerDriver
 {
@@ -24,7 +20,6 @@ class MainController extends ControllerDriver
 
     /**
      * @return \Exception|string
-     * @throws DbException
      */
     public function index()
     {

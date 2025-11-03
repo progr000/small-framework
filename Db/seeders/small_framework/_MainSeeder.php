@@ -3,7 +3,8 @@
 namespace Db\seeders\small_framework;
 
 use Core\App;
-use Core\SeederDriver;
+use Maksym\Db\DbDriver;
+use Maksym\Db\SeederDriver;
 
 class _MainSeeder extends SeederDriver
 {
@@ -12,18 +13,18 @@ class _MainSeeder extends SeederDriver
      */
     public function run()
     {
-        App::$DbInstances['mysql-for-developing']->beginTransaction();
+        DbDriver::$DbInstances['mysql-for-developing']->beginTransaction();
 
         if ($this->call([
             //TestSeeder1::class,
             TestSeeder::class,
             UserSeeder::class,
         ])) {
-            App::$DbInstances['mysql-for-developing']->commit();
+            DbDriver::$DbInstances['mysql-for-developing']->commit();
             return true;
         }
 
-        App::$DbInstances['mysql-for-developing']->rollback();
+        DbDriver::$DbInstances['mysql-for-developing']->rollback();
         return false;
     }
 }

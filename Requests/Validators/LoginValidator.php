@@ -2,7 +2,7 @@
 
 namespace Requests\Validators;
 
-use Core\Exceptions\DbException;
+use Maksym\Db\Exceptions\DbException;
 use Models\User;
 
 class LoginValidator

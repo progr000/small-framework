@@ -5,7 +5,7 @@ die('Disabled');
 require_once(__DIR__ . '/../../vendor/autoload.php');
 
 use Core\App;
-use Core\LogDriver;
+use Maksym\Log\LogDriver;
 
 set_time_limit(0);
 LogDriver::beginConsole();

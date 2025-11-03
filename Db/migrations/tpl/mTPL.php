@@ -2,8 +2,9 @@
 
 namespace Db\migrations;
 
-use Core\Exceptions\DbException;
 use Db\migrations\tpl\mMain;
+use Maksym\Config\ConfigException;
+use Maksym\Db\Exceptions\DbException;
 
 class __NEW_CLASS_NAME__ extends mMain
 {
@@ -18,7 +19,7 @@ class __NEW_CLASS_NAME__ extends mMain
 
     /**
      * @return bool
-     * @throws DbException
+     * @throws DbException|ConfigException
      */
     public function up()
     {
@@ -27,7 +28,7 @@ class __NEW_CLASS_NAME__ extends mMain
 
     /**
      * @return bool
-     * @throws DbException
+     * @throws DbException|ConfigException
      */
     public function down()
     {

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "aaade43b0bc66d6a5b9a14b2482001fb",
+    "content-hash": "32356eb3ef105149e50dc77d2a86c16c",
     "packages": [
         {
             "name": "google/recaptcha",
@@ -168,6 +168,61 @@
             "time": "2025-10-26T16:38:07+00:00"
         },
         {
+            "name": "maksym/db-lib",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/progr000/db-lib.git",
+                "reference": "1d0847dbaf9d2e62e373fc853dfee73c7849bda5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/progr000/db-lib/zipball/1d0847dbaf9d2e62e373fc853dfee73c7849bda5",
+                "reference": "1d0847dbaf9d2e62e373fc853dfee73c7849bda5",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "ext-pdo": "*",
+                "maksym/config-lib": ">=1.0",
+                "maksym/helper-functions": ">=1.0",
+                "maksym/log-lib": ">=1.0",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "@stable"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Maksym\\Db\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maksym Haivoronskyi",
+                    "email": "maksym.haivoronskyi@gmail.com"
+                }
+            ],
+            "description": "db-package for small framework",
+            "keywords": [
+                "db",
+                "mssql",
+                "mysql",
+                "pgsql",
+                "sqlite"
+            ],
+            "support": {
+                "issues": "https://github.com/progr000/db-lib/issues",
+                "source": "https://github.com/progr000/db-lib/tree/1.0.0"
+            },
+            "time": "2025-11-02T19:23:44+00:00"
+        },
+        {
             "name": "maksym/helper-functions",
             "version": "1.0.0",
             "source": {
@@ -216,17 +271,64 @@
             "time": "2025-10-27T13:40:12+00:00"
         },
         {
-            "name": "maksym/small-framework-core-lib",
-            "version": "0.6.2",
+            "name": "maksym/log-lib",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/progr000/small-framework-core-lib.git",
-                "reference": "375c388e22abaad6aecc473f3003669628bad95d"
+                "url": "https://github.com/progr000/log-lib.git",
+                "reference": "0851f311514e23d93031137714e119e07e32275c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/progr000/small-framework-core-lib/zipball/375c388e22abaad6aecc473f3003669628bad95d",
-                "reference": "375c388e22abaad6aecc473f3003669628bad95d",
+                "url": "https://api.github.com/repos/progr000/log-lib/zipball/0851f311514e23d93031137714e119e07e32275c",
+                "reference": "0851f311514e23d93031137714e119e07e32275c",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "@stable"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Maksym\\Log\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maksym Haivoronskyi",
+                    "email": "maksym.haivoronskyi@gmail.com"
+                }
+            ],
+            "description": "log-package for small framework",
+            "keywords": [
+                "log"
+            ],
+            "support": {
+                "issues": "https://github.com/progr000/log-lib/issues",
+                "source": "https://github.com/progr000/log-lib/tree/1.0.0"
+            },
+            "time": "2025-11-02T18:41:58+00:00"
+        },
+        {
+            "name": "maksym/small-framework-core-lib",
+            "version": "0.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/progr000/small-framework-core-lib.git",
+                "reference": "a7aedd842f85234046743eadda7f3ff1eef86876"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/progr000/small-framework-core-lib/zipball/a7aedd842f85234046743eadda7f3ff1eef86876",
+                "reference": "a7aedd842f85234046743eadda7f3ff1eef86876",
                 "shasum": ""
             },
             "require": {
@@ -240,6 +342,7 @@
                 "ext-pdo": "*",
                 "maksym/config-lib": ">=1.0",
                 "maksym/helper-functions": ">=1.0",
+                "maksym/log-lib": ">=1.0",
                 "php": ">=5.6.0"
             },
             "require-dev": {
@@ -271,24 +374,24 @@
             ],
             "support": {
                 "issues": "https://github.com/progr000/small-framework-core-lib/issues",
-                "source": "https://github.com/progr000/small-framework-core-lib/tree/0.6.2"
+                "source": "https://github.com/progr000/small-framework-core-lib/tree/0.7.0"
             },
-            "time": "2025-10-29T20:28:33+00:00"
+            "time": "2025-11-02T23:13:53+00:00"
         }
     ],
     "packages-dev": [
         {
             "name": "maksym/debug-panel",
-            "version": "1.0.5",
+            "version": "1.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/progr000/debug-panel.git",
-                "reference": "34648490129d8c997fab321d6c90bf0b0aa7065e"
+                "reference": "463196a9aff20e9c7f6c34304fd595c13e4533b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/progr000/debug-panel/zipball/34648490129d8c997fab321d6c90bf0b0aa7065e",
-                "reference": "34648490129d8c997fab321d6c90bf0b0aa7065e",
+                "url": "https://api.github.com/repos/progr000/debug-panel/zipball/463196a9aff20e9c7f6c34304fd595c13e4533b5",
+                "reference": "463196a9aff20e9c7f6c34304fd595c13e4533b5",
                 "shasum": ""
             },
             "require": {
@@ -323,9 +426,9 @@
             ],
             "support": {
                 "issues": "https://github.com/progr000/debug-panel/issues",
-                "source": "https://github.com/progr000/debug-panel/tree/1.0.5"
+                "source": "https://github.com/progr000/debug-panel/tree/1.0.9"
             },
-            "time": "2025-10-29T20:16:06+00:00"
+            "time": "2025-10-30T16:58:52+00:00"
         },
         {
             "name": "maksym/dumper",

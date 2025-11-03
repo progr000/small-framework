@@ -2,8 +2,9 @@
 
 namespace Db\migrations;
 
-use Core\Exceptions\DbException;
-use Core\MigrationDriver;
+use Maksym\Config\ConfigException;
+use Maksym\Db\Exceptions\DbException;
+use Maksym\Db\MigrationDriver;
 use Db\migrations\tpl\mMain;
 
 class m20010101_000000_init_db extends mMain
@@ -19,7 +20,7 @@ class m20010101_000000_init_db extends mMain
 
     /**
      * @return bool
-     * @throws DbException
+     * @throws DbException|ConfigException
      */
     public function up()
     {
@@ -65,7 +66,7 @@ class m20010101_000000_init_db extends mMain
 
     /**
      * @return bool
-     * @throws DbException
+     * @throws DbException|ConfigException
      */
     public function down()
     {

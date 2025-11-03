@@ -4,6 +4,10 @@ namespace Controllers;
 
 use Core\App;
 use Core\ControllerDriver;
+use Core\Exceptions\BadResponseException;
+use Core\Exceptions\IntegrityException;
+use Maksym\Config\ConfigException;
+use Maksym\Db\Exceptions\DbException;
 use Models\Contact;
 use Requests\ContactsRequest;
 
@@ -12,7 +16,10 @@ class SaveController extends ControllerDriver
     /**
      * @param ContactsRequest $request
      * @return void
-     * @throws \Core\Exceptions\DbException
+     * @throws BadResponseException
+     * @throws IntegrityException
+     * @throws ConfigException
+     * @throws DbException
      */
     public function contacts(ContactsRequest $request)
     {

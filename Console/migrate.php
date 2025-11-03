@@ -3,9 +3,9 @@ namespace Console;
 
 use Core\App;
 use Core\ConsoleDriver;
-use Core\Exceptions\DbException;
-use Core\LogDriver;
-use Core\MigrationDriver;
+use Maksym\Db\Exceptions\DbException;
+use Maksym\Log\LogDriver;
+use Maksym\Db\MigrationDriver;
 use Exception;
 
 class migrate extends ConsoleDriver

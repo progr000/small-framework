@@ -2,8 +2,9 @@
 
 namespace Db\migrations;
 
-use Core\Contracts\MigrationSchema\Common\SchemaTable;
-use Core\Exceptions\DbException;
+use Maksym\Db\Contracts\MigrationSchema\Common\SchemaTable;
+use Maksym\Config\ConfigException;
+use Maksym\Db\Exceptions\DbException;
 use Db\migrations\tpl\mMain;
 
 class m20240302_080000_test extends mMain
@@ -52,7 +53,7 @@ class m20240302_080000_test extends mMain
 
     /**
      * @return bool
-     * @throws DbException
+     * @throws DbException|ConfigException
      */
     public function down()
     {
