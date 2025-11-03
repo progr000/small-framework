@@ -17,7 +17,8 @@ class m20240302_080000_test extends mMain
      * @var string
      */
     //protected static $connection_name;
-    protected static $connection_name = 'sqlite-for-developing';
+    protected static $connection_name = 'mysql-for-developing';
+    //protected static $connection_name = 'sqlite-for-developing';
 
     /**
      * @return bool
