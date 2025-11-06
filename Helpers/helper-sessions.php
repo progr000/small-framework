@@ -1,6 +1,6 @@
 <?php
 
-use Core\SessionDriver;
+use Maksym\SessCook\SessionDriver;
 
 if (!function_exists('csrf')) {
     /**

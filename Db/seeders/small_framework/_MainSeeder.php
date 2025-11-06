@@ -2,7 +2,6 @@
 
 namespace Db\seeders\small_framework;
 
-use Core\App;
 use Maksym\Db\DbDriver;
 use Maksym\Db\SeederDriver;
 

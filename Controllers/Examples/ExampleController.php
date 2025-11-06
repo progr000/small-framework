@@ -4,9 +4,10 @@ namespace Controllers\Examples;
 
 use Core\App;
 use Core\ControllerDriver;
+use Maksym\Db\DbDriver;
+use Maksym\Db\Exceptions\DbException;
 use Core\RequestDriver;
 use Core\ResponseDriver;
-use Maksym\Db\Exceptions\DbException;
 use Models\Examples\Example;
 use Models\Examples\mssql\Example as MsSqlExample;
 use Models\Examples\pgsql\Example as PgSqlExample;
@@ -67,7 +68,7 @@ class ExampleController extends ControllerDriver
 //        $t->id = 8;
 //        $t->name = 5555;
 //        dump($t);
-//        dd($t->save(), App::$DbInstances['mysql-for-developing']->getErrors());
+//        dd($t->save(), DbDriver::$DbInstances['mysql-for-developing']->getErrors());
 //        dd(Test::table()->insert([
 //            'name' => null,
 //        ]));
@@ -96,7 +97,7 @@ class ExampleController extends ControllerDriver
 //                'name' => 'name9',
 //                'email' => 'test@gmail.com'
 //            ]
-//        ]), App::$DbInstances['mysql-for-developing']->getErrors());
+//        ]), DbDriver::$DbInstances['mysql-for-developing']->getErrors());
 //        dd(
 //            Example::find()
 //                ->limit(2)
@@ -126,14 +127,14 @@ class ExampleController extends ControllerDriver
 
 //        $a = Angebot::findOne(['an_id' => 7]);
 //        $a->an_preis = "2.9";
-//        dd($a->save(), App::$DbInstances['weblandAdmin']->getErrors());
+//        dd($a->save(), DbDriver::$DbInstances['weblandAdmin']->getErrors());
 //
 //        $res = Invoice::findAll();
 //        dump($res);
 
 //        $db2 = DbDriver::getInstance('mysql-for-developing');
 //        dump($db2->exec("SELECT * FROM database_migrations")->fetchAll());
-//        dump(App::$DbInstances['mysql-for-developing']->exec("select 3")->fetchAll());
+//        dump(DbDriver::$DbInstances['mysql-for-developing']->exec("select 3")->fetchAll());
 
 //        dump(App::$db->exec("SELECT * FROM tbl_anrede")->fetchAll());
 //        dump(App::$db->getErrors());

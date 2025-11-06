@@ -2,8 +2,11 @@
 
 namespace Requests;
 
+use Core\Exceptions\BadResponseException;
+use Core\Exceptions\IntegrityException;
 use Core\RequestDriver;
 use Core\ResponseDriver;
+use Maksym\Config\ConfigException;
 
 class ContactsRequest extends RequestDriver
 {
@@ -61,6 +64,9 @@ class ContactsRequest extends RequestDriver
      * but then you need to create some logic
      * for fail-validation in controller-method
      * @return false
+     * @throws BadResponseException
+     * @throws IntegrityException
+     * @throws ConfigException
      */
     public function onFailedValidation()
     {

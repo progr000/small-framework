@@ -6,10 +6,11 @@ use Core\App;
 use Core\Exceptions\HttpNotFoundException;
 use Core\RequestDriver;
 use Core\ResponseDriver;
-use Maksym\Config\ConfigException;
-use Maksym\Log\LogDriver;
-use Maksym\Db\Exceptions\DbException;
+use Exception;
 use Ifsnop\Mysqldump\Mysqldump;
+use Maksym\Log\LogDriver;
+use Maksym\Config\ConfigException;
+use Maksym\Db\Exceptions\DbException;
 use Middleware\Auth;
 use Models\Contact;
 use Models\User;
@@ -33,7 +34,7 @@ class AdminController extends _MainController
     }
 
     /**
-     * @return \Exception|string
+     * @return Exception|string
      * @throws DbException|ConfigException
      */
     public function dashboard()
@@ -45,7 +46,7 @@ class AdminController extends _MainController
 
     /**
      * @param RequestDriver $r
-     * @return \Exception|string
+     * @return Exception|string
      */
     public function webConsole(RequestDriver $r)
     {
@@ -125,8 +126,8 @@ class AdminController extends _MainController
 
     /**
      * @param RequestDriver $r
-     * @return \Core\ResponseDriver|\Exception|string
-     * @throws DbException
+     * @return ResponseDriver|Exception|string
+     * @throws DbException|ConfigException
      */
     public function changePassword(RequestDriver $r)
     {
@@ -136,7 +137,7 @@ class AdminController extends _MainController
             /** @var User $Auth */
             $Auth = session('Auth');
             User::update(['password' => User::generatePassword($Auth->username, $data['password'])], ['id' => $Auth->id]);
-            FlashMessages::success('Password was successfully changed');
+            FlashMessages::success(__('Password was successfully changed'));
             return $this->redirect(url('/admin-panel/change-password?success'));
         } else {
             return $this->render('pages/change-password');
@@ -144,7 +145,7 @@ class AdminController extends _MainController
     }
 
     /**
-     * @return \Exception|string
+     * @return Exception|string
      */
     public function phpinfo()
     {
@@ -153,6 +154,7 @@ class AdminController extends _MainController
             dump($a);
             return date('Y-m-d H:i:s');
         }, 30);
+
         ob_start();
         phpinfo();
         $data = ob_get_contents();
@@ -168,8 +170,8 @@ class AdminController extends _MainController
 
     /**
      * @param RequestDriver $request
-     * @return ResponseDriver|\Exception|string|void
-     * @throws HttpNotFoundException
+     * @return Exception|ResponseDriver|string
+     * @throws HttpNotFoundException|ConfigException
      */
     public function backupDatabase(RequestDriver $request)
     {
@@ -203,7 +205,7 @@ class AdminController extends _MainController
 
                 @chmod($file_name, 0777);
                 FlashMessages::success(__("Backup file &laquo{%file_name}&raquo successfully created" , ['file_name' => $file_name]), 15);
-            } catch (\Exception $e) {
+            } catch (Exception $e) {
                 FlashMessages::error(__("Fail on create backup file. Error: {%error}", ['error' => $e->getMessage()]), 15);
             }
             return $this->redirect(url('/admin-panel/backup-database'));

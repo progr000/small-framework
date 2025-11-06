@@ -5,6 +5,7 @@ namespace Models;
 use Core\App;
 use Maksym\Db\ActiveRecordDriver;
 use Maksym\Db\Exceptions\DbException;
+use Maksym\Config\ConfigException;
 
 /**
  * Class User
@@ -45,7 +46,7 @@ class User extends ActiveRecordDriver
      * @param string $username
      * @param string $password
      * @return bool
-     * @throws DbException
+     * @throws DbException|ConfigException
      */
     public static function login($username, $password)
     {
@@ -73,6 +74,7 @@ class User extends ActiveRecordDriver
      * @param string $username
      * @param string $plain_password
      * @return string
+     * @throws ConfigException
      */
     public static function generatePassword($username, $plain_password)
     {

@@ -2,9 +2,9 @@
 namespace Console;
 
 use Core\ConsoleDriver;
-use Maksym\Db\Exceptions\DbException;
-use Maksym\Log\LogDriver;
 use Db\seeders\DbSeeder;
+use Maksym\Log\LogDriver;
+use Maksym\Db\Exceptions\DbException;
 use Exception;
 
 class seed extends ConsoleDriver

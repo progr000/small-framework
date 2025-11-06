@@ -3,7 +3,10 @@
 namespace Requests;
 
 use Core\App;
+use Core\Exceptions\BadResponseException;
+use Core\Exceptions\IntegrityException;
 use Core\RequestDriver;
+use Maksym\Config\ConfigException;
 use Models\User;
 use Requests\Validators\PasswordRulesValidator;
 use Services\FlashMessages;
@@ -51,6 +54,9 @@ class ChangePasswordRequest extends RequestDriver
 
     /**
      * @return false
+     * @throws BadResponseException
+     * @throws IntegrityException
+     * @throws ConfigException
      */
     public function onFailedValidation()
     {

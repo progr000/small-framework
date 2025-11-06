@@ -5,6 +5,7 @@ namespace Middleware;
 use Core\Interfaces\MiddlewareInterface;
 use Core\RequestDriver;
 use Core\ResponseDriver;
+use Maksym\Config\ConfigException;
 
 /**
  * All routes used this middleware
@@ -16,6 +17,7 @@ class TrustProxies implements MiddlewareInterface
      * @param RequestDriver $request
      * @param ResponseDriver $response
      * @return void
+     * @throws ConfigException
      */
     public function handleOnRequest(RequestDriver $request, ResponseDriver $response)
     {

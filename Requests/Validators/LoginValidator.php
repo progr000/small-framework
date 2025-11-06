@@ -3,6 +3,7 @@
 namespace Requests\Validators;
 
 use Maksym\Db\Exceptions\DbException;
+use Maksym\Config\ConfigException;
 use Models\User;
 
 class LoginValidator
@@ -18,7 +19,7 @@ class LoginValidator
     }
 
     /**
-     * @throws DbException
+     * @throws DbException|ConfigException
      */
     public function __invoke($value, array $params = [], array $all_data = [])
     {

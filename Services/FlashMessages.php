@@ -2,7 +2,7 @@
 
 namespace Services;
 
-use Core\SessionDriver;
+use Maksym\SessCook\SessionDriver;
 
 class FlashMessages
 {

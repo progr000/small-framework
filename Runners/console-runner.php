@@ -6,6 +6,7 @@ require_once(__DIR__ . '/../vendor/autoload.php');
 use Core\App;
 use Maksym\Log\LogDriver;
 
+
 set_time_limit(0);
 try {
 

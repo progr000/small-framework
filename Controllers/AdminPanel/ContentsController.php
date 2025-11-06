@@ -2,10 +2,12 @@
 
 namespace Controllers\AdminPanel;
 
-use Maksym\Db\Exceptions\DbException;
 use Core\Exceptions\HttpForbiddenException;
 use Core\Interfaces\RestInterface;
 use Core\RequestDriver;
+use Core\ResponseDriver;
+use Maksym\Config\ConfigException;
+use Maksym\Db\Exceptions\DbException;
 use Models\Content;
 use Services\FlashMessages;
 
@@ -13,7 +15,7 @@ class ContentsController extends _MainController implements RestInterface
 {
     /**
      * @return \Exception|string
-     * @throws DbException
+     * @throws DbException|ConfigException
      */
     public function index()
     {
@@ -25,7 +27,7 @@ class ContentsController extends _MainController implements RestInterface
 
     /**
      * @param RequestDriver $request
-     * @return \Core\ResponseDriver
+     * @return ResponseDriver
      * @throws DbException
      */
     public function allUpdate(RequestDriver $request)
@@ -53,8 +55,8 @@ class ContentsController extends _MainController implements RestInterface
 
     /**
      * @param int $id
-     * @return \Core\ResponseDriver
-     * @throws DbException
+     * @return ResponseDriver
+     * @throws DbException|ConfigException
      */
     public function delete($id)
     {

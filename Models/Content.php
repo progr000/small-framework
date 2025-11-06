@@ -4,6 +4,7 @@ namespace Models;
 
 use Maksym\Db\ActiveRecordDriver;
 use Maksym\Db\Exceptions\DbException;
+use Maksym\Config\ConfigException;
 
 /**
  * Class User
@@ -17,7 +18,7 @@ class Content extends ActiveRecordDriver
     //protected static $connection_name = 'mysql-for-developing';
 
     /**
-     * @throws DbException
+     * @throws DbException|ConfigException
      */
     public static function putIntoSessionAllContent()
     {

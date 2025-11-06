@@ -6,7 +6,7 @@ use Core\Exceptions\HttpForbiddenException;
 use Core\Interfaces\MiddlewareInterface;
 use Core\RequestDriver;
 use Core\ResponseDriver;
-use Core\SessionDriver;
+use Maksym\SessCook\SessionDriver;
 
 class VerifyCsrfToken implements MiddlewareInterface
 {

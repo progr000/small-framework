@@ -4,6 +4,8 @@ namespace Controllers\AdminPanel;
 
 use Core\App;
 use Core\RequestDriver;
+use Core\ResponseDriver;
+use Exception;
 use Models\User;
 use Requests\LoginRequest;
 
@@ -20,7 +22,7 @@ class LoginController extends _MainController
 
     /**
      * @param RequestDriver $r
-     * @return \Core\ResponseDriver|\Exception|string
+     * @return ResponseDriver|Exception|string
      */
     public function login(RequestDriver $r)
     {
@@ -36,7 +38,7 @@ class LoginController extends _MainController
     }
 
     /**
-     * @return \Core\ResponseDriver
+     * @return ResponseDriver
      */
     public function logout()
     {

@@ -34,9 +34,10 @@
     "ext-openssl": "*",
     "ifsnop/mysqldump-php": "^2.12",
     "google/recaptcha": "1.2",
-    "maksym/small-framework-core-lib": ">=0.7.0",
+    "maksym/small-framework-core-lib": ">=0.7.2",
     "maksym/db-lib": ">=1.0",
-    "maksym/log-lib": ">=1.0"
+    "maksym/log-lib": ">=1.0",
+    "maksym/cache-lib": ">=1.0.2"
   },
   "require-dev": {
     "maksym/dumper": ">=1.0",

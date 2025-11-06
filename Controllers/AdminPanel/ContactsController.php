@@ -2,9 +2,10 @@
 
 namespace Controllers\AdminPanel;
 
-use Maksym\Db\Exceptions\DbException;
 use Core\Exceptions\HttpForbiddenException;
 use Core\Interfaces\RestInterface;
+use Maksym\Config\ConfigException;
+use Maksym\Db\Exceptions\DbException;
 use Models\Contact;
 use Services\FlashMessages;
 
@@ -14,7 +15,7 @@ use Services\FlashMessages;
 class ContactsController extends _MainController implements RestInterface
 {
     /**
-     * @throws DbException
+     * @throws DbException|ConfigException
      */
     public function index()
     {
@@ -39,7 +40,7 @@ class ContactsController extends _MainController implements RestInterface
 
     /**
      * @param int $id
-     * @throws DbException
+     * @throws DbException|ConfigException
      */
     public function destroy($id)
     {

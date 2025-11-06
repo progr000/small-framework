@@ -29,7 +29,8 @@ class ResponseDebugPanel implements MiddlewareInterface
      */
     public function handleOnResponse(ResponseDriver $response)
     {
-        if (App::$debug &&
+        if (is_object(App::$debug) &&
+            method_exists(App::$debug, 'showDebugPanel') &&
             config('SHOW_DEBUG_PANEL', false) &&
             //config('IS_DEBUG', false) &&
             $response->isHtml())
