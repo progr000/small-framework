@@ -34,13 +34,13 @@
     "ext-openssl": "*",
     "ifsnop/mysqldump-php": "^2.12",
     "google/recaptcha": "1.2",
-    "maksym/small-framework-core-lib": ">=0.7.2",
-    "maksym/db-lib": ">=1.0",
-    "maksym/log-lib": ">=1.0",
-    "maksym/cache-lib": ">=1.0.2"
+    "maksym/small-framework-core-lib": "@stable",
+    "maksym/db-lib": "@stable",
+    "maksym/log-lib": "@stable",
+    "maksym/cache-lib": "@stable"
   },
   "require-dev": {
-    "maksym/dumper": ">=1.0",
-    "maksym/debug-panel": ">=1.0"
+    "maksym/dumper": "@stable",
+    "maksym/debug-panel": "@stable"
   }
 }

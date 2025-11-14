@@ -16,7 +16,7 @@ try {
     require_once(__DIR__ . '/../vendor/autoload.php');
 
     /** init and run application */
-    Core\App::init(__DIR__ . "/../config")->run();
+    Core\App::init(__DIR__ . "/../config/main.php")->run();
 
 } catch (Core\Exceptions\MaintenanceException $e) {
     /** if something wrong */

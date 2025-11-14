@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "47fe7e3ae783cf92f25f2bfd7e127936",
+    "content-hash": "856800e4d74587fec4c9e4ebc694d1b3",
     "packages": [
         {
             "name": "google/recaptcha",
@@ -119,27 +119,29 @@
         },
         {
             "name": "maksym/cache-lib",
-            "version": "1.0.2",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/progr000/cache-lib.git",
-                "reference": "4054409cb4248948cc76eaf21fa4ed0eb596de93"
+                "reference": "28c29714e3d3c7099e2eb376440b6af75250aba4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/progr000/cache-lib/zipball/4054409cb4248948cc76eaf21fa4ed0eb596de93",
-                "reference": "4054409cb4248948cc76eaf21fa4ed0eb596de93",
+                "url": "https://api.github.com/repos/progr000/cache-lib/zipball/28c29714e3d3c7099e2eb376440b6af75250aba4",
+                "reference": "28c29714e3d3c7099e2eb376440b6af75250aba4",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "ext-memcached": "*",
-                "maksym/config-lib": ">=1.0",
-                "maksym/sess-cook-lib": ">=1.0",
+                "maksym/config-lib": "@stable",
+                "maksym/sess-cook-lib": "@stable",
                 "php": ">=5.3.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "@stable"
+            },
+            "suggest": {
+                "ext-memcached": "Allows to use memcached driver for caching"
             },
             "type": "library",
             "autoload": {
@@ -164,22 +166,22 @@
             ],
             "support": {
                 "issues": "https://github.com/progr000/cache-lib/issues",
-                "source": "https://github.com/progr000/cache-lib/tree/1.0.2"
+                "source": "https://github.com/progr000/cache-lib/tree/1.1.1"
             },
-            "time": "2025-11-06T11:31:18+00:00"
+            "time": "2025-11-14T22:38:34+00:00"
         },
         {
             "name": "maksym/config-lib",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/progr000/config-lib.git",
-                "reference": "8e12848051fd04fad32608db0db9dae55e612f47"
+                "reference": "62ed177e76da1e42b90cdfecda7dc00379ed6950"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/progr000/config-lib/zipball/8e12848051fd04fad32608db0db9dae55e612f47",
-                "reference": "8e12848051fd04fad32608db0db9dae55e612f47",
+                "url": "https://api.github.com/repos/progr000/config-lib/zipball/62ed177e76da1e42b90cdfecda7dc00379ed6950",
+                "reference": "62ed177e76da1e42b90cdfecda7dc00379ed6950",
                 "shasum": ""
             },
             "require": {
@@ -214,30 +216,30 @@
             ],
             "support": {
                 "issues": "https://github.com/progr000/config-lib/issues",
-                "source": "https://github.com/progr000/config-lib/tree/1.0.0"
+                "source": "https://github.com/progr000/config-lib/tree/1.1.0"
             },
-            "time": "2025-10-26T16:38:07+00:00"
+            "time": "2025-11-14T22:16:10+00:00"
         },
         {
             "name": "maksym/db-lib",
-            "version": "1.0.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/progr000/db-lib.git",
-                "reference": "1d0847dbaf9d2e62e373fc853dfee73c7849bda5"
+                "reference": "b80ce2f3c3e1929c607997b0537e2d03577a32e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/progr000/db-lib/zipball/1d0847dbaf9d2e62e373fc853dfee73c7849bda5",
-                "reference": "1d0847dbaf9d2e62e373fc853dfee73c7849bda5",
+                "url": "https://api.github.com/repos/progr000/db-lib/zipball/b80ce2f3c3e1929c607997b0537e2d03577a32e6",
+                "reference": "b80ce2f3c3e1929c607997b0537e2d03577a32e6",
                 "shasum": ""
             },
             "require": {
                 "ext-mbstring": "*",
                 "ext-pdo": "*",
-                "maksym/config-lib": ">=1.0",
-                "maksym/helper-functions": ">=1.0",
-                "maksym/log-lib": ">=1.0",
+                "maksym/config-lib": "@stable",
+                "maksym/helper-functions": "@stable",
+                "maksym/log-lib": "@stable",
                 "php": ">=5.6.0"
             },
             "require-dev": {
@@ -269,13 +271,13 @@
             ],
             "support": {
                 "issues": "https://github.com/progr000/db-lib/issues",
-                "source": "https://github.com/progr000/db-lib/tree/1.0.0"
+                "source": "https://github.com/progr000/db-lib/tree/1.1.1"
             },
-            "time": "2025-11-02T19:23:44+00:00"
+            "time": "2025-11-14T22:35:33+00:00"
         },
         {
             "name": "maksym/helper-functions",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/progr000/helper-functions.git",
@@ -317,13 +319,13 @@
             ],
             "support": {
                 "issues": "https://github.com/progr000/helper-functions/issues",
-                "source": "https://github.com/progr000/helper-functions/tree/1.0.0"
+                "source": "https://github.com/progr000/helper-functions/tree/1.1.0"
             },
             "time": "2025-10-27T13:40:12+00:00"
         },
         {
             "name": "maksym/log-lib",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/progr000/log-lib.git",
@@ -364,13 +366,13 @@
             ],
             "support": {
                 "issues": "https://github.com/progr000/log-lib/issues",
-                "source": "https://github.com/progr000/log-lib/tree/1.0.0"
+                "source": "https://github.com/progr000/log-lib/tree/1.1.0"
             },
             "time": "2025-11-02T18:41:58+00:00"
         },
         {
             "name": "maksym/sess-cook-lib",
-            "version": "1.0.1",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/progr000/sess-cook-lib.git",
@@ -413,22 +415,22 @@
             ],
             "support": {
                 "issues": "https://github.com/progr000/sess-cook-lib/issues",
-                "source": "https://github.com/progr000/sess-cook-lib/tree/1.0.1"
+                "source": "https://github.com/progr000/sess-cook-lib/tree/1.1.0"
             },
             "time": "2025-11-06T10:40:53+00:00"
         },
         {
             "name": "maksym/small-framework-core-lib",
-            "version": "0.7.2",
+            "version": "0.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/progr000/small-framework-core-lib.git",
-                "reference": "253097cf72a5f08a89840d76d4eedd3851d488cc"
+                "reference": "d5dcbceee0fcc9ee9be163ac86f17d38026f71b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/progr000/small-framework-core-lib/zipball/253097cf72a5f08a89840d76d4eedd3851d488cc",
-                "reference": "253097cf72a5f08a89840d76d4eedd3851d488cc",
+                "url": "https://api.github.com/repos/progr000/small-framework-core-lib/zipball/d5dcbceee0fcc9ee9be163ac86f17d38026f71b8",
+                "reference": "d5dcbceee0fcc9ee9be163ac86f17d38026f71b8",
                 "shasum": ""
             },
             "require": {
@@ -440,13 +442,14 @@
                 "ext-memcached": "*",
                 "ext-openssl": "*",
                 "ext-pdo": "*",
-                "maksym/config-lib": ">=1.0",
-                "maksym/helper-functions": ">=1.0",
-                "maksym/log-lib": ">=1.0",
-                "maksym/sess-cook-lib": ">=1.0",
+                "maksym/config-lib": "@stable",
+                "maksym/helper-functions": "@stable",
+                "maksym/log-lib": "@stable",
+                "maksym/sess-cook-lib": "@stable",
                 "php": ">=5.6.0"
             },
             "require-dev": {
+                "maksym/dumper": "@stable",
                 "mockery/mockery": "*",
                 "phpunit/phpunit": "@stable"
             },
@@ -475,30 +478,30 @@
             ],
             "support": {
                 "issues": "https://github.com/progr000/small-framework-core-lib/issues",
-                "source": "https://github.com/progr000/small-framework-core-lib/tree/0.7.2"
+                "source": "https://github.com/progr000/small-framework-core-lib/tree/0.8.1"
             },
-            "time": "2025-11-06T11:46:47+00:00"
+            "time": "2025-11-14T22:44:07+00:00"
         }
     ],
     "packages-dev": [
         {
             "name": "maksym/debug-panel",
-            "version": "1.0.9",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/progr000/debug-panel.git",
-                "reference": "463196a9aff20e9c7f6c34304fd595c13e4533b5"
+                "reference": "88dedf5a87f39cd55832528083c512f0856cc7cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/progr000/debug-panel/zipball/463196a9aff20e9c7f6c34304fd595c13e4533b5",
-                "reference": "463196a9aff20e9c7f6c34304fd595c13e4533b5",
+                "url": "https://api.github.com/repos/progr000/debug-panel/zipball/88dedf5a87f39cd55832528083c512f0856cc7cf",
+                "reference": "88dedf5a87f39cd55832528083c512f0856cc7cf",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "maksym/dumper": ">=1.0",
-                "maksym/helper-functions": ">=1.0",
+                "maksym/dumper": "@stable",
+                "maksym/helper-functions": "@stable",
                 "php": ">=5.3.0"
             },
             "require-dev": {
@@ -527,27 +530,27 @@
             ],
             "support": {
                 "issues": "https://github.com/progr000/debug-panel/issues",
-                "source": "https://github.com/progr000/debug-panel/tree/1.0.9"
+                "source": "https://github.com/progr000/debug-panel/tree/1.1.1"
             },
-            "time": "2025-10-30T16:58:52+00:00"
+            "time": "2025-11-14T22:40:58+00:00"
         },
         {
             "name": "maksym/dumper",
-            "version": "1.0.1",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/progr000/dumper.git",
-                "reference": "a3b2e9a27d515afdf120b0a62411084a8d95ddae"
+                "reference": "2d338c8743a5f95e07aa6ed267b1484758b9c0b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/progr000/dumper/zipball/a3b2e9a27d515afdf120b0a62411084a8d95ddae",
-                "reference": "a3b2e9a27d515afdf120b0a62411084a8d95ddae",
+                "url": "https://api.github.com/repos/progr000/dumper/zipball/2d338c8743a5f95e07aa6ed267b1484758b9c0b7",
+                "reference": "2d338c8743a5f95e07aa6ed267b1484758b9c0b7",
                 "shasum": ""
             },
             "require": {
                 "ext-mbstring": "*",
-                "php": ">=5.6.0"
+                "php": ">=5.3.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "@stable"
@@ -575,14 +578,21 @@
             ],
             "support": {
                 "issues": "https://github.com/progr000/dumper/issues",
-                "source": "https://github.com/progr000/dumper/tree/1.0.1"
+                "source": "https://github.com/progr000/dumper/tree/1.1.0"
             },
-            "time": "2025-10-24T14:34:20+00:00"
+            "time": "2025-11-12T12:48:26+00:00"
         }
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "maksym/small-framework-core-lib": 0,
+        "maksym/db-lib": 0,
+        "maksym/log-lib": 0,
+        "maksym/cache-lib": 0,
+        "maksym/dumper": 0,
+        "maksym/debug-panel": 0
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

@@ -10,7 +10,7 @@ use Maksym\Log\LogDriver;
 set_time_limit(0);
 try {
 
-    App::init(__DIR__ . "/../config");
+    App::init(__DIR__ . "/../config/main.php");
     $TASK_DIR = __DIR__ . "/../Console";
 
     /* route */
