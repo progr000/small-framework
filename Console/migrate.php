@@ -2,7 +2,7 @@
 namespace Console;
 
 use Core\App;
-use Core\ConsoleDriver;
+use Maksym\Console\ConsoleDriver;
 use Maksym\Log\LogDriver;
 use Maksym\Db\MigrationDriver;
 use Maksym\Db\Exceptions\DbException;

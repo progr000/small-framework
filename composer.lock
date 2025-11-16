@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "856800e4d74587fec4c9e4ebc694d1b3",
+    "content-hash": "f559ff70f2af4bd79946fa7ee69dfba0",
     "packages": [
         {
             "name": "google/recaptcha",
@@ -119,16 +119,16 @@
         },
         {
             "name": "maksym/cache-lib",
-            "version": "1.1.1",
+            "version": "5.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/progr000/cache-lib.git",
-                "reference": "28c29714e3d3c7099e2eb376440b6af75250aba4"
+                "reference": "a4715d818ca1c01837977878f7c3e7f6fb4746dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/progr000/cache-lib/zipball/28c29714e3d3c7099e2eb376440b6af75250aba4",
-                "reference": "28c29714e3d3c7099e2eb376440b6af75250aba4",
+                "url": "https://api.github.com/repos/progr000/cache-lib/zipball/a4715d818ca1c01837977878f7c3e7f6fb4746dd",
+                "reference": "a4715d818ca1c01837977878f7c3e7f6fb4746dd",
                 "shasum": ""
             },
             "require": {
@@ -138,6 +138,7 @@
                 "php": ">=5.3.0"
             },
             "require-dev": {
+                "maksym/dumper": "@stable",
                 "phpunit/phpunit": "@stable"
             },
             "suggest": {
@@ -166,28 +167,29 @@
             ],
             "support": {
                 "issues": "https://github.com/progr000/cache-lib/issues",
-                "source": "https://github.com/progr000/cache-lib/tree/1.1.1"
+                "source": "https://github.com/progr000/cache-lib/tree/5.3.1"
             },
-            "time": "2025-11-14T22:38:34+00:00"
+            "time": "2025-11-16T00:24:13+00:00"
         },
         {
             "name": "maksym/config-lib",
-            "version": "1.1.0",
+            "version": "5.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/progr000/config-lib.git",
-                "reference": "62ed177e76da1e42b90cdfecda7dc00379ed6950"
+                "reference": "348e2dfe5b551318962adb66e35cee556a8ab3c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/progr000/config-lib/zipball/62ed177e76da1e42b90cdfecda7dc00379ed6950",
-                "reference": "62ed177e76da1e42b90cdfecda7dc00379ed6950",
+                "url": "https://api.github.com/repos/progr000/config-lib/zipball/348e2dfe5b551318962adb66e35cee556a8ab3c0",
+                "reference": "348e2dfe5b551318962adb66e35cee556a8ab3c0",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
+                "php": ">=5.6.0"
             },
             "require-dev": {
+                "maksym/dumper": "@stable",
                 "phpunit/phpunit": "@stable"
             },
             "type": "library",
@@ -216,13 +218,64 @@
             ],
             "support": {
                 "issues": "https://github.com/progr000/config-lib/issues",
-                "source": "https://github.com/progr000/config-lib/tree/1.1.0"
+                "source": "https://github.com/progr000/config-lib/tree/5.6.1"
             },
-            "time": "2025-11-14T22:16:10+00:00"
+            "time": "2025-11-16T00:05:18+00:00"
+        },
+        {
+            "name": "maksym/console-lib",
+            "version": "5.6.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/progr000/console-lib.git",
+                "reference": "238cbbd75c9b27a9d65c5bff8f47130c0498697f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/progr000/console-lib/zipball/238cbbd75c9b27a9d65c5bff8f47130c0498697f",
+                "reference": "238cbbd75c9b27a9d65c5bff8f47130c0498697f",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "maksym/log-lib": ">=1.0",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "@stable"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Maksym\\Console\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maksym Haivoronskyi",
+                    "email": "maksym.haivoronskyi@gmail.com"
+                }
+            ],
+            "description": "console commands interface for small framework",
+            "keywords": [
+                "cmd",
+                "command",
+                "console",
+                "run"
+            ],
+            "support": {
+                "issues": "https://github.com/progr000/console-lib/issues",
+                "source": "https://github.com/progr000/console-lib/tree/5.6.1"
+            },
+            "time": "2025-11-06T23:03:53+00:00"
         },
         {
             "name": "maksym/db-lib",
-            "version": "1.1.1",
+            "version": "5.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/progr000/db-lib.git",
@@ -271,13 +324,13 @@
             ],
             "support": {
                 "issues": "https://github.com/progr000/db-lib/issues",
-                "source": "https://github.com/progr000/db-lib/tree/1.1.1"
+                "source": "https://github.com/progr000/db-lib/tree/5.6.1"
             },
             "time": "2025-11-14T22:35:33+00:00"
         },
         {
             "name": "maksym/helper-functions",
-            "version": "1.1.0",
+            "version": "5.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/progr000/helper-functions.git",
@@ -319,13 +372,13 @@
             ],
             "support": {
                 "issues": "https://github.com/progr000/helper-functions/issues",
-                "source": "https://github.com/progr000/helper-functions/tree/1.1.0"
+                "source": "https://github.com/progr000/helper-functions/tree/5.3.1"
             },
             "time": "2025-10-27T13:40:12+00:00"
         },
         {
             "name": "maksym/log-lib",
-            "version": "1.1.0",
+            "version": "5.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/progr000/log-lib.git",
@@ -366,13 +419,13 @@
             ],
             "support": {
                 "issues": "https://github.com/progr000/log-lib/issues",
-                "source": "https://github.com/progr000/log-lib/tree/1.1.0"
+                "source": "https://github.com/progr000/log-lib/tree/5.6.1"
             },
             "time": "2025-11-02T18:41:58+00:00"
         },
         {
             "name": "maksym/sess-cook-lib",
-            "version": "1.1.0",
+            "version": "5.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/progr000/sess-cook-lib.git",
@@ -415,22 +468,22 @@
             ],
             "support": {
                 "issues": "https://github.com/progr000/sess-cook-lib/issues",
-                "source": "https://github.com/progr000/sess-cook-lib/tree/1.1.0"
+                "source": "https://github.com/progr000/sess-cook-lib/tree/5.3.1"
             },
             "time": "2025-11-06T10:40:53+00:00"
         },
         {
             "name": "maksym/small-framework-core-lib",
-            "version": "0.8.1",
+            "version": "5.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/progr000/small-framework-core-lib.git",
-                "reference": "d5dcbceee0fcc9ee9be163ac86f17d38026f71b8"
+                "reference": "651b44205001d776591ebf4f13dff3680727c727"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/progr000/small-framework-core-lib/zipball/d5dcbceee0fcc9ee9be163ac86f17d38026f71b8",
-                "reference": "d5dcbceee0fcc9ee9be163ac86f17d38026f71b8",
+                "url": "https://api.github.com/repos/progr000/small-framework-core-lib/zipball/651b44205001d776591ebf4f13dff3680727c727",
+                "reference": "651b44205001d776591ebf4f13dff3680727c727",
                 "shasum": ""
             },
             "require": {
@@ -452,6 +505,14 @@
                 "maksym/dumper": "@stable",
                 "mockery/mockery": "*",
                 "phpunit/phpunit": "@stable"
+            },
+            "suggest": {
+                "maksym/cache-lib": "Provide lib for caching with different drivers",
+                "maksym/console-lib": "Provide lib for create console command for framework",
+                "maksym/db-lib": "Provide lib for work with mysql, sqlite, pgsql, mssql and lib for ActiveRecord",
+                "maksym/debug-panel": "Provide lib for convinient debug",
+                "maksym/sendmail-lib": "Provide lib for sending mail with attachments and sign mail.",
+                "maksym/wget-lib": "Provide lib for convinient work with curl"
             },
             "type": "library",
             "autoload": {
@@ -478,24 +539,24 @@
             ],
             "support": {
                 "issues": "https://github.com/progr000/small-framework-core-lib/issues",
-                "source": "https://github.com/progr000/small-framework-core-lib/tree/0.8.1"
+                "source": "https://github.com/progr000/small-framework-core-lib/tree/5.6.1"
             },
-            "time": "2025-11-14T22:44:07+00:00"
+            "time": "2025-11-16T22:10:56+00:00"
         }
     ],
     "packages-dev": [
         {
             "name": "maksym/debug-panel",
-            "version": "1.1.1",
+            "version": "5.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/progr000/debug-panel.git",
-                "reference": "88dedf5a87f39cd55832528083c512f0856cc7cf"
+                "reference": "fd20d969734a4c8a05e887230360fdf116cf3d7b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/progr000/debug-panel/zipball/88dedf5a87f39cd55832528083c512f0856cc7cf",
-                "reference": "88dedf5a87f39cd55832528083c512f0856cc7cf",
+                "url": "https://api.github.com/repos/progr000/debug-panel/zipball/fd20d969734a4c8a05e887230360fdf116cf3d7b",
+                "reference": "fd20d969734a4c8a05e887230360fdf116cf3d7b",
                 "shasum": ""
             },
             "require": {
@@ -530,27 +591,27 @@
             ],
             "support": {
                 "issues": "https://github.com/progr000/debug-panel/issues",
-                "source": "https://github.com/progr000/debug-panel/tree/1.1.1"
+                "source": "https://github.com/progr000/debug-panel/tree/5.3.1"
             },
-            "time": "2025-11-14T22:40:58+00:00"
+            "time": "2025-11-16T19:52:17+00:00"
         },
         {
             "name": "maksym/dumper",
-            "version": "1.1.0",
+            "version": "5.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/progr000/dumper.git",
-                "reference": "2d338c8743a5f95e07aa6ed267b1484758b9c0b7"
+                "reference": "b0ab29c0b00b544f1494f58d1594efad69f8052b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/progr000/dumper/zipball/2d338c8743a5f95e07aa6ed267b1484758b9c0b7",
-                "reference": "2d338c8743a5f95e07aa6ed267b1484758b9c0b7",
+                "url": "https://api.github.com/repos/progr000/dumper/zipball/b0ab29c0b00b544f1494f58d1594efad69f8052b",
+                "reference": "b0ab29c0b00b544f1494f58d1594efad69f8052b",
                 "shasum": ""
             },
             "require": {
                 "ext-mbstring": "*",
-                "php": ">=5.3.0"
+                "php": ">=5.6.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "@stable"
@@ -578,9 +639,9 @@
             ],
             "support": {
                 "issues": "https://github.com/progr000/dumper/issues",
-                "source": "https://github.com/progr000/dumper/tree/1.1.0"
+                "source": "https://github.com/progr000/dumper/tree/5.6.2"
             },
-            "time": "2025-11-12T12:48:26+00:00"
+            "time": "2025-11-16T01:09:27+00:00"
         }
     ],
     "aliases": [],
@@ -590,6 +651,7 @@
         "maksym/db-lib": 0,
         "maksym/log-lib": 0,
         "maksym/cache-lib": 0,
+        "maksym/console-lib": 0,
         "maksym/dumper": 0,
         "maksym/debug-panel": 0
     },

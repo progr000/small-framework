@@ -1,8 +1,8 @@
 <?php
 namespace Console;
 
-use Core\ConsoleDriver;
 use Db\seeders\DbSeeder;
+use Maksym\Console\ConsoleDriver;
 use Maksym\Log\LogDriver;
 use Maksym\Db\Exceptions\DbException;
 use Exception;

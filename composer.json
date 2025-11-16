@@ -37,7 +37,8 @@
     "maksym/small-framework-core-lib": "@stable",
     "maksym/db-lib": "@stable",
     "maksym/log-lib": "@stable",
-    "maksym/cache-lib": "@stable"
+    "maksym/cache-lib": "@stable",
+    "maksym/console-lib": "@stable"
   },
   "require-dev": {
     "maksym/dumper": "@stable",

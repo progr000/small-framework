@@ -1,7 +1,7 @@
 <?php
 namespace Console;
 
-use Core\ConsoleDriver;
+use Maksym\Console\ConsoleDriver;
 
 class Example extends ConsoleDriver
 {
